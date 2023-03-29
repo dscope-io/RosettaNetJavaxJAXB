@@ -1,0 +1,8 @@
+/bin/
+/.project
+/.classpath
+/build-export.gradle
+/secring.gpg
+/build/
+/.gradle/
+/.settings/
