@@ -3,6 +3,4 @@
 build
 tools
 *.hprof
-gradlew
-gradlew.bat
-gradle
+
