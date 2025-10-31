@@ -8,6 +8,7 @@ This project contains JAXB-generated models, bindings, and round-trip validation
 - `src/main/resources` – global RosettaNet configuration (`RosettaNet.properties`).
 - `src/main/xsd` – RosettaNet schemas, specification descriptors, and binding customisations.
 - `src/test/java` – Dynamic JUnit 5 test suites for marshaling/unmarshaling descriptive payloads.
+- `src/main/dtd/rnif.md` – RNIF 2.0 envelope summary distilled from the RNIF DTD/message guideline set.
 - `src/xsd/pip-documentation.md` – Local index of RosettaNet Partner Interface Process documentation links.
 
 ## Prerequisites
