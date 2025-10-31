@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.interchange.priceandavailabilityrequest.v02_01;
 
@@ -33,6 +14,17 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import io.dscope.rosettanet.system.standarddocumentheader.v01_23.DocumentHeader;
 import io.dscope.rosettanet.universal.partneridentification.v01_16.PartnerDescription;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -65,7 +57,8 @@ import io.dscope.rosettanet.universal.partneridentification.v01_16.PartnerDescri
     "partnerDescription",
     "productPriceAndAvailability"
 })
-public class PriceAndAvailabilityRequestType {
+public class PriceAndAvailabilityRequestType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "BusinessConstraint")
     protected List<String> businessConstraint;
@@ -208,6 +201,145 @@ public class PriceAndAvailabilityRequestType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final PriceAndAvailabilityRequestType that = ((PriceAndAvailabilityRequestType) object);
+        {
+            List<String> lhsBusinessConstraint;
+            lhsBusinessConstraint = (((this.businessConstraint!= null)&&(!this.businessConstraint.isEmpty()))?this.getBusinessConstraint():null);
+            List<String> rhsBusinessConstraint;
+            rhsBusinessConstraint = (((that.businessConstraint!= null)&&(!that.businessConstraint.isEmpty()))?that.getBusinessConstraint():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "businessConstraint", lhsBusinessConstraint), LocatorUtils.property(thatLocator, "businessConstraint", rhsBusinessConstraint), lhsBusinessConstraint, rhsBusinessConstraint, ((this.businessConstraint!= null)&&(!this.businessConstraint.isEmpty())), ((that.businessConstraint!= null)&&(!that.businessConstraint.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            DocumentHeader lhsDocumentHeader;
+            lhsDocumentHeader = this.getDocumentHeader();
+            DocumentHeader rhsDocumentHeader;
+            rhsDocumentHeader = that.getDocumentHeader();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "documentHeader", lhsDocumentHeader), LocatorUtils.property(thatLocator, "documentHeader", rhsDocumentHeader), lhsDocumentHeader, rhsDocumentHeader, (this.documentHeader!= null), (that.documentHeader!= null))) {
+                return false;
+            }
+        }
+        {
+            PartnerDescription lhsPartnerDescription;
+            lhsPartnerDescription = this.getPartnerDescription();
+            PartnerDescription rhsPartnerDescription;
+            rhsPartnerDescription = that.getPartnerDescription();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "partnerDescription", lhsPartnerDescription), LocatorUtils.property(thatLocator, "partnerDescription", rhsPartnerDescription), lhsPartnerDescription, rhsPartnerDescription, (this.partnerDescription!= null), (that.partnerDescription!= null))) {
+                return false;
+            }
+        }
+        {
+            List<ProductPriceAndAvailabilityType> lhsProductPriceAndAvailability;
+            lhsProductPriceAndAvailability = (((this.productPriceAndAvailability!= null)&&(!this.productPriceAndAvailability.isEmpty()))?this.getProductPriceAndAvailability():null);
+            List<ProductPriceAndAvailabilityType> rhsProductPriceAndAvailability;
+            rhsProductPriceAndAvailability = (((that.productPriceAndAvailability!= null)&&(!that.productPriceAndAvailability.isEmpty()))?that.getProductPriceAndAvailability():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "productPriceAndAvailability", lhsProductPriceAndAvailability), LocatorUtils.property(thatLocator, "productPriceAndAvailability", rhsProductPriceAndAvailability), lhsProductPriceAndAvailability, rhsProductPriceAndAvailability, ((this.productPriceAndAvailability!= null)&&(!this.productPriceAndAvailability.isEmpty())), ((that.productPriceAndAvailability!= null)&&(!that.productPriceAndAvailability.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            List<String> theBusinessConstraint;
+            theBusinessConstraint = (((this.businessConstraint!= null)&&(!this.businessConstraint.isEmpty()))?this.getBusinessConstraint():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "businessConstraint", theBusinessConstraint), currentHashCode, theBusinessConstraint, ((this.businessConstraint!= null)&&(!this.businessConstraint.isEmpty())));
+        }
+        {
+            DocumentHeader theDocumentHeader;
+            theDocumentHeader = this.getDocumentHeader();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "documentHeader", theDocumentHeader), currentHashCode, theDocumentHeader, (this.documentHeader!= null));
+        }
+        {
+            PartnerDescription thePartnerDescription;
+            thePartnerDescription = this.getPartnerDescription();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "partnerDescription", thePartnerDescription), currentHashCode, thePartnerDescription, (this.partnerDescription!= null));
+        }
+        {
+            List<ProductPriceAndAvailabilityType> theProductPriceAndAvailability;
+            theProductPriceAndAvailability = (((this.productPriceAndAvailability!= null)&&(!this.productPriceAndAvailability.isEmpty()))?this.getProductPriceAndAvailability():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "productPriceAndAvailability", theProductPriceAndAvailability), currentHashCode, theProductPriceAndAvailability, ((this.productPriceAndAvailability!= null)&&(!this.productPriceAndAvailability.isEmpty())));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            List<String> theBusinessConstraint;
+            theBusinessConstraint = (((this.businessConstraint!= null)&&(!this.businessConstraint.isEmpty()))?this.getBusinessConstraint():null);
+            strategy.appendField(locator, this, "businessConstraint", buffer, theBusinessConstraint, ((this.businessConstraint!= null)&&(!this.businessConstraint.isEmpty())));
+        }
+        {
+            DocumentHeader theDocumentHeader;
+            theDocumentHeader = this.getDocumentHeader();
+            strategy.appendField(locator, this, "documentHeader", buffer, theDocumentHeader, (this.documentHeader!= null));
+        }
+        {
+            PartnerDescription thePartnerDescription;
+            thePartnerDescription = this.getPartnerDescription();
+            strategy.appendField(locator, this, "partnerDescription", buffer, thePartnerDescription, (this.partnerDescription!= null));
+        }
+        {
+            List<ProductPriceAndAvailabilityType> theProductPriceAndAvailability;
+            theProductPriceAndAvailability = (((this.productPriceAndAvailability!= null)&&(!this.productPriceAndAvailability.isEmpty()))?this.getProductPriceAndAvailability():null);
+            strategy.appendField(locator, this, "productPriceAndAvailability", buffer, theProductPriceAndAvailability, ((this.productPriceAndAvailability!= null)&&(!this.productPriceAndAvailability.isEmpty())));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

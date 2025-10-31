@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_27;
 
@@ -28,6 +9,17 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -58,7 +50,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "bankTraceIdentifier",
     "fundTransferRoutingNumber"
 })
-public class PaymentOrderType {
+public class PaymentOrderType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "AccountNumber", required = true)
     protected String accountNumber;
@@ -165,6 +158,126 @@ public class PaymentOrderType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final PaymentOrderType that = ((PaymentOrderType) object);
+        {
+            String lhsAccountNumber;
+            lhsAccountNumber = this.getAccountNumber();
+            String rhsAccountNumber;
+            rhsAccountNumber = that.getAccountNumber();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "accountNumber", lhsAccountNumber), LocatorUtils.property(thatLocator, "accountNumber", rhsAccountNumber), lhsAccountNumber, rhsAccountNumber, (this.accountNumber!= null), (that.accountNumber!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsBankTraceIdentifier;
+            lhsBankTraceIdentifier = this.getBankTraceIdentifier();
+            String rhsBankTraceIdentifier;
+            rhsBankTraceIdentifier = that.getBankTraceIdentifier();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "bankTraceIdentifier", lhsBankTraceIdentifier), LocatorUtils.property(thatLocator, "bankTraceIdentifier", rhsBankTraceIdentifier), lhsBankTraceIdentifier, rhsBankTraceIdentifier, (this.bankTraceIdentifier!= null), (that.bankTraceIdentifier!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsFundTransferRoutingNumber;
+            lhsFundTransferRoutingNumber = this.getFundTransferRoutingNumber();
+            String rhsFundTransferRoutingNumber;
+            rhsFundTransferRoutingNumber = that.getFundTransferRoutingNumber();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "fundTransferRoutingNumber", lhsFundTransferRoutingNumber), LocatorUtils.property(thatLocator, "fundTransferRoutingNumber", rhsFundTransferRoutingNumber), lhsFundTransferRoutingNumber, rhsFundTransferRoutingNumber, (this.fundTransferRoutingNumber!= null), (that.fundTransferRoutingNumber!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            String theAccountNumber;
+            theAccountNumber = this.getAccountNumber();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "accountNumber", theAccountNumber), currentHashCode, theAccountNumber, (this.accountNumber!= null));
+        }
+        {
+            String theBankTraceIdentifier;
+            theBankTraceIdentifier = this.getBankTraceIdentifier();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "bankTraceIdentifier", theBankTraceIdentifier), currentHashCode, theBankTraceIdentifier, (this.bankTraceIdentifier!= null));
+        }
+        {
+            String theFundTransferRoutingNumber;
+            theFundTransferRoutingNumber = this.getFundTransferRoutingNumber();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "fundTransferRoutingNumber", theFundTransferRoutingNumber), currentHashCode, theFundTransferRoutingNumber, (this.fundTransferRoutingNumber!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            String theAccountNumber;
+            theAccountNumber = this.getAccountNumber();
+            strategy.appendField(locator, this, "accountNumber", buffer, theAccountNumber, (this.accountNumber!= null));
+        }
+        {
+            String theBankTraceIdentifier;
+            theBankTraceIdentifier = this.getBankTraceIdentifier();
+            strategy.appendField(locator, this, "bankTraceIdentifier", buffer, theBankTraceIdentifier, (this.bankTraceIdentifier!= null));
+        }
+        {
+            String theFundTransferRoutingNumber;
+            theFundTransferRoutingNumber = this.getFundTransferRoutingNumber();
+            strategy.appendField(locator, this, "fundTransferRoutingNumber", buffer, theFundTransferRoutingNumber, (this.fundTransferRoutingNumber!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

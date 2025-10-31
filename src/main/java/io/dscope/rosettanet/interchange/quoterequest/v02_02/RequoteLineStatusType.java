@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.interchange.quoterequest.v02_02;
 
@@ -33,6 +14,17 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import io.dscope.rosettanet.domain.procurement.codelist.requoteaction.v01_03.RequoteAction;
 import io.dscope.rosettanet.universal.document.v01_12.BusinessDocumentReferenceType;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -61,7 +53,8 @@ import io.dscope.rosettanet.universal.document.v01_12.BusinessDocumentReferenceT
     "requoteAction",
     "requoteReference"
 })
-public class RequoteLineStatusType {
+public class RequoteLineStatusType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElementRef(name = "RequoteAction", namespace = "urn:rosettanet:specification:domain:Procurement:RequoteAction:xsd:codelist:01.03", type = RequoteAction.class)
     protected RequoteAction requoteAction;
@@ -147,6 +140,107 @@ public class RequoteLineStatusType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final RequoteLineStatusType that = ((RequoteLineStatusType) object);
+        {
+            RequoteAction lhsRequoteAction;
+            lhsRequoteAction = this.getRequoteAction();
+            RequoteAction rhsRequoteAction;
+            rhsRequoteAction = that.getRequoteAction();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "requoteAction", lhsRequoteAction), LocatorUtils.property(thatLocator, "requoteAction", rhsRequoteAction), lhsRequoteAction, rhsRequoteAction, (this.requoteAction!= null), (that.requoteAction!= null))) {
+                return false;
+            }
+        }
+        {
+            List<BusinessDocumentReferenceType> lhsRequoteReference;
+            lhsRequoteReference = (((this.requoteReference!= null)&&(!this.requoteReference.isEmpty()))?this.getRequoteReference():null);
+            List<BusinessDocumentReferenceType> rhsRequoteReference;
+            rhsRequoteReference = (((that.requoteReference!= null)&&(!that.requoteReference.isEmpty()))?that.getRequoteReference():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "requoteReference", lhsRequoteReference), LocatorUtils.property(thatLocator, "requoteReference", rhsRequoteReference), lhsRequoteReference, rhsRequoteReference, ((this.requoteReference!= null)&&(!this.requoteReference.isEmpty())), ((that.requoteReference!= null)&&(!that.requoteReference.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            RequoteAction theRequoteAction;
+            theRequoteAction = this.getRequoteAction();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "requoteAction", theRequoteAction), currentHashCode, theRequoteAction, (this.requoteAction!= null));
+        }
+        {
+            List<BusinessDocumentReferenceType> theRequoteReference;
+            theRequoteReference = (((this.requoteReference!= null)&&(!this.requoteReference.isEmpty()))?this.getRequoteReference():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "requoteReference", theRequoteReference), currentHashCode, theRequoteReference, ((this.requoteReference!= null)&&(!this.requoteReference.isEmpty())));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            RequoteAction theRequoteAction;
+            theRequoteAction = this.getRequoteAction();
+            strategy.appendField(locator, this, "requoteAction", buffer, theRequoteAction, (this.requoteAction!= null));
+        }
+        {
+            List<BusinessDocumentReferenceType> theRequoteReference;
+            theRequoteReference = (((this.requoteReference!= null)&&(!this.requoteReference.isEmpty()))?this.getRequoteReference():null);
+            strategy.appendField(locator, this, "requoteReference", buffer, theRequoteReference, ((this.requoteReference!= null)&&(!this.requoteReference.isEmpty())));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

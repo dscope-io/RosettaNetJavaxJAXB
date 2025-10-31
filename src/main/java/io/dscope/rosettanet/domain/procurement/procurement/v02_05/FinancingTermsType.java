@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_05;
 
@@ -31,6 +12,17 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import io.dscope.rosettanet.domain.procurement.codelist.financeterms.v01_03.FinanceTerms;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -59,7 +51,8 @@ import io.dscope.rosettanet.domain.procurement.codelist.financeterms.v01_03.Fina
     "financeTerms",
     "paymentTerms"
 })
-public class FinancingTermsType {
+public class FinancingTermsType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElementRef(name = "FinanceTerms", namespace = "urn:rosettanet:specification:domain:Procurement:FinanceTerms:xsd:codelist:01.03", type = FinanceTerms.class, required = false)
     protected FinanceTerms financeTerms;
@@ -145,6 +138,107 @@ public class FinancingTermsType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final FinancingTermsType that = ((FinancingTermsType) object);
+        {
+            FinanceTerms lhsFinanceTerms;
+            lhsFinanceTerms = this.getFinanceTerms();
+            FinanceTerms rhsFinanceTerms;
+            rhsFinanceTerms = that.getFinanceTerms();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "financeTerms", lhsFinanceTerms), LocatorUtils.property(thatLocator, "financeTerms", rhsFinanceTerms), lhsFinanceTerms, rhsFinanceTerms, (this.financeTerms!= null), (that.financeTerms!= null))) {
+                return false;
+            }
+        }
+        {
+            List<PaymentTerms> lhsPaymentTerms;
+            lhsPaymentTerms = (((this.paymentTerms!= null)&&(!this.paymentTerms.isEmpty()))?this.getPaymentTerms():null);
+            List<PaymentTerms> rhsPaymentTerms;
+            rhsPaymentTerms = (((that.paymentTerms!= null)&&(!that.paymentTerms.isEmpty()))?that.getPaymentTerms():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "paymentTerms", lhsPaymentTerms), LocatorUtils.property(thatLocator, "paymentTerms", rhsPaymentTerms), lhsPaymentTerms, rhsPaymentTerms, ((this.paymentTerms!= null)&&(!this.paymentTerms.isEmpty())), ((that.paymentTerms!= null)&&(!that.paymentTerms.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            FinanceTerms theFinanceTerms;
+            theFinanceTerms = this.getFinanceTerms();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "financeTerms", theFinanceTerms), currentHashCode, theFinanceTerms, (this.financeTerms!= null));
+        }
+        {
+            List<PaymentTerms> thePaymentTerms;
+            thePaymentTerms = (((this.paymentTerms!= null)&&(!this.paymentTerms.isEmpty()))?this.getPaymentTerms():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "paymentTerms", thePaymentTerms), currentHashCode, thePaymentTerms, ((this.paymentTerms!= null)&&(!this.paymentTerms.isEmpty())));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            FinanceTerms theFinanceTerms;
+            theFinanceTerms = this.getFinanceTerms();
+            strategy.appendField(locator, this, "financeTerms", buffer, theFinanceTerms, (this.financeTerms!= null));
+        }
+        {
+            List<PaymentTerms> thePaymentTerms;
+            thePaymentTerms = (((this.paymentTerms!= null)&&(!this.paymentTerms.isEmpty()))?this.getPaymentTerms():null);
+            strategy.appendField(locator, this, "paymentTerms", buffer, thePaymentTerms, ((this.paymentTerms!= null)&&(!this.paymentTerms.isEmpty())));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

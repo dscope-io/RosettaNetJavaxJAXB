@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_07;
 
@@ -33,6 +14,17 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import io.dscope.rosettanet.domain.shared.shared.v01_05.MonetaryAmountType;
 import io.dscope.rosettanet.universal.monetaryexpression.v01_03.TaxAmount;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -61,7 +53,8 @@ import io.dscope.rosettanet.universal.monetaryexpression.v01_03.TaxAmount;
     "taxAmount",
     "totalAmount"
 })
-public class TaxCalculationType {
+public class TaxCalculationType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElementRef(name = "TaxAmount", namespace = "urn:rosettanet:specification:universal:MonetaryExpression:xsd:schema:01.03", type = TaxAmount.class)
     protected List<TaxAmount> taxAmount;
@@ -147,6 +140,107 @@ public class TaxCalculationType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final TaxCalculationType that = ((TaxCalculationType) object);
+        {
+            List<TaxAmount> lhsTaxAmount;
+            lhsTaxAmount = (((this.taxAmount!= null)&&(!this.taxAmount.isEmpty()))?this.getTaxAmount():null);
+            List<TaxAmount> rhsTaxAmount;
+            rhsTaxAmount = (((that.taxAmount!= null)&&(!that.taxAmount.isEmpty()))?that.getTaxAmount():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "taxAmount", lhsTaxAmount), LocatorUtils.property(thatLocator, "taxAmount", rhsTaxAmount), lhsTaxAmount, rhsTaxAmount, ((this.taxAmount!= null)&&(!this.taxAmount.isEmpty())), ((that.taxAmount!= null)&&(!that.taxAmount.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            MonetaryAmountType lhsTotalAmount;
+            lhsTotalAmount = this.getTotalAmount();
+            MonetaryAmountType rhsTotalAmount;
+            rhsTotalAmount = that.getTotalAmount();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "totalAmount", lhsTotalAmount), LocatorUtils.property(thatLocator, "totalAmount", rhsTotalAmount), lhsTotalAmount, rhsTotalAmount, (this.totalAmount!= null), (that.totalAmount!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            List<TaxAmount> theTaxAmount;
+            theTaxAmount = (((this.taxAmount!= null)&&(!this.taxAmount.isEmpty()))?this.getTaxAmount():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "taxAmount", theTaxAmount), currentHashCode, theTaxAmount, ((this.taxAmount!= null)&&(!this.taxAmount.isEmpty())));
+        }
+        {
+            MonetaryAmountType theTotalAmount;
+            theTotalAmount = this.getTotalAmount();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "totalAmount", theTotalAmount), currentHashCode, theTotalAmount, (this.totalAmount!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            List<TaxAmount> theTaxAmount;
+            theTaxAmount = (((this.taxAmount!= null)&&(!this.taxAmount.isEmpty()))?this.getTaxAmount():null);
+            strategy.appendField(locator, this, "taxAmount", buffer, theTaxAmount, ((this.taxAmount!= null)&&(!this.taxAmount.isEmpty())));
+        }
+        {
+            MonetaryAmountType theTotalAmount;
+            theTotalAmount = this.getTotalAmount();
+            strategy.appendField(locator, this, "totalAmount", buffer, theTotalAmount, (this.totalAmount!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_05;
 
@@ -32,6 +13,17 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import io.dscope.rosettanet.domain.procurement.codelist.productsubstitutionreason.v01_03.ProductSubstitutionReason;
 import io.dscope.rosettanet.universal.productidentification.v01_03.ProductIdentification;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -60,7 +52,8 @@ import io.dscope.rosettanet.universal.productidentification.v01_03.ProductIdenti
     "productIdentification",
     "productSubstitutionReason"
 })
-public class SubstituteProductReferenceType {
+public class SubstituteProductReferenceType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElementRef(name = "ProductIdentification", namespace = "urn:rosettanet:specification:universal:ProductIdentification:xsd:schema:01.03", type = ProductIdentification.class)
     protected List<ProductIdentification> productIdentification;
@@ -146,6 +139,107 @@ public class SubstituteProductReferenceType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final SubstituteProductReferenceType that = ((SubstituteProductReferenceType) object);
+        {
+            List<ProductIdentification> lhsProductIdentification;
+            lhsProductIdentification = (((this.productIdentification!= null)&&(!this.productIdentification.isEmpty()))?this.getProductIdentification():null);
+            List<ProductIdentification> rhsProductIdentification;
+            rhsProductIdentification = (((that.productIdentification!= null)&&(!that.productIdentification.isEmpty()))?that.getProductIdentification():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "productIdentification", lhsProductIdentification), LocatorUtils.property(thatLocator, "productIdentification", rhsProductIdentification), lhsProductIdentification, rhsProductIdentification, ((this.productIdentification!= null)&&(!this.productIdentification.isEmpty())), ((that.productIdentification!= null)&&(!that.productIdentification.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            ProductSubstitutionReason lhsProductSubstitutionReason;
+            lhsProductSubstitutionReason = this.getProductSubstitutionReason();
+            ProductSubstitutionReason rhsProductSubstitutionReason;
+            rhsProductSubstitutionReason = that.getProductSubstitutionReason();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "productSubstitutionReason", lhsProductSubstitutionReason), LocatorUtils.property(thatLocator, "productSubstitutionReason", rhsProductSubstitutionReason), lhsProductSubstitutionReason, rhsProductSubstitutionReason, (this.productSubstitutionReason!= null), (that.productSubstitutionReason!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            List<ProductIdentification> theProductIdentification;
+            theProductIdentification = (((this.productIdentification!= null)&&(!this.productIdentification.isEmpty()))?this.getProductIdentification():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "productIdentification", theProductIdentification), currentHashCode, theProductIdentification, ((this.productIdentification!= null)&&(!this.productIdentification.isEmpty())));
+        }
+        {
+            ProductSubstitutionReason theProductSubstitutionReason;
+            theProductSubstitutionReason = this.getProductSubstitutionReason();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "productSubstitutionReason", theProductSubstitutionReason), currentHashCode, theProductSubstitutionReason, (this.productSubstitutionReason!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            List<ProductIdentification> theProductIdentification;
+            theProductIdentification = (((this.productIdentification!= null)&&(!this.productIdentification.isEmpty()))?this.getProductIdentification():null);
+            strategy.appendField(locator, this, "productIdentification", buffer, theProductIdentification, ((this.productIdentification!= null)&&(!this.productIdentification.isEmpty())));
+        }
+        {
+            ProductSubstitutionReason theProductSubstitutionReason;
+            theProductSubstitutionReason = this.getProductSubstitutionReason();
+            strategy.appendField(locator, this, "productSubstitutionReason", buffer, theProductSubstitutionReason, (this.productSubstitutionReason!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.universal.locations.v01_04;
 
@@ -26,13 +7,22 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import io.dscope.rosettanet.domain.procurement.procurement.v02_27.MapReferenceType;
 import io.dscope.rosettanet.universal.codelist.country.v01_02.Country;
 import io.dscope.rosettanet.universal.codelist.countrysubdivision.v01_02.CountrySubdivision;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -77,10 +67,8 @@ import io.dscope.rosettanet.universal.codelist.countrysubdivision.v01_02.Country
     "postalCode",
     "postOfficeBox"
 })
-@XmlSeeAlso({
-    MapReferenceType.class
-})
-public class PhysicalAddressType {
+public class PhysicalAddressType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "AddressLine1", required = true)
     protected String addressLine1;
@@ -369,6 +357,259 @@ public class PhysicalAddressType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final PhysicalAddressType that = ((PhysicalAddressType) object);
+        {
+            String lhsAddressLine1;
+            lhsAddressLine1 = this.getAddressLine1();
+            String rhsAddressLine1;
+            rhsAddressLine1 = that.getAddressLine1();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "addressLine1", lhsAddressLine1), LocatorUtils.property(thatLocator, "addressLine1", rhsAddressLine1), lhsAddressLine1, rhsAddressLine1, (this.addressLine1 != null), (that.addressLine1 != null))) {
+                return false;
+            }
+        }
+        {
+            String lhsAddressLine2;
+            lhsAddressLine2 = this.getAddressLine2();
+            String rhsAddressLine2;
+            rhsAddressLine2 = that.getAddressLine2();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "addressLine2", lhsAddressLine2), LocatorUtils.property(thatLocator, "addressLine2", rhsAddressLine2), lhsAddressLine2, rhsAddressLine2, (this.addressLine2 != null), (that.addressLine2 != null))) {
+                return false;
+            }
+        }
+        {
+            String lhsAddressLine3;
+            lhsAddressLine3 = this.getAddressLine3();
+            String rhsAddressLine3;
+            rhsAddressLine3 = that.getAddressLine3();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "addressLine3", lhsAddressLine3), LocatorUtils.property(thatLocator, "addressLine3", rhsAddressLine3), lhsAddressLine3, rhsAddressLine3, (this.addressLine3 != null), (that.addressLine3 != null))) {
+                return false;
+            }
+        }
+        {
+            String lhsAddressLine4;
+            lhsAddressLine4 = this.getAddressLine4();
+            String rhsAddressLine4;
+            rhsAddressLine4 = that.getAddressLine4();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "addressLine4", lhsAddressLine4), LocatorUtils.property(thatLocator, "addressLine4", rhsAddressLine4), lhsAddressLine4, rhsAddressLine4, (this.addressLine4 != null), (that.addressLine4 != null))) {
+                return false;
+            }
+        }
+        {
+            String lhsAddressLine5;
+            lhsAddressLine5 = this.getAddressLine5();
+            String rhsAddressLine5;
+            rhsAddressLine5 = that.getAddressLine5();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "addressLine5", lhsAddressLine5), LocatorUtils.property(thatLocator, "addressLine5", rhsAddressLine5), lhsAddressLine5, rhsAddressLine5, (this.addressLine5 != null), (that.addressLine5 != null))) {
+                return false;
+            }
+        }
+        {
+            String lhsCityName;
+            lhsCityName = this.getCityName();
+            String rhsCityName;
+            rhsCityName = that.getCityName();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "cityName", lhsCityName), LocatorUtils.property(thatLocator, "cityName", rhsCityName), lhsCityName, rhsCityName, (this.cityName!= null), (that.cityName!= null))) {
+                return false;
+            }
+        }
+        {
+            Country lhsCountry;
+            lhsCountry = this.getCountry();
+            Country rhsCountry;
+            rhsCountry = that.getCountry();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "country", lhsCountry), LocatorUtils.property(thatLocator, "country", rhsCountry), lhsCountry, rhsCountry, (this.country!= null), (that.country!= null))) {
+                return false;
+            }
+        }
+        {
+            CountrySubdivision lhsCountrySubdivision;
+            lhsCountrySubdivision = this.getCountrySubdivision();
+            CountrySubdivision rhsCountrySubdivision;
+            rhsCountrySubdivision = that.getCountrySubdivision();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "countrySubdivision", lhsCountrySubdivision), LocatorUtils.property(thatLocator, "countrySubdivision", rhsCountrySubdivision), lhsCountrySubdivision, rhsCountrySubdivision, (this.countrySubdivision!= null), (that.countrySubdivision!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsPostalCode;
+            lhsPostalCode = this.getPostalCode();
+            String rhsPostalCode;
+            rhsPostalCode = that.getPostalCode();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "postalCode", lhsPostalCode), LocatorUtils.property(thatLocator, "postalCode", rhsPostalCode), lhsPostalCode, rhsPostalCode, (this.postalCode!= null), (that.postalCode!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsPostOfficeBox;
+            lhsPostOfficeBox = this.getPostOfficeBox();
+            String rhsPostOfficeBox;
+            rhsPostOfficeBox = that.getPostOfficeBox();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "postOfficeBox", lhsPostOfficeBox), LocatorUtils.property(thatLocator, "postOfficeBox", rhsPostOfficeBox), lhsPostOfficeBox, rhsPostOfficeBox, (this.postOfficeBox!= null), (that.postOfficeBox!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            String theAddressLine1;
+            theAddressLine1 = this.getAddressLine1();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "addressLine1", theAddressLine1), currentHashCode, theAddressLine1, (this.addressLine1 != null));
+        }
+        {
+            String theAddressLine2;
+            theAddressLine2 = this.getAddressLine2();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "addressLine2", theAddressLine2), currentHashCode, theAddressLine2, (this.addressLine2 != null));
+        }
+        {
+            String theAddressLine3;
+            theAddressLine3 = this.getAddressLine3();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "addressLine3", theAddressLine3), currentHashCode, theAddressLine3, (this.addressLine3 != null));
+        }
+        {
+            String theAddressLine4;
+            theAddressLine4 = this.getAddressLine4();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "addressLine4", theAddressLine4), currentHashCode, theAddressLine4, (this.addressLine4 != null));
+        }
+        {
+            String theAddressLine5;
+            theAddressLine5 = this.getAddressLine5();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "addressLine5", theAddressLine5), currentHashCode, theAddressLine5, (this.addressLine5 != null));
+        }
+        {
+            String theCityName;
+            theCityName = this.getCityName();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "cityName", theCityName), currentHashCode, theCityName, (this.cityName!= null));
+        }
+        {
+            Country theCountry;
+            theCountry = this.getCountry();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "country", theCountry), currentHashCode, theCountry, (this.country!= null));
+        }
+        {
+            CountrySubdivision theCountrySubdivision;
+            theCountrySubdivision = this.getCountrySubdivision();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "countrySubdivision", theCountrySubdivision), currentHashCode, theCountrySubdivision, (this.countrySubdivision!= null));
+        }
+        {
+            String thePostalCode;
+            thePostalCode = this.getPostalCode();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "postalCode", thePostalCode), currentHashCode, thePostalCode, (this.postalCode!= null));
+        }
+        {
+            String thePostOfficeBox;
+            thePostOfficeBox = this.getPostOfficeBox();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "postOfficeBox", thePostOfficeBox), currentHashCode, thePostOfficeBox, (this.postOfficeBox!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            String theAddressLine1;
+            theAddressLine1 = this.getAddressLine1();
+            strategy.appendField(locator, this, "addressLine1", buffer, theAddressLine1, (this.addressLine1 != null));
+        }
+        {
+            String theAddressLine2;
+            theAddressLine2 = this.getAddressLine2();
+            strategy.appendField(locator, this, "addressLine2", buffer, theAddressLine2, (this.addressLine2 != null));
+        }
+        {
+            String theAddressLine3;
+            theAddressLine3 = this.getAddressLine3();
+            strategy.appendField(locator, this, "addressLine3", buffer, theAddressLine3, (this.addressLine3 != null));
+        }
+        {
+            String theAddressLine4;
+            theAddressLine4 = this.getAddressLine4();
+            strategy.appendField(locator, this, "addressLine4", buffer, theAddressLine4, (this.addressLine4 != null));
+        }
+        {
+            String theAddressLine5;
+            theAddressLine5 = this.getAddressLine5();
+            strategy.appendField(locator, this, "addressLine5", buffer, theAddressLine5, (this.addressLine5 != null));
+        }
+        {
+            String theCityName;
+            theCityName = this.getCityName();
+            strategy.appendField(locator, this, "cityName", buffer, theCityName, (this.cityName!= null));
+        }
+        {
+            Country theCountry;
+            theCountry = this.getCountry();
+            strategy.appendField(locator, this, "country", buffer, theCountry, (this.country!= null));
+        }
+        {
+            CountrySubdivision theCountrySubdivision;
+            theCountrySubdivision = this.getCountrySubdivision();
+            strategy.appendField(locator, this, "countrySubdivision", buffer, theCountrySubdivision, (this.countrySubdivision!= null));
+        }
+        {
+            String thePostalCode;
+            thePostalCode = this.getPostalCode();
+            strategy.appendField(locator, this, "postalCode", buffer, thePostalCode, (this.postalCode!= null));
+        }
+        {
+            String thePostOfficeBox;
+            thePostOfficeBox = this.getPostOfficeBox();
+            strategy.appendField(locator, this, "postOfficeBox", buffer, thePostOfficeBox, (this.postOfficeBox!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

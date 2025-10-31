@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.interchange.purchaseorderstatusdistribution.v02_01;
 
@@ -45,6 +26,17 @@ import io.dscope.rosettanet.universal.document.v01_12.BusinessDocumentReference;
 import io.dscope.rosettanet.universal.document.v01_12.BusinessDocumentReferenceType;
 import io.dscope.rosettanet.universal.partneridentification.v01_16.PartnerDescription;
 import io.dscope.rosettanet.universal.productidentification.v01_04.ProductIdentification;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -117,7 +109,8 @@ import io.dscope.rosettanet.universal.productidentification.v01_04.ProductIdenti
     "servicePeriod",
     "specialDiscount"
 })
-public class ServiceLineItemByOptionType {
+public class ServiceLineItemByOptionType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElementRef(name = "BusinessDocumentReference", namespace = "urn:rosettanet:specification:universal:Document:xsd:schema:01.12", type = BusinessDocumentReference.class, required = false)
     protected List<BusinessDocumentReference> businessDocumentReference;
@@ -800,6 +793,525 @@ public class ServiceLineItemByOptionType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final ServiceLineItemByOptionType that = ((ServiceLineItemByOptionType) object);
+        {
+            List<BusinessDocumentReference> lhsBusinessDocumentReference;
+            lhsBusinessDocumentReference = (((this.businessDocumentReference!= null)&&(!this.businessDocumentReference.isEmpty()))?this.getBusinessDocumentReference():null);
+            List<BusinessDocumentReference> rhsBusinessDocumentReference;
+            rhsBusinessDocumentReference = (((that.businessDocumentReference!= null)&&(!that.businessDocumentReference.isEmpty()))?that.getBusinessDocumentReference():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "businessDocumentReference", lhsBusinessDocumentReference), LocatorUtils.property(thatLocator, "businessDocumentReference", rhsBusinessDocumentReference), lhsBusinessDocumentReference, rhsBusinessDocumentReference, ((this.businessDocumentReference!= null)&&(!this.businessDocumentReference.isEmpty())), ((that.businessDocumentReference!= null)&&(!that.businessDocumentReference.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            ContractInformation lhsContractInformation;
+            lhsContractInformation = this.getContractInformation();
+            ContractInformation rhsContractInformation;
+            rhsContractInformation = that.getContractInformation();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "contractInformation", lhsContractInformation), LocatorUtils.property(thatLocator, "contractInformation", rhsContractInformation), lhsContractInformation, rhsContractInformation, (this.contractInformation!= null), (that.contractInformation!= null))) {
+                return false;
+            }
+        }
+        {
+            DatePeriodAndDurationType lhsExpiringBy;
+            lhsExpiringBy = this.getExpiringBy();
+            DatePeriodAndDurationType rhsExpiringBy;
+            rhsExpiringBy = that.getExpiringBy();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "expiringBy", lhsExpiringBy), LocatorUtils.property(thatLocator, "expiringBy", rhsExpiringBy), lhsExpiringBy, rhsExpiringBy, (this.expiringBy!= null), (that.expiringBy!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsHandlingInstruction;
+            lhsHandlingInstruction = this.getHandlingInstruction();
+            String rhsHandlingInstruction;
+            rhsHandlingInstruction = that.getHandlingInstruction();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "handlingInstruction", lhsHandlingInstruction), LocatorUtils.property(thatLocator, "handlingInstruction", rhsHandlingInstruction), lhsHandlingInstruction, rhsHandlingInstruction, (this.handlingInstruction!= null), (that.handlingInstruction!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsLineNumber;
+            lhsLineNumber = this.getLineNumber();
+            String rhsLineNumber;
+            rhsLineNumber = that.getLineNumber();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "lineNumber", lhsLineNumber), LocatorUtils.property(thatLocator, "lineNumber", rhsLineNumber), lhsLineNumber, rhsLineNumber, (this.lineNumber!= null), (that.lineNumber!= null))) {
+                return false;
+            }
+        }
+        {
+            ProductPricingType lhsListPrice;
+            lhsListPrice = this.getListPrice();
+            ProductPricingType rhsListPrice;
+            rhsListPrice = that.getListPrice();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "listPrice", lhsListPrice), LocatorUtils.property(thatLocator, "listPrice", rhsListPrice), lhsListPrice, rhsListPrice, (this.listPrice!= null), (that.listPrice!= null))) {
+                return false;
+            }
+        }
+        {
+            NotificationType lhsNotificationType;
+            lhsNotificationType = this.getNotificationType();
+            NotificationType rhsNotificationType;
+            rhsNotificationType = that.getNotificationType();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "notificationType", lhsNotificationType), LocatorUtils.property(thatLocator, "notificationType", rhsNotificationType), lhsNotificationType, rhsNotificationType, (this.notificationType!= null), (that.notificationType!= null))) {
+                return false;
+            }
+        }
+        {
+            List<ProductPricingType> lhsOrderPricing;
+            lhsOrderPricing = (((this.orderPricing!= null)&&(!this.orderPricing.isEmpty()))?this.getOrderPricing():null);
+            List<ProductPricingType> rhsOrderPricing;
+            rhsOrderPricing = (((that.orderPricing!= null)&&(!that.orderPricing.isEmpty()))?that.getOrderPricing():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "orderPricing", lhsOrderPricing), LocatorUtils.property(thatLocator, "orderPricing", rhsOrderPricing), lhsOrderPricing, rhsOrderPricing, ((this.orderPricing!= null)&&(!this.orderPricing.isEmpty())), ((that.orderPricing!= null)&&(!that.orderPricing.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            PartnerDescription lhsPartnerDescription;
+            lhsPartnerDescription = this.getPartnerDescription();
+            PartnerDescription rhsPartnerDescription;
+            rhsPartnerDescription = that.getPartnerDescription();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "partnerDescription", lhsPartnerDescription), LocatorUtils.property(thatLocator, "partnerDescription", rhsPartnerDescription), lhsPartnerDescription, rhsPartnerDescription, (this.partnerDescription!= null), (that.partnerDescription!= null))) {
+                return false;
+            }
+        }
+        {
+            ProductIdentification lhsProductIdentification;
+            lhsProductIdentification = this.getProductIdentification();
+            ProductIdentification rhsProductIdentification;
+            rhsProductIdentification = that.getProductIdentification();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "productIdentification", lhsProductIdentification), LocatorUtils.property(thatLocator, "productIdentification", rhsProductIdentification), lhsProductIdentification, rhsProductIdentification, (this.productIdentification!= null), (that.productIdentification!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsProductLineNumber;
+            lhsProductLineNumber = this.getProductLineNumber();
+            String rhsProductLineNumber;
+            rhsProductLineNumber = that.getProductLineNumber();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "productLineNumber", lhsProductLineNumber), LocatorUtils.property(thatLocator, "productLineNumber", rhsProductLineNumber), lhsProductLineNumber, rhsProductLineNumber, (this.productLineNumber!= null), (that.productLineNumber!= null))) {
+                return false;
+            }
+        }
+        {
+            OrderQuantityType lhsProductOrderQuantity;
+            lhsProductOrderQuantity = this.getProductOrderQuantity();
+            OrderQuantityType rhsProductOrderQuantity;
+            rhsProductOrderQuantity = that.getProductOrderQuantity();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "productOrderQuantity", lhsProductOrderQuantity), LocatorUtils.property(thatLocator, "productOrderQuantity", rhsProductOrderQuantity), lhsProductOrderQuantity, rhsProductOrderQuantity, (this.productOrderQuantity!= null), (that.productOrderQuantity!= null))) {
+                return false;
+            }
+        }
+        {
+            List<String> lhsProductSerialIdentifier;
+            lhsProductSerialIdentifier = (((this.productSerialIdentifier!= null)&&(!this.productSerialIdentifier.isEmpty()))?this.getProductSerialIdentifier():null);
+            List<String> rhsProductSerialIdentifier;
+            rhsProductSerialIdentifier = (((that.productSerialIdentifier!= null)&&(!that.productSerialIdentifier.isEmpty()))?that.getProductSerialIdentifier():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "productSerialIdentifier", lhsProductSerialIdentifier), LocatorUtils.property(thatLocator, "productSerialIdentifier", rhsProductSerialIdentifier), lhsProductSerialIdentifier, rhsProductSerialIdentifier, ((this.productSerialIdentifier!= null)&&(!this.productSerialIdentifier.isEmpty())), ((that.productSerialIdentifier!= null)&&(!that.productSerialIdentifier.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            List<PurchaseOrderAcknowledgmentReason> lhsPurchaseOrderAcknowledgmentReason;
+            lhsPurchaseOrderAcknowledgmentReason = (((this.purchaseOrderAcknowledgmentReason!= null)&&(!this.purchaseOrderAcknowledgmentReason.isEmpty()))?this.getPurchaseOrderAcknowledgmentReason():null);
+            List<PurchaseOrderAcknowledgmentReason> rhsPurchaseOrderAcknowledgmentReason;
+            rhsPurchaseOrderAcknowledgmentReason = (((that.purchaseOrderAcknowledgmentReason!= null)&&(!that.purchaseOrderAcknowledgmentReason.isEmpty()))?that.getPurchaseOrderAcknowledgmentReason():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "purchaseOrderAcknowledgmentReason", lhsPurchaseOrderAcknowledgmentReason), LocatorUtils.property(thatLocator, "purchaseOrderAcknowledgmentReason", rhsPurchaseOrderAcknowledgmentReason), lhsPurchaseOrderAcknowledgmentReason, rhsPurchaseOrderAcknowledgmentReason, ((this.purchaseOrderAcknowledgmentReason!= null)&&(!this.purchaseOrderAcknowledgmentReason.isEmpty())), ((that.purchaseOrderAcknowledgmentReason!= null)&&(!that.purchaseOrderAcknowledgmentReason.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            BusinessDocumentReferenceType lhsPurchaseOrderReference;
+            lhsPurchaseOrderReference = this.getPurchaseOrderReference();
+            BusinessDocumentReferenceType rhsPurchaseOrderReference;
+            rhsPurchaseOrderReference = that.getPurchaseOrderReference();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "purchaseOrderReference", lhsPurchaseOrderReference), LocatorUtils.property(thatLocator, "purchaseOrderReference", rhsPurchaseOrderReference), lhsPurchaseOrderReference, rhsPurchaseOrderReference, (this.purchaseOrderReference!= null), (that.purchaseOrderReference!= null))) {
+                return false;
+            }
+        }
+        {
+            PurchaseOrderStatus lhsPurchaseOrderStatus;
+            lhsPurchaseOrderStatus = this.getPurchaseOrderStatus();
+            PurchaseOrderStatus rhsPurchaseOrderStatus;
+            rhsPurchaseOrderStatus = that.getPurchaseOrderStatus();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "purchaseOrderStatus", lhsPurchaseOrderStatus), LocatorUtils.property(thatLocator, "purchaseOrderStatus", rhsPurchaseOrderStatus), lhsPurchaseOrderStatus, rhsPurchaseOrderStatus, (this.purchaseOrderStatus!= null), (that.purchaseOrderStatus!= null))) {
+                return false;
+            }
+        }
+        {
+            PurchaseOrderType lhsPurchaseOrderType;
+            lhsPurchaseOrderType = this.getPurchaseOrderType();
+            PurchaseOrderType rhsPurchaseOrderType;
+            rhsPurchaseOrderType = that.getPurchaseOrderType();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "purchaseOrderType", lhsPurchaseOrderType), LocatorUtils.property(thatLocator, "purchaseOrderType", rhsPurchaseOrderType), lhsPurchaseOrderType, rhsPurchaseOrderType, (this.purchaseOrderType!= null), (that.purchaseOrderType!= null))) {
+                return false;
+            }
+        }
+        {
+            RequestOption lhsRequestOption;
+            lhsRequestOption = this.getRequestOption();
+            RequestOption rhsRequestOption;
+            rhsRequestOption = that.getRequestOption();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "requestOption", lhsRequestOption), LocatorUtils.property(thatLocator, "requestOption", rhsRequestOption), lhsRequestOption, rhsRequestOption, (this.requestOption!= null), (that.requestOption!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsResponseDescription;
+            lhsResponseDescription = this.getResponseDescription();
+            String rhsResponseDescription;
+            rhsResponseDescription = that.getResponseDescription();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "responseDescription", lhsResponseDescription), LocatorUtils.property(thatLocator, "responseDescription", rhsResponseDescription), lhsResponseDescription, rhsResponseDescription, (this.responseDescription!= null), (that.responseDescription!= null))) {
+                return false;
+            }
+        }
+        {
+            List<String> lhsServiceIdentification;
+            lhsServiceIdentification = (((this.serviceIdentification!= null)&&(!this.serviceIdentification.isEmpty()))?this.getServiceIdentification():null);
+            List<String> rhsServiceIdentification;
+            rhsServiceIdentification = (((that.serviceIdentification!= null)&&(!that.serviceIdentification.isEmpty()))?that.getServiceIdentification():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "serviceIdentification", lhsServiceIdentification), LocatorUtils.property(thatLocator, "serviceIdentification", rhsServiceIdentification), lhsServiceIdentification, rhsServiceIdentification, ((this.serviceIdentification!= null)&&(!this.serviceIdentification.isEmpty())), ((that.serviceIdentification!= null)&&(!that.serviceIdentification.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            String lhsServiceLevel;
+            lhsServiceLevel = this.getServiceLevel();
+            String rhsServiceLevel;
+            rhsServiceLevel = that.getServiceLevel();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "serviceLevel", lhsServiceLevel), LocatorUtils.property(thatLocator, "serviceLevel", rhsServiceLevel), lhsServiceLevel, rhsServiceLevel, (this.serviceLevel!= null), (that.serviceLevel!= null))) {
+                return false;
+            }
+        }
+        {
+            OrderQuantityType lhsServiceOrderQuantity;
+            lhsServiceOrderQuantity = this.getServiceOrderQuantity();
+            OrderQuantityType rhsServiceOrderQuantity;
+            rhsServiceOrderQuantity = that.getServiceOrderQuantity();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "serviceOrderQuantity", lhsServiceOrderQuantity), LocatorUtils.property(thatLocator, "serviceOrderQuantity", rhsServiceOrderQuantity), lhsServiceOrderQuantity, rhsServiceOrderQuantity, (this.serviceOrderQuantity!= null), (that.serviceOrderQuantity!= null))) {
+                return false;
+            }
+        }
+        {
+            DatePeriodAndDurationType lhsServicePeriod;
+            lhsServicePeriod = this.getServicePeriod();
+            DatePeriodAndDurationType rhsServicePeriod;
+            rhsServicePeriod = that.getServicePeriod();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "servicePeriod", lhsServicePeriod), LocatorUtils.property(thatLocator, "servicePeriod", rhsServicePeriod), lhsServicePeriod, rhsServicePeriod, (this.servicePeriod!= null), (that.servicePeriod!= null))) {
+                return false;
+            }
+        }
+        {
+            List<SpecialDiscount> lhsSpecialDiscount;
+            lhsSpecialDiscount = (((this.specialDiscount!= null)&&(!this.specialDiscount.isEmpty()))?this.getSpecialDiscount():null);
+            List<SpecialDiscount> rhsSpecialDiscount;
+            rhsSpecialDiscount = (((that.specialDiscount!= null)&&(!that.specialDiscount.isEmpty()))?that.getSpecialDiscount():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "specialDiscount", lhsSpecialDiscount), LocatorUtils.property(thatLocator, "specialDiscount", rhsSpecialDiscount), lhsSpecialDiscount, rhsSpecialDiscount, ((this.specialDiscount!= null)&&(!this.specialDiscount.isEmpty())), ((that.specialDiscount!= null)&&(!that.specialDiscount.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            List<BusinessDocumentReference> theBusinessDocumentReference;
+            theBusinessDocumentReference = (((this.businessDocumentReference!= null)&&(!this.businessDocumentReference.isEmpty()))?this.getBusinessDocumentReference():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "businessDocumentReference", theBusinessDocumentReference), currentHashCode, theBusinessDocumentReference, ((this.businessDocumentReference!= null)&&(!this.businessDocumentReference.isEmpty())));
+        }
+        {
+            ContractInformation theContractInformation;
+            theContractInformation = this.getContractInformation();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contractInformation", theContractInformation), currentHashCode, theContractInformation, (this.contractInformation!= null));
+        }
+        {
+            DatePeriodAndDurationType theExpiringBy;
+            theExpiringBy = this.getExpiringBy();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "expiringBy", theExpiringBy), currentHashCode, theExpiringBy, (this.expiringBy!= null));
+        }
+        {
+            String theHandlingInstruction;
+            theHandlingInstruction = this.getHandlingInstruction();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "handlingInstruction", theHandlingInstruction), currentHashCode, theHandlingInstruction, (this.handlingInstruction!= null));
+        }
+        {
+            String theLineNumber;
+            theLineNumber = this.getLineNumber();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "lineNumber", theLineNumber), currentHashCode, theLineNumber, (this.lineNumber!= null));
+        }
+        {
+            ProductPricingType theListPrice;
+            theListPrice = this.getListPrice();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "listPrice", theListPrice), currentHashCode, theListPrice, (this.listPrice!= null));
+        }
+        {
+            NotificationType theNotificationType;
+            theNotificationType = this.getNotificationType();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "notificationType", theNotificationType), currentHashCode, theNotificationType, (this.notificationType!= null));
+        }
+        {
+            List<ProductPricingType> theOrderPricing;
+            theOrderPricing = (((this.orderPricing!= null)&&(!this.orderPricing.isEmpty()))?this.getOrderPricing():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "orderPricing", theOrderPricing), currentHashCode, theOrderPricing, ((this.orderPricing!= null)&&(!this.orderPricing.isEmpty())));
+        }
+        {
+            PartnerDescription thePartnerDescription;
+            thePartnerDescription = this.getPartnerDescription();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "partnerDescription", thePartnerDescription), currentHashCode, thePartnerDescription, (this.partnerDescription!= null));
+        }
+        {
+            ProductIdentification theProductIdentification;
+            theProductIdentification = this.getProductIdentification();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "productIdentification", theProductIdentification), currentHashCode, theProductIdentification, (this.productIdentification!= null));
+        }
+        {
+            String theProductLineNumber;
+            theProductLineNumber = this.getProductLineNumber();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "productLineNumber", theProductLineNumber), currentHashCode, theProductLineNumber, (this.productLineNumber!= null));
+        }
+        {
+            OrderQuantityType theProductOrderQuantity;
+            theProductOrderQuantity = this.getProductOrderQuantity();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "productOrderQuantity", theProductOrderQuantity), currentHashCode, theProductOrderQuantity, (this.productOrderQuantity!= null));
+        }
+        {
+            List<String> theProductSerialIdentifier;
+            theProductSerialIdentifier = (((this.productSerialIdentifier!= null)&&(!this.productSerialIdentifier.isEmpty()))?this.getProductSerialIdentifier():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "productSerialIdentifier", theProductSerialIdentifier), currentHashCode, theProductSerialIdentifier, ((this.productSerialIdentifier!= null)&&(!this.productSerialIdentifier.isEmpty())));
+        }
+        {
+            List<PurchaseOrderAcknowledgmentReason> thePurchaseOrderAcknowledgmentReason;
+            thePurchaseOrderAcknowledgmentReason = (((this.purchaseOrderAcknowledgmentReason!= null)&&(!this.purchaseOrderAcknowledgmentReason.isEmpty()))?this.getPurchaseOrderAcknowledgmentReason():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "purchaseOrderAcknowledgmentReason", thePurchaseOrderAcknowledgmentReason), currentHashCode, thePurchaseOrderAcknowledgmentReason, ((this.purchaseOrderAcknowledgmentReason!= null)&&(!this.purchaseOrderAcknowledgmentReason.isEmpty())));
+        }
+        {
+            BusinessDocumentReferenceType thePurchaseOrderReference;
+            thePurchaseOrderReference = this.getPurchaseOrderReference();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "purchaseOrderReference", thePurchaseOrderReference), currentHashCode, thePurchaseOrderReference, (this.purchaseOrderReference!= null));
+        }
+        {
+            PurchaseOrderStatus thePurchaseOrderStatus;
+            thePurchaseOrderStatus = this.getPurchaseOrderStatus();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "purchaseOrderStatus", thePurchaseOrderStatus), currentHashCode, thePurchaseOrderStatus, (this.purchaseOrderStatus!= null));
+        }
+        {
+            PurchaseOrderType thePurchaseOrderType;
+            thePurchaseOrderType = this.getPurchaseOrderType();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "purchaseOrderType", thePurchaseOrderType), currentHashCode, thePurchaseOrderType, (this.purchaseOrderType!= null));
+        }
+        {
+            RequestOption theRequestOption;
+            theRequestOption = this.getRequestOption();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "requestOption", theRequestOption), currentHashCode, theRequestOption, (this.requestOption!= null));
+        }
+        {
+            String theResponseDescription;
+            theResponseDescription = this.getResponseDescription();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "responseDescription", theResponseDescription), currentHashCode, theResponseDescription, (this.responseDescription!= null));
+        }
+        {
+            List<String> theServiceIdentification;
+            theServiceIdentification = (((this.serviceIdentification!= null)&&(!this.serviceIdentification.isEmpty()))?this.getServiceIdentification():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "serviceIdentification", theServiceIdentification), currentHashCode, theServiceIdentification, ((this.serviceIdentification!= null)&&(!this.serviceIdentification.isEmpty())));
+        }
+        {
+            String theServiceLevel;
+            theServiceLevel = this.getServiceLevel();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "serviceLevel", theServiceLevel), currentHashCode, theServiceLevel, (this.serviceLevel!= null));
+        }
+        {
+            OrderQuantityType theServiceOrderQuantity;
+            theServiceOrderQuantity = this.getServiceOrderQuantity();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "serviceOrderQuantity", theServiceOrderQuantity), currentHashCode, theServiceOrderQuantity, (this.serviceOrderQuantity!= null));
+        }
+        {
+            DatePeriodAndDurationType theServicePeriod;
+            theServicePeriod = this.getServicePeriod();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "servicePeriod", theServicePeriod), currentHashCode, theServicePeriod, (this.servicePeriod!= null));
+        }
+        {
+            List<SpecialDiscount> theSpecialDiscount;
+            theSpecialDiscount = (((this.specialDiscount!= null)&&(!this.specialDiscount.isEmpty()))?this.getSpecialDiscount():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "specialDiscount", theSpecialDiscount), currentHashCode, theSpecialDiscount, ((this.specialDiscount!= null)&&(!this.specialDiscount.isEmpty())));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            List<BusinessDocumentReference> theBusinessDocumentReference;
+            theBusinessDocumentReference = (((this.businessDocumentReference!= null)&&(!this.businessDocumentReference.isEmpty()))?this.getBusinessDocumentReference():null);
+            strategy.appendField(locator, this, "businessDocumentReference", buffer, theBusinessDocumentReference, ((this.businessDocumentReference!= null)&&(!this.businessDocumentReference.isEmpty())));
+        }
+        {
+            ContractInformation theContractInformation;
+            theContractInformation = this.getContractInformation();
+            strategy.appendField(locator, this, "contractInformation", buffer, theContractInformation, (this.contractInformation!= null));
+        }
+        {
+            DatePeriodAndDurationType theExpiringBy;
+            theExpiringBy = this.getExpiringBy();
+            strategy.appendField(locator, this, "expiringBy", buffer, theExpiringBy, (this.expiringBy!= null));
+        }
+        {
+            String theHandlingInstruction;
+            theHandlingInstruction = this.getHandlingInstruction();
+            strategy.appendField(locator, this, "handlingInstruction", buffer, theHandlingInstruction, (this.handlingInstruction!= null));
+        }
+        {
+            String theLineNumber;
+            theLineNumber = this.getLineNumber();
+            strategy.appendField(locator, this, "lineNumber", buffer, theLineNumber, (this.lineNumber!= null));
+        }
+        {
+            ProductPricingType theListPrice;
+            theListPrice = this.getListPrice();
+            strategy.appendField(locator, this, "listPrice", buffer, theListPrice, (this.listPrice!= null));
+        }
+        {
+            NotificationType theNotificationType;
+            theNotificationType = this.getNotificationType();
+            strategy.appendField(locator, this, "notificationType", buffer, theNotificationType, (this.notificationType!= null));
+        }
+        {
+            List<ProductPricingType> theOrderPricing;
+            theOrderPricing = (((this.orderPricing!= null)&&(!this.orderPricing.isEmpty()))?this.getOrderPricing():null);
+            strategy.appendField(locator, this, "orderPricing", buffer, theOrderPricing, ((this.orderPricing!= null)&&(!this.orderPricing.isEmpty())));
+        }
+        {
+            PartnerDescription thePartnerDescription;
+            thePartnerDescription = this.getPartnerDescription();
+            strategy.appendField(locator, this, "partnerDescription", buffer, thePartnerDescription, (this.partnerDescription!= null));
+        }
+        {
+            ProductIdentification theProductIdentification;
+            theProductIdentification = this.getProductIdentification();
+            strategy.appendField(locator, this, "productIdentification", buffer, theProductIdentification, (this.productIdentification!= null));
+        }
+        {
+            String theProductLineNumber;
+            theProductLineNumber = this.getProductLineNumber();
+            strategy.appendField(locator, this, "productLineNumber", buffer, theProductLineNumber, (this.productLineNumber!= null));
+        }
+        {
+            OrderQuantityType theProductOrderQuantity;
+            theProductOrderQuantity = this.getProductOrderQuantity();
+            strategy.appendField(locator, this, "productOrderQuantity", buffer, theProductOrderQuantity, (this.productOrderQuantity!= null));
+        }
+        {
+            List<String> theProductSerialIdentifier;
+            theProductSerialIdentifier = (((this.productSerialIdentifier!= null)&&(!this.productSerialIdentifier.isEmpty()))?this.getProductSerialIdentifier():null);
+            strategy.appendField(locator, this, "productSerialIdentifier", buffer, theProductSerialIdentifier, ((this.productSerialIdentifier!= null)&&(!this.productSerialIdentifier.isEmpty())));
+        }
+        {
+            List<PurchaseOrderAcknowledgmentReason> thePurchaseOrderAcknowledgmentReason;
+            thePurchaseOrderAcknowledgmentReason = (((this.purchaseOrderAcknowledgmentReason!= null)&&(!this.purchaseOrderAcknowledgmentReason.isEmpty()))?this.getPurchaseOrderAcknowledgmentReason():null);
+            strategy.appendField(locator, this, "purchaseOrderAcknowledgmentReason", buffer, thePurchaseOrderAcknowledgmentReason, ((this.purchaseOrderAcknowledgmentReason!= null)&&(!this.purchaseOrderAcknowledgmentReason.isEmpty())));
+        }
+        {
+            BusinessDocumentReferenceType thePurchaseOrderReference;
+            thePurchaseOrderReference = this.getPurchaseOrderReference();
+            strategy.appendField(locator, this, "purchaseOrderReference", buffer, thePurchaseOrderReference, (this.purchaseOrderReference!= null));
+        }
+        {
+            PurchaseOrderStatus thePurchaseOrderStatus;
+            thePurchaseOrderStatus = this.getPurchaseOrderStatus();
+            strategy.appendField(locator, this, "purchaseOrderStatus", buffer, thePurchaseOrderStatus, (this.purchaseOrderStatus!= null));
+        }
+        {
+            PurchaseOrderType thePurchaseOrderType;
+            thePurchaseOrderType = this.getPurchaseOrderType();
+            strategy.appendField(locator, this, "purchaseOrderType", buffer, thePurchaseOrderType, (this.purchaseOrderType!= null));
+        }
+        {
+            RequestOption theRequestOption;
+            theRequestOption = this.getRequestOption();
+            strategy.appendField(locator, this, "requestOption", buffer, theRequestOption, (this.requestOption!= null));
+        }
+        {
+            String theResponseDescription;
+            theResponseDescription = this.getResponseDescription();
+            strategy.appendField(locator, this, "responseDescription", buffer, theResponseDescription, (this.responseDescription!= null));
+        }
+        {
+            List<String> theServiceIdentification;
+            theServiceIdentification = (((this.serviceIdentification!= null)&&(!this.serviceIdentification.isEmpty()))?this.getServiceIdentification():null);
+            strategy.appendField(locator, this, "serviceIdentification", buffer, theServiceIdentification, ((this.serviceIdentification!= null)&&(!this.serviceIdentification.isEmpty())));
+        }
+        {
+            String theServiceLevel;
+            theServiceLevel = this.getServiceLevel();
+            strategy.appendField(locator, this, "serviceLevel", buffer, theServiceLevel, (this.serviceLevel!= null));
+        }
+        {
+            OrderQuantityType theServiceOrderQuantity;
+            theServiceOrderQuantity = this.getServiceOrderQuantity();
+            strategy.appendField(locator, this, "serviceOrderQuantity", buffer, theServiceOrderQuantity, (this.serviceOrderQuantity!= null));
+        }
+        {
+            DatePeriodAndDurationType theServicePeriod;
+            theServicePeriod = this.getServicePeriod();
+            strategy.appendField(locator, this, "servicePeriod", buffer, theServicePeriod, (this.servicePeriod!= null));
+        }
+        {
+            List<SpecialDiscount> theSpecialDiscount;
+            theSpecialDiscount = (((this.specialDiscount!= null)&&(!this.specialDiscount.isEmpty()))?this.getSpecialDiscount():null);
+            strategy.appendField(locator, this, "specialDiscount", buffer, theSpecialDiscount, ((this.specialDiscount!= null)&&(!this.specialDiscount.isEmpty())));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

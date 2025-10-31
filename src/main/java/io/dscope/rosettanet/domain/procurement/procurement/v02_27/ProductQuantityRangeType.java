@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_27;
 
@@ -28,6 +9,17 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -56,7 +48,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "maximumOrderQuantity",
     "minimumOrderQuantity"
 })
-public class ProductQuantityRangeType {
+public class ProductQuantityRangeType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "MaximumOrderQuantity")
     protected Float maximumOrderQuantity;
@@ -129,6 +122,107 @@ public class ProductQuantityRangeType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final ProductQuantityRangeType that = ((ProductQuantityRangeType) object);
+        {
+            Float lhsMaximumOrderQuantity;
+            lhsMaximumOrderQuantity = this.getMaximumOrderQuantity();
+            Float rhsMaximumOrderQuantity;
+            rhsMaximumOrderQuantity = that.getMaximumOrderQuantity();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "maximumOrderQuantity", lhsMaximumOrderQuantity), LocatorUtils.property(thatLocator, "maximumOrderQuantity", rhsMaximumOrderQuantity), lhsMaximumOrderQuantity, rhsMaximumOrderQuantity, (this.maximumOrderQuantity!= null), (that.maximumOrderQuantity!= null))) {
+                return false;
+            }
+        }
+        {
+            float lhsMinimumOrderQuantity;
+            lhsMinimumOrderQuantity = this.getMinimumOrderQuantity();
+            float rhsMinimumOrderQuantity;
+            rhsMinimumOrderQuantity = that.getMinimumOrderQuantity();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "minimumOrderQuantity", lhsMinimumOrderQuantity), LocatorUtils.property(thatLocator, "minimumOrderQuantity", rhsMinimumOrderQuantity), lhsMinimumOrderQuantity, rhsMinimumOrderQuantity, true, true)) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            Float theMaximumOrderQuantity;
+            theMaximumOrderQuantity = this.getMaximumOrderQuantity();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "maximumOrderQuantity", theMaximumOrderQuantity), currentHashCode, theMaximumOrderQuantity, (this.maximumOrderQuantity!= null));
+        }
+        {
+            float theMinimumOrderQuantity;
+            theMinimumOrderQuantity = this.getMinimumOrderQuantity();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "minimumOrderQuantity", theMinimumOrderQuantity), currentHashCode, theMinimumOrderQuantity, true);
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            Float theMaximumOrderQuantity;
+            theMaximumOrderQuantity = this.getMaximumOrderQuantity();
+            strategy.appendField(locator, this, "maximumOrderQuantity", buffer, theMaximumOrderQuantity, (this.maximumOrderQuantity!= null));
+        }
+        {
+            float theMinimumOrderQuantity;
+            theMinimumOrderQuantity = this.getMinimumOrderQuantity();
+            strategy.appendField(locator, this, "minimumOrderQuantity", buffer, theMinimumOrderQuantity, true);
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

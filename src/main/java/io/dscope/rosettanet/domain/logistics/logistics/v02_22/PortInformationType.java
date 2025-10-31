@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.logistics.logistics.v02_22;
 
@@ -33,6 +14,17 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import io.dscope.rosettanet.domain.logistics.codelist.porttype.v01_03.PortType;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -65,7 +57,8 @@ import io.dscope.rosettanet.domain.logistics.codelist.porttype.v01_03.PortType;
     "portType",
     "sequenceNumber"
 })
-public class PortInformationType {
+public class PortInformationType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "Name")
     protected String name;
@@ -204,6 +197,145 @@ public class PortInformationType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final PortInformationType that = ((PortInformationType) object);
+        {
+            String lhsName;
+            lhsName = this.getName();
+            String rhsName;
+            rhsName = that.getName();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "name", lhsName), LocatorUtils.property(thatLocator, "name", rhsName), lhsName, rhsName, (this.name!= null), (that.name!= null))) {
+                return false;
+            }
+        }
+        {
+            List<PortIdentification> lhsPortIdentification;
+            lhsPortIdentification = (((this.portIdentification!= null)&&(!this.portIdentification.isEmpty()))?this.getPortIdentification():null);
+            List<PortIdentification> rhsPortIdentification;
+            rhsPortIdentification = (((that.portIdentification!= null)&&(!that.portIdentification.isEmpty()))?that.getPortIdentification():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "portIdentification", lhsPortIdentification), LocatorUtils.property(thatLocator, "portIdentification", rhsPortIdentification), lhsPortIdentification, rhsPortIdentification, ((this.portIdentification!= null)&&(!this.portIdentification.isEmpty())), ((that.portIdentification!= null)&&(!that.portIdentification.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            PortType lhsPortType;
+            lhsPortType = this.getPortType();
+            PortType rhsPortType;
+            rhsPortType = that.getPortType();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "portType", lhsPortType), LocatorUtils.property(thatLocator, "portType", rhsPortType), lhsPortType, rhsPortType, (this.portType!= null), (that.portType!= null))) {
+                return false;
+            }
+        }
+        {
+            BigInteger lhsSequenceNumber;
+            lhsSequenceNumber = this.getSequenceNumber();
+            BigInteger rhsSequenceNumber;
+            rhsSequenceNumber = that.getSequenceNumber();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "sequenceNumber", lhsSequenceNumber), LocatorUtils.property(thatLocator, "sequenceNumber", rhsSequenceNumber), lhsSequenceNumber, rhsSequenceNumber, (this.sequenceNumber!= null), (that.sequenceNumber!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            String theName;
+            theName = this.getName();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "name", theName), currentHashCode, theName, (this.name!= null));
+        }
+        {
+            List<PortIdentification> thePortIdentification;
+            thePortIdentification = (((this.portIdentification!= null)&&(!this.portIdentification.isEmpty()))?this.getPortIdentification():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "portIdentification", thePortIdentification), currentHashCode, thePortIdentification, ((this.portIdentification!= null)&&(!this.portIdentification.isEmpty())));
+        }
+        {
+            PortType thePortType;
+            thePortType = this.getPortType();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "portType", thePortType), currentHashCode, thePortType, (this.portType!= null));
+        }
+        {
+            BigInteger theSequenceNumber;
+            theSequenceNumber = this.getSequenceNumber();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "sequenceNumber", theSequenceNumber), currentHashCode, theSequenceNumber, (this.sequenceNumber!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            String theName;
+            theName = this.getName();
+            strategy.appendField(locator, this, "name", buffer, theName, (this.name!= null));
+        }
+        {
+            List<PortIdentification> thePortIdentification;
+            thePortIdentification = (((this.portIdentification!= null)&&(!this.portIdentification.isEmpty()))?this.getPortIdentification():null);
+            strategy.appendField(locator, this, "portIdentification", buffer, thePortIdentification, ((this.portIdentification!= null)&&(!this.portIdentification.isEmpty())));
+        }
+        {
+            PortType thePortType;
+            thePortType = this.getPortType();
+            strategy.appendField(locator, this, "portType", buffer, thePortType, (this.portType!= null));
+        }
+        {
+            BigInteger theSequenceNumber;
+            theSequenceNumber = this.getSequenceNumber();
+            strategy.appendField(locator, this, "sequenceNumber", buffer, theSequenceNumber, (this.sequenceNumber!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

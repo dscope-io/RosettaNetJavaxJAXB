@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_25;
 
@@ -30,6 +11,17 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import io.dscope.rosettanet.universal.document.v01_12.BusinessDocumentReference;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -60,7 +52,8 @@ import io.dscope.rosettanet.universal.document.v01_12.BusinessDocumentReference;
     "subLineNumber",
     "subLineSchedule"
 })
-public class RequestingOrderLineItemReferenceType {
+public class RequestingOrderLineItemReferenceType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElementRef(name = "BusinessDocumentReference", namespace = "urn:rosettanet:specification:universal:Document:xsd:schema:01.12", type = BusinessDocumentReference.class)
     protected BusinessDocumentReference businessDocumentReference;
@@ -167,6 +160,126 @@ public class RequestingOrderLineItemReferenceType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final RequestingOrderLineItemReferenceType that = ((RequestingOrderLineItemReferenceType) object);
+        {
+            BusinessDocumentReference lhsBusinessDocumentReference;
+            lhsBusinessDocumentReference = this.getBusinessDocumentReference();
+            BusinessDocumentReference rhsBusinessDocumentReference;
+            rhsBusinessDocumentReference = that.getBusinessDocumentReference();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "businessDocumentReference", lhsBusinessDocumentReference), LocatorUtils.property(thatLocator, "businessDocumentReference", rhsBusinessDocumentReference), lhsBusinessDocumentReference, rhsBusinessDocumentReference, (this.businessDocumentReference!= null), (that.businessDocumentReference!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSubLineNumber;
+            lhsSubLineNumber = this.getSubLineNumber();
+            String rhsSubLineNumber;
+            rhsSubLineNumber = that.getSubLineNumber();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "subLineNumber", lhsSubLineNumber), LocatorUtils.property(thatLocator, "subLineNumber", rhsSubLineNumber), lhsSubLineNumber, rhsSubLineNumber, (this.subLineNumber!= null), (that.subLineNumber!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSubLineSchedule;
+            lhsSubLineSchedule = this.getSubLineSchedule();
+            String rhsSubLineSchedule;
+            rhsSubLineSchedule = that.getSubLineSchedule();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "subLineSchedule", lhsSubLineSchedule), LocatorUtils.property(thatLocator, "subLineSchedule", rhsSubLineSchedule), lhsSubLineSchedule, rhsSubLineSchedule, (this.subLineSchedule!= null), (that.subLineSchedule!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            BusinessDocumentReference theBusinessDocumentReference;
+            theBusinessDocumentReference = this.getBusinessDocumentReference();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "businessDocumentReference", theBusinessDocumentReference), currentHashCode, theBusinessDocumentReference, (this.businessDocumentReference!= null));
+        }
+        {
+            String theSubLineNumber;
+            theSubLineNumber = this.getSubLineNumber();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "subLineNumber", theSubLineNumber), currentHashCode, theSubLineNumber, (this.subLineNumber!= null));
+        }
+        {
+            String theSubLineSchedule;
+            theSubLineSchedule = this.getSubLineSchedule();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "subLineSchedule", theSubLineSchedule), currentHashCode, theSubLineSchedule, (this.subLineSchedule!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            BusinessDocumentReference theBusinessDocumentReference;
+            theBusinessDocumentReference = this.getBusinessDocumentReference();
+            strategy.appendField(locator, this, "businessDocumentReference", buffer, theBusinessDocumentReference, (this.businessDocumentReference!= null));
+        }
+        {
+            String theSubLineNumber;
+            theSubLineNumber = this.getSubLineNumber();
+            strategy.appendField(locator, this, "subLineNumber", buffer, theSubLineNumber, (this.subLineNumber!= null));
+        }
+        {
+            String theSubLineSchedule;
+            theSubLineSchedule = this.getSubLineSchedule();
+            strategy.appendField(locator, this, "subLineSchedule", buffer, theSubLineSchedule, (this.subLineSchedule!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

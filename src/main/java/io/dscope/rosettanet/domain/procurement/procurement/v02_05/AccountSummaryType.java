@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_05;
 
@@ -28,6 +9,17 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -58,7 +50,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "bankKey",
     "number"
 })
-public class AccountSummaryType {
+public class AccountSummaryType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "BankIdentifier")
     protected String bankIdentifier;
@@ -165,6 +158,126 @@ public class AccountSummaryType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final AccountSummaryType that = ((AccountSummaryType) object);
+        {
+            String lhsBankIdentifier;
+            lhsBankIdentifier = this.getBankIdentifier();
+            String rhsBankIdentifier;
+            rhsBankIdentifier = that.getBankIdentifier();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "bankIdentifier", lhsBankIdentifier), LocatorUtils.property(thatLocator, "bankIdentifier", rhsBankIdentifier), lhsBankIdentifier, rhsBankIdentifier, (this.bankIdentifier!= null), (that.bankIdentifier!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsBankKey;
+            lhsBankKey = this.getBankKey();
+            String rhsBankKey;
+            rhsBankKey = that.getBankKey();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "bankKey", lhsBankKey), LocatorUtils.property(thatLocator, "bankKey", rhsBankKey), lhsBankKey, rhsBankKey, (this.bankKey!= null), (that.bankKey!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsNumber;
+            lhsNumber = this.getNumber();
+            String rhsNumber;
+            rhsNumber = that.getNumber();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "number", lhsNumber), LocatorUtils.property(thatLocator, "number", rhsNumber), lhsNumber, rhsNumber, (this.number!= null), (that.number!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            String theBankIdentifier;
+            theBankIdentifier = this.getBankIdentifier();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "bankIdentifier", theBankIdentifier), currentHashCode, theBankIdentifier, (this.bankIdentifier!= null));
+        }
+        {
+            String theBankKey;
+            theBankKey = this.getBankKey();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "bankKey", theBankKey), currentHashCode, theBankKey, (this.bankKey!= null));
+        }
+        {
+            String theNumber;
+            theNumber = this.getNumber();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "number", theNumber), currentHashCode, theNumber, (this.number!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            String theBankIdentifier;
+            theBankIdentifier = this.getBankIdentifier();
+            strategy.appendField(locator, this, "bankIdentifier", buffer, theBankIdentifier, (this.bankIdentifier!= null));
+        }
+        {
+            String theBankKey;
+            theBankKey = this.getBankKey();
+            strategy.appendField(locator, this, "bankKey", buffer, theBankKey, (this.bankKey!= null));
+        }
+        {
+            String theNumber;
+            theNumber = this.getNumber();
+            strategy.appendField(locator, this, "number", buffer, theNumber, (this.number!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

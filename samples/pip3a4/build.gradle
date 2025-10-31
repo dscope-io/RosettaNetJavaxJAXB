@@ -1,0 +1,37 @@
+plugins {
+    id 'application'
+}
+
+group = 'io.dscope.samples'
+version = '0.1.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+application {
+    mainClass = (project.findProperty('mainClass') ?: 'io.dscope.samples.pip3a4.PurchaseOrderRequestDemo') as String
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.dscope:dscope-rosettanet-javax-jaxb:0.5.0'
+    implementation 'org.slf4j:slf4j-api:2.0.16'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    implementation 'org.jvnet.jaxb2_commons:jaxb2-basics-runtime:1.11.1'
+    runtimeOnly 'org.slf4j:slf4j-simple:2.0.16'
+    runtimeOnly 'org.glassfish.jaxb:jaxb-runtime:2.3.8'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.3'
+    testImplementation 'org.assertj:assertj-core:3.26.3'
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}

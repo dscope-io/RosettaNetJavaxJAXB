@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.interchange.quoteconfirmation.v02_02;
 
@@ -44,6 +25,17 @@ import io.dscope.rosettanet.universal.dates.v01_03.DatePeriodType;
 import io.dscope.rosettanet.universal.document.v01_12.BusinessDocumentReference;
 import io.dscope.rosettanet.universal.document.v01_12.BusinessDocumentReferenceType;
 import io.dscope.rosettanet.universal.partneridentification.v01_16.PartnerDescription;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -116,7 +108,8 @@ import io.dscope.rosettanet.universal.partneridentification.v01_16.PartnerDescri
     "termsAndConditions",
     "totalPrice"
 })
-public class QuoteType {
+public class QuoteType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElementRef(name = "BusinessDocumentReference", namespace = "urn:rosettanet:specification:universal:Document:xsd:schema:01.12", type = BusinessDocumentReference.class)
     protected List<BusinessDocumentReference> businessDocumentReference;
@@ -796,6 +789,525 @@ public class QuoteType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final QuoteType that = ((QuoteType) object);
+        {
+            List<BusinessDocumentReference> lhsBusinessDocumentReference;
+            lhsBusinessDocumentReference = (((this.businessDocumentReference!= null)&&(!this.businessDocumentReference.isEmpty()))?this.getBusinessDocumentReference():null);
+            List<BusinessDocumentReference> rhsBusinessDocumentReference;
+            rhsBusinessDocumentReference = (((that.businessDocumentReference!= null)&&(!that.businessDocumentReference.isEmpty()))?that.getBusinessDocumentReference():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "businessDocumentReference", lhsBusinessDocumentReference), LocatorUtils.property(thatLocator, "businessDocumentReference", rhsBusinessDocumentReference), lhsBusinessDocumentReference, rhsBusinessDocumentReference, ((this.businessDocumentReference!= null)&&(!this.businessDocumentReference.isEmpty())), ((that.businessDocumentReference!= null)&&(!that.businessDocumentReference.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            CarrierInformation lhsCarrierInformation;
+            lhsCarrierInformation = this.getCarrierInformation();
+            CarrierInformation rhsCarrierInformation;
+            rhsCarrierInformation = that.getCarrierInformation();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "carrierInformation", lhsCarrierInformation), LocatorUtils.property(thatLocator, "carrierInformation", rhsCarrierInformation), lhsCarrierInformation, rhsCarrierInformation, (this.carrierInformation!= null), (that.carrierInformation!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsComments;
+            lhsComments = this.getComments();
+            String rhsComments;
+            rhsComments = that.getComments();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "comments", lhsComments), LocatorUtils.property(thatLocator, "comments", rhsComments), lhsComments, rhsComments, (this.comments!= null), (that.comments!= null))) {
+                return false;
+            }
+        }
+        {
+            DatePeriodType lhsEffectiveDate;
+            lhsEffectiveDate = this.getEffectiveDate();
+            DatePeriodType rhsEffectiveDate;
+            rhsEffectiveDate = that.getEffectiveDate();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "effectiveDate", lhsEffectiveDate), LocatorUtils.property(thatLocator, "effectiveDate", rhsEffectiveDate), lhsEffectiveDate, rhsEffectiveDate, (this.effectiveDate!= null), (that.effectiveDate!= null))) {
+                return false;
+            }
+        }
+        {
+            MonetaryAmountType lhsFreightCharges;
+            lhsFreightCharges = this.getFreightCharges();
+            MonetaryAmountType rhsFreightCharges;
+            rhsFreightCharges = that.getFreightCharges();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "freightCharges", lhsFreightCharges), LocatorUtils.property(thatLocator, "freightCharges", rhsFreightCharges), lhsFreightCharges, rhsFreightCharges, (this.freightCharges!= null), (that.freightCharges!= null))) {
+                return false;
+            }
+        }
+        {
+            BusinessDocumentReferenceType lhsGovernmentContractIdentifier;
+            lhsGovernmentContractIdentifier = this.getGovernmentContractIdentifier();
+            BusinessDocumentReferenceType rhsGovernmentContractIdentifier;
+            rhsGovernmentContractIdentifier = that.getGovernmentContractIdentifier();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "governmentContractIdentifier", lhsGovernmentContractIdentifier), LocatorUtils.property(thatLocator, "governmentContractIdentifier", rhsGovernmentContractIdentifier), lhsGovernmentContractIdentifier, rhsGovernmentContractIdentifier, (this.governmentContractIdentifier!= null), (that.governmentContractIdentifier!= null))) {
+                return false;
+            }
+        }
+        {
+            GovernmentPriorityRating lhsGovernmentPriorityRating;
+            lhsGovernmentPriorityRating = this.getGovernmentPriorityRating();
+            GovernmentPriorityRating rhsGovernmentPriorityRating;
+            rhsGovernmentPriorityRating = that.getGovernmentPriorityRating();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "governmentPriorityRating", lhsGovernmentPriorityRating), LocatorUtils.property(thatLocator, "governmentPriorityRating", rhsGovernmentPriorityRating), lhsGovernmentPriorityRating, rhsGovernmentPriorityRating, (this.governmentPriorityRating!= null), (that.governmentPriorityRating!= null))) {
+                return false;
+            }
+        }
+        {
+            MonetaryAmountType lhsHandlingCharges;
+            lhsHandlingCharges = this.getHandlingCharges();
+            MonetaryAmountType rhsHandlingCharges;
+            rhsHandlingCharges = that.getHandlingCharges();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "handlingCharges", lhsHandlingCharges), LocatorUtils.property(thatLocator, "handlingCharges", rhsHandlingCharges), lhsHandlingCharges, rhsHandlingCharges, (this.handlingCharges!= null), (that.handlingCharges!= null))) {
+                return false;
+            }
+        }
+        {
+            boolean lhsIsPendingItemsExist;
+            lhsIsPendingItemsExist = this.isIsPendingItemsExist();
+            boolean rhsIsPendingItemsExist;
+            rhsIsPendingItemsExist = that.isIsPendingItemsExist();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "isPendingItemsExist", lhsIsPendingItemsExist), LocatorUtils.property(thatLocator, "isPendingItemsExist", rhsIsPendingItemsExist), lhsIsPendingItemsExist, rhsIsPendingItemsExist, true, true)) {
+                return false;
+            }
+        }
+        {
+            ProductPricingType lhsListPrice;
+            lhsListPrice = this.getListPrice();
+            ProductPricingType rhsListPrice;
+            rhsListPrice = that.getListPrice();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "listPrice", lhsListPrice), LocatorUtils.property(thatLocator, "listPrice", rhsListPrice), lhsListPrice, rhsListPrice, (this.listPrice!= null), (that.listPrice!= null))) {
+                return false;
+            }
+        }
+        {
+            List<PartnerDescription> lhsPartnerDescription;
+            lhsPartnerDescription = (((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty()))?this.getPartnerDescription():null);
+            List<PartnerDescription> rhsPartnerDescription;
+            rhsPartnerDescription = (((that.partnerDescription!= null)&&(!that.partnerDescription.isEmpty()))?that.getPartnerDescription():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "partnerDescription", lhsPartnerDescription), LocatorUtils.property(thatLocator, "partnerDescription", rhsPartnerDescription), lhsPartnerDescription, rhsPartnerDescription, ((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty())), ((that.partnerDescription!= null)&&(!that.partnerDescription.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            PriceCondition lhsPriceCondition;
+            lhsPriceCondition = this.getPriceCondition();
+            PriceCondition rhsPriceCondition;
+            rhsPriceCondition = that.getPriceCondition();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "priceCondition", lhsPriceCondition), LocatorUtils.property(thatLocator, "priceCondition", rhsPriceCondition), lhsPriceCondition, rhsPriceCondition, (this.priceCondition!= null), (that.priceCondition!= null))) {
+                return false;
+            }
+        }
+        {
+            List<QuoteAcknowledgmentReason> lhsQuoteAcknowledgmentReason;
+            lhsQuoteAcknowledgmentReason = (((this.quoteAcknowledgmentReason!= null)&&(!this.quoteAcknowledgmentReason.isEmpty()))?this.getQuoteAcknowledgmentReason():null);
+            List<QuoteAcknowledgmentReason> rhsQuoteAcknowledgmentReason;
+            rhsQuoteAcknowledgmentReason = (((that.quoteAcknowledgmentReason!= null)&&(!that.quoteAcknowledgmentReason.isEmpty()))?that.getQuoteAcknowledgmentReason():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "quoteAcknowledgmentReason", lhsQuoteAcknowledgmentReason), LocatorUtils.property(thatLocator, "quoteAcknowledgmentReason", rhsQuoteAcknowledgmentReason), lhsQuoteAcknowledgmentReason, rhsQuoteAcknowledgmentReason, ((this.quoteAcknowledgmentReason!= null)&&(!this.quoteAcknowledgmentReason.isEmpty())), ((that.quoteAcknowledgmentReason!= null)&&(!that.quoteAcknowledgmentReason.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            List<QuoteCustomerInformationType> lhsQuoteCustomerInformation;
+            lhsQuoteCustomerInformation = (((this.quoteCustomerInformation!= null)&&(!this.quoteCustomerInformation.isEmpty()))?this.getQuoteCustomerInformation():null);
+            List<QuoteCustomerInformationType> rhsQuoteCustomerInformation;
+            rhsQuoteCustomerInformation = (((that.quoteCustomerInformation!= null)&&(!that.quoteCustomerInformation.isEmpty()))?that.getQuoteCustomerInformation():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "quoteCustomerInformation", lhsQuoteCustomerInformation), LocatorUtils.property(thatLocator, "quoteCustomerInformation", rhsQuoteCustomerInformation), lhsQuoteCustomerInformation, rhsQuoteCustomerInformation, ((this.quoteCustomerInformation!= null)&&(!this.quoteCustomerInformation.isEmpty())), ((that.quoteCustomerInformation!= null)&&(!that.quoteCustomerInformation.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            List<QuoteLineItemType> lhsQuoteLineItem;
+            lhsQuoteLineItem = (((this.quoteLineItem!= null)&&(!this.quoteLineItem.isEmpty()))?this.getQuoteLineItem():null);
+            List<QuoteLineItemType> rhsQuoteLineItem;
+            rhsQuoteLineItem = (((that.quoteLineItem!= null)&&(!that.quoteLineItem.isEmpty()))?that.getQuoteLineItem():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "quoteLineItem", lhsQuoteLineItem), LocatorUtils.property(thatLocator, "quoteLineItem", rhsQuoteLineItem), lhsQuoteLineItem, rhsQuoteLineItem, ((this.quoteLineItem!= null)&&(!this.quoteLineItem.isEmpty())), ((that.quoteLineItem!= null)&&(!that.quoteLineItem.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            PurchaseOrderStatusType lhsQuoteStatus;
+            lhsQuoteStatus = this.getQuoteStatus();
+            PurchaseOrderStatusType rhsQuoteStatus;
+            rhsQuoteStatus = that.getQuoteStatus();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "quoteStatus", lhsQuoteStatus), LocatorUtils.property(thatLocator, "quoteStatus", rhsQuoteStatus), lhsQuoteStatus, rhsQuoteStatus, (this.quoteStatus!= null), (that.quoteStatus!= null))) {
+                return false;
+            }
+        }
+        {
+            io.dscope.rosettanet.domain.procurement.codelist.quotetype.v01_05.QuoteType lhsQuoteType;
+            lhsQuoteType = this.getQuoteType();
+            io.dscope.rosettanet.domain.procurement.codelist.quotetype.v01_05.QuoteType rhsQuoteType;
+            rhsQuoteType = that.getQuoteType();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "quoteType", lhsQuoteType), LocatorUtils.property(thatLocator, "quoteType", rhsQuoteType), lhsQuoteType, rhsQuoteType, (this.quoteType!= null), (that.quoteType!= null))) {
+                return false;
+            }
+        }
+        {
+            DatePeriodType lhsRequestedResponseDate;
+            lhsRequestedResponseDate = this.getRequestedResponseDate();
+            DatePeriodType rhsRequestedResponseDate;
+            rhsRequestedResponseDate = that.getRequestedResponseDate();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "requestedResponseDate", lhsRequestedResponseDate), LocatorUtils.property(thatLocator, "requestedResponseDate", rhsRequestedResponseDate), lhsRequestedResponseDate, rhsRequestedResponseDate, (this.requestedResponseDate!= null), (that.requestedResponseDate!= null))) {
+                return false;
+            }
+        }
+        {
+            List<BusinessDocumentReferenceType> lhsRequoteReference;
+            lhsRequoteReference = (((this.requoteReference!= null)&&(!this.requoteReference.isEmpty()))?this.getRequoteReference():null);
+            List<BusinessDocumentReferenceType> rhsRequoteReference;
+            rhsRequoteReference = (((that.requoteReference!= null)&&(!that.requoteReference.isEmpty()))?that.getRequoteReference():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "requoteReference", lhsRequoteReference), LocatorUtils.property(thatLocator, "requoteReference", rhsRequoteReference), lhsRequoteReference, rhsRequoteReference, ((this.requoteReference!= null)&&(!this.requoteReference.isEmpty())), ((that.requoteReference!= null)&&(!that.requoteReference.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            String lhsResponseDescription;
+            lhsResponseDescription = this.getResponseDescription();
+            String rhsResponseDescription;
+            rhsResponseDescription = that.getResponseDescription();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "responseDescription", lhsResponseDescription), LocatorUtils.property(thatLocator, "responseDescription", rhsResponseDescription), lhsResponseDescription, rhsResponseDescription, (this.responseDescription!= null), (that.responseDescription!= null))) {
+                return false;
+            }
+        }
+        {
+            List<SpecialDiscount> lhsSpecialDiscount;
+            lhsSpecialDiscount = (((this.specialDiscount!= null)&&(!this.specialDiscount.isEmpty()))?this.getSpecialDiscount():null);
+            List<SpecialDiscount> rhsSpecialDiscount;
+            rhsSpecialDiscount = (((that.specialDiscount!= null)&&(!that.specialDiscount.isEmpty()))?that.getSpecialDiscount():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "specialDiscount", lhsSpecialDiscount), LocatorUtils.property(thatLocator, "specialDiscount", rhsSpecialDiscount), lhsSpecialDiscount, rhsSpecialDiscount, ((this.specialDiscount!= null)&&(!this.specialDiscount.isEmpty())), ((that.specialDiscount!= null)&&(!that.specialDiscount.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            TaxExemptStatus lhsTaxExemptStatus;
+            lhsTaxExemptStatus = this.getTaxExemptStatus();
+            TaxExemptStatus rhsTaxExemptStatus;
+            rhsTaxExemptStatus = that.getTaxExemptStatus();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "taxExemptStatus", lhsTaxExemptStatus), LocatorUtils.property(thatLocator, "taxExemptStatus", rhsTaxExemptStatus), lhsTaxExemptStatus, rhsTaxExemptStatus, (this.taxExemptStatus!= null), (that.taxExemptStatus!= null))) {
+                return false;
+            }
+        }
+        {
+            TermsAndConditionsType lhsTermsAndConditions;
+            lhsTermsAndConditions = this.getTermsAndConditions();
+            TermsAndConditionsType rhsTermsAndConditions;
+            rhsTermsAndConditions = that.getTermsAndConditions();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "termsAndConditions", lhsTermsAndConditions), LocatorUtils.property(thatLocator, "termsAndConditions", rhsTermsAndConditions), lhsTermsAndConditions, rhsTermsAndConditions, (this.termsAndConditions!= null), (that.termsAndConditions!= null))) {
+                return false;
+            }
+        }
+        {
+            MonetaryAmountType lhsTotalPrice;
+            lhsTotalPrice = this.getTotalPrice();
+            MonetaryAmountType rhsTotalPrice;
+            rhsTotalPrice = that.getTotalPrice();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "totalPrice", lhsTotalPrice), LocatorUtils.property(thatLocator, "totalPrice", rhsTotalPrice), lhsTotalPrice, rhsTotalPrice, (this.totalPrice!= null), (that.totalPrice!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            List<BusinessDocumentReference> theBusinessDocumentReference;
+            theBusinessDocumentReference = (((this.businessDocumentReference!= null)&&(!this.businessDocumentReference.isEmpty()))?this.getBusinessDocumentReference():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "businessDocumentReference", theBusinessDocumentReference), currentHashCode, theBusinessDocumentReference, ((this.businessDocumentReference!= null)&&(!this.businessDocumentReference.isEmpty())));
+        }
+        {
+            CarrierInformation theCarrierInformation;
+            theCarrierInformation = this.getCarrierInformation();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "carrierInformation", theCarrierInformation), currentHashCode, theCarrierInformation, (this.carrierInformation!= null));
+        }
+        {
+            String theComments;
+            theComments = this.getComments();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "comments", theComments), currentHashCode, theComments, (this.comments!= null));
+        }
+        {
+            DatePeriodType theEffectiveDate;
+            theEffectiveDate = this.getEffectiveDate();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "effectiveDate", theEffectiveDate), currentHashCode, theEffectiveDate, (this.effectiveDate!= null));
+        }
+        {
+            MonetaryAmountType theFreightCharges;
+            theFreightCharges = this.getFreightCharges();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "freightCharges", theFreightCharges), currentHashCode, theFreightCharges, (this.freightCharges!= null));
+        }
+        {
+            BusinessDocumentReferenceType theGovernmentContractIdentifier;
+            theGovernmentContractIdentifier = this.getGovernmentContractIdentifier();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "governmentContractIdentifier", theGovernmentContractIdentifier), currentHashCode, theGovernmentContractIdentifier, (this.governmentContractIdentifier!= null));
+        }
+        {
+            GovernmentPriorityRating theGovernmentPriorityRating;
+            theGovernmentPriorityRating = this.getGovernmentPriorityRating();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "governmentPriorityRating", theGovernmentPriorityRating), currentHashCode, theGovernmentPriorityRating, (this.governmentPriorityRating!= null));
+        }
+        {
+            MonetaryAmountType theHandlingCharges;
+            theHandlingCharges = this.getHandlingCharges();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "handlingCharges", theHandlingCharges), currentHashCode, theHandlingCharges, (this.handlingCharges!= null));
+        }
+        {
+            boolean theIsPendingItemsExist;
+            theIsPendingItemsExist = this.isIsPendingItemsExist();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "isPendingItemsExist", theIsPendingItemsExist), currentHashCode, theIsPendingItemsExist, true);
+        }
+        {
+            ProductPricingType theListPrice;
+            theListPrice = this.getListPrice();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "listPrice", theListPrice), currentHashCode, theListPrice, (this.listPrice!= null));
+        }
+        {
+            List<PartnerDescription> thePartnerDescription;
+            thePartnerDescription = (((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty()))?this.getPartnerDescription():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "partnerDescription", thePartnerDescription), currentHashCode, thePartnerDescription, ((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty())));
+        }
+        {
+            PriceCondition thePriceCondition;
+            thePriceCondition = this.getPriceCondition();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "priceCondition", thePriceCondition), currentHashCode, thePriceCondition, (this.priceCondition!= null));
+        }
+        {
+            List<QuoteAcknowledgmentReason> theQuoteAcknowledgmentReason;
+            theQuoteAcknowledgmentReason = (((this.quoteAcknowledgmentReason!= null)&&(!this.quoteAcknowledgmentReason.isEmpty()))?this.getQuoteAcknowledgmentReason():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "quoteAcknowledgmentReason", theQuoteAcknowledgmentReason), currentHashCode, theQuoteAcknowledgmentReason, ((this.quoteAcknowledgmentReason!= null)&&(!this.quoteAcknowledgmentReason.isEmpty())));
+        }
+        {
+            List<QuoteCustomerInformationType> theQuoteCustomerInformation;
+            theQuoteCustomerInformation = (((this.quoteCustomerInformation!= null)&&(!this.quoteCustomerInformation.isEmpty()))?this.getQuoteCustomerInformation():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "quoteCustomerInformation", theQuoteCustomerInformation), currentHashCode, theQuoteCustomerInformation, ((this.quoteCustomerInformation!= null)&&(!this.quoteCustomerInformation.isEmpty())));
+        }
+        {
+            List<QuoteLineItemType> theQuoteLineItem;
+            theQuoteLineItem = (((this.quoteLineItem!= null)&&(!this.quoteLineItem.isEmpty()))?this.getQuoteLineItem():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "quoteLineItem", theQuoteLineItem), currentHashCode, theQuoteLineItem, ((this.quoteLineItem!= null)&&(!this.quoteLineItem.isEmpty())));
+        }
+        {
+            PurchaseOrderStatusType theQuoteStatus;
+            theQuoteStatus = this.getQuoteStatus();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "quoteStatus", theQuoteStatus), currentHashCode, theQuoteStatus, (this.quoteStatus!= null));
+        }
+        {
+            io.dscope.rosettanet.domain.procurement.codelist.quotetype.v01_05.QuoteType theQuoteType;
+            theQuoteType = this.getQuoteType();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "quoteType", theQuoteType), currentHashCode, theQuoteType, (this.quoteType!= null));
+        }
+        {
+            DatePeriodType theRequestedResponseDate;
+            theRequestedResponseDate = this.getRequestedResponseDate();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "requestedResponseDate", theRequestedResponseDate), currentHashCode, theRequestedResponseDate, (this.requestedResponseDate!= null));
+        }
+        {
+            List<BusinessDocumentReferenceType> theRequoteReference;
+            theRequoteReference = (((this.requoteReference!= null)&&(!this.requoteReference.isEmpty()))?this.getRequoteReference():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "requoteReference", theRequoteReference), currentHashCode, theRequoteReference, ((this.requoteReference!= null)&&(!this.requoteReference.isEmpty())));
+        }
+        {
+            String theResponseDescription;
+            theResponseDescription = this.getResponseDescription();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "responseDescription", theResponseDescription), currentHashCode, theResponseDescription, (this.responseDescription!= null));
+        }
+        {
+            List<SpecialDiscount> theSpecialDiscount;
+            theSpecialDiscount = (((this.specialDiscount!= null)&&(!this.specialDiscount.isEmpty()))?this.getSpecialDiscount():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "specialDiscount", theSpecialDiscount), currentHashCode, theSpecialDiscount, ((this.specialDiscount!= null)&&(!this.specialDiscount.isEmpty())));
+        }
+        {
+            TaxExemptStatus theTaxExemptStatus;
+            theTaxExemptStatus = this.getTaxExemptStatus();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "taxExemptStatus", theTaxExemptStatus), currentHashCode, theTaxExemptStatus, (this.taxExemptStatus!= null));
+        }
+        {
+            TermsAndConditionsType theTermsAndConditions;
+            theTermsAndConditions = this.getTermsAndConditions();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "termsAndConditions", theTermsAndConditions), currentHashCode, theTermsAndConditions, (this.termsAndConditions!= null));
+        }
+        {
+            MonetaryAmountType theTotalPrice;
+            theTotalPrice = this.getTotalPrice();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "totalPrice", theTotalPrice), currentHashCode, theTotalPrice, (this.totalPrice!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            List<BusinessDocumentReference> theBusinessDocumentReference;
+            theBusinessDocumentReference = (((this.businessDocumentReference!= null)&&(!this.businessDocumentReference.isEmpty()))?this.getBusinessDocumentReference():null);
+            strategy.appendField(locator, this, "businessDocumentReference", buffer, theBusinessDocumentReference, ((this.businessDocumentReference!= null)&&(!this.businessDocumentReference.isEmpty())));
+        }
+        {
+            CarrierInformation theCarrierInformation;
+            theCarrierInformation = this.getCarrierInformation();
+            strategy.appendField(locator, this, "carrierInformation", buffer, theCarrierInformation, (this.carrierInformation!= null));
+        }
+        {
+            String theComments;
+            theComments = this.getComments();
+            strategy.appendField(locator, this, "comments", buffer, theComments, (this.comments!= null));
+        }
+        {
+            DatePeriodType theEffectiveDate;
+            theEffectiveDate = this.getEffectiveDate();
+            strategy.appendField(locator, this, "effectiveDate", buffer, theEffectiveDate, (this.effectiveDate!= null));
+        }
+        {
+            MonetaryAmountType theFreightCharges;
+            theFreightCharges = this.getFreightCharges();
+            strategy.appendField(locator, this, "freightCharges", buffer, theFreightCharges, (this.freightCharges!= null));
+        }
+        {
+            BusinessDocumentReferenceType theGovernmentContractIdentifier;
+            theGovernmentContractIdentifier = this.getGovernmentContractIdentifier();
+            strategy.appendField(locator, this, "governmentContractIdentifier", buffer, theGovernmentContractIdentifier, (this.governmentContractIdentifier!= null));
+        }
+        {
+            GovernmentPriorityRating theGovernmentPriorityRating;
+            theGovernmentPriorityRating = this.getGovernmentPriorityRating();
+            strategy.appendField(locator, this, "governmentPriorityRating", buffer, theGovernmentPriorityRating, (this.governmentPriorityRating!= null));
+        }
+        {
+            MonetaryAmountType theHandlingCharges;
+            theHandlingCharges = this.getHandlingCharges();
+            strategy.appendField(locator, this, "handlingCharges", buffer, theHandlingCharges, (this.handlingCharges!= null));
+        }
+        {
+            boolean theIsPendingItemsExist;
+            theIsPendingItemsExist = this.isIsPendingItemsExist();
+            strategy.appendField(locator, this, "isPendingItemsExist", buffer, theIsPendingItemsExist, true);
+        }
+        {
+            ProductPricingType theListPrice;
+            theListPrice = this.getListPrice();
+            strategy.appendField(locator, this, "listPrice", buffer, theListPrice, (this.listPrice!= null));
+        }
+        {
+            List<PartnerDescription> thePartnerDescription;
+            thePartnerDescription = (((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty()))?this.getPartnerDescription():null);
+            strategy.appendField(locator, this, "partnerDescription", buffer, thePartnerDescription, ((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty())));
+        }
+        {
+            PriceCondition thePriceCondition;
+            thePriceCondition = this.getPriceCondition();
+            strategy.appendField(locator, this, "priceCondition", buffer, thePriceCondition, (this.priceCondition!= null));
+        }
+        {
+            List<QuoteAcknowledgmentReason> theQuoteAcknowledgmentReason;
+            theQuoteAcknowledgmentReason = (((this.quoteAcknowledgmentReason!= null)&&(!this.quoteAcknowledgmentReason.isEmpty()))?this.getQuoteAcknowledgmentReason():null);
+            strategy.appendField(locator, this, "quoteAcknowledgmentReason", buffer, theQuoteAcknowledgmentReason, ((this.quoteAcknowledgmentReason!= null)&&(!this.quoteAcknowledgmentReason.isEmpty())));
+        }
+        {
+            List<QuoteCustomerInformationType> theQuoteCustomerInformation;
+            theQuoteCustomerInformation = (((this.quoteCustomerInformation!= null)&&(!this.quoteCustomerInformation.isEmpty()))?this.getQuoteCustomerInformation():null);
+            strategy.appendField(locator, this, "quoteCustomerInformation", buffer, theQuoteCustomerInformation, ((this.quoteCustomerInformation!= null)&&(!this.quoteCustomerInformation.isEmpty())));
+        }
+        {
+            List<QuoteLineItemType> theQuoteLineItem;
+            theQuoteLineItem = (((this.quoteLineItem!= null)&&(!this.quoteLineItem.isEmpty()))?this.getQuoteLineItem():null);
+            strategy.appendField(locator, this, "quoteLineItem", buffer, theQuoteLineItem, ((this.quoteLineItem!= null)&&(!this.quoteLineItem.isEmpty())));
+        }
+        {
+            PurchaseOrderStatusType theQuoteStatus;
+            theQuoteStatus = this.getQuoteStatus();
+            strategy.appendField(locator, this, "quoteStatus", buffer, theQuoteStatus, (this.quoteStatus!= null));
+        }
+        {
+            io.dscope.rosettanet.domain.procurement.codelist.quotetype.v01_05.QuoteType theQuoteType;
+            theQuoteType = this.getQuoteType();
+            strategy.appendField(locator, this, "quoteType", buffer, theQuoteType, (this.quoteType!= null));
+        }
+        {
+            DatePeriodType theRequestedResponseDate;
+            theRequestedResponseDate = this.getRequestedResponseDate();
+            strategy.appendField(locator, this, "requestedResponseDate", buffer, theRequestedResponseDate, (this.requestedResponseDate!= null));
+        }
+        {
+            List<BusinessDocumentReferenceType> theRequoteReference;
+            theRequoteReference = (((this.requoteReference!= null)&&(!this.requoteReference.isEmpty()))?this.getRequoteReference():null);
+            strategy.appendField(locator, this, "requoteReference", buffer, theRequoteReference, ((this.requoteReference!= null)&&(!this.requoteReference.isEmpty())));
+        }
+        {
+            String theResponseDescription;
+            theResponseDescription = this.getResponseDescription();
+            strategy.appendField(locator, this, "responseDescription", buffer, theResponseDescription, (this.responseDescription!= null));
+        }
+        {
+            List<SpecialDiscount> theSpecialDiscount;
+            theSpecialDiscount = (((this.specialDiscount!= null)&&(!this.specialDiscount.isEmpty()))?this.getSpecialDiscount():null);
+            strategy.appendField(locator, this, "specialDiscount", buffer, theSpecialDiscount, ((this.specialDiscount!= null)&&(!this.specialDiscount.isEmpty())));
+        }
+        {
+            TaxExemptStatus theTaxExemptStatus;
+            theTaxExemptStatus = this.getTaxExemptStatus();
+            strategy.appendField(locator, this, "taxExemptStatus", buffer, theTaxExemptStatus, (this.taxExemptStatus!= null));
+        }
+        {
+            TermsAndConditionsType theTermsAndConditions;
+            theTermsAndConditions = this.getTermsAndConditions();
+            strategy.appendField(locator, this, "termsAndConditions", buffer, theTermsAndConditions, (this.termsAndConditions!= null));
+        }
+        {
+            MonetaryAmountType theTotalPrice;
+            theTotalPrice = this.getTotalPrice();
+            strategy.appendField(locator, this, "totalPrice", buffer, theTotalPrice, (this.totalPrice!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

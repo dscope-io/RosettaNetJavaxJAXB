@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_27;
 
@@ -25,6 +6,17 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import io.dscope.rosettanet.universal.locations.v01_04.PhysicalAddressType;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -58,6 +50,7 @@ import io.dscope.rosettanet.universal.locations.v01_04.PhysicalAddressType;
 })
 public class MapReferenceType
     extends PhysicalAddressType
+    implements Equals2, HashCode2, ToString2
 {
 
     @XmlElement(name = "Description")
@@ -163,6 +156,130 @@ public class MapReferenceType
      */
     public void setReference2(String value) {
         this.reference2 = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        if (!super.equals(thisLocator, thatLocator, object, strategy)) {
+            return false;
+        }
+        final MapReferenceType that = ((MapReferenceType) object);
+        {
+            String lhsDescription;
+            lhsDescription = this.getDescription();
+            String rhsDescription;
+            rhsDescription = that.getDescription();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "description", lhsDescription), LocatorUtils.property(thatLocator, "description", rhsDescription), lhsDescription, rhsDescription, (this.description!= null), (that.description!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsIdentifier;
+            lhsIdentifier = this.getIdentifier();
+            String rhsIdentifier;
+            rhsIdentifier = that.getIdentifier();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "identifier", lhsIdentifier), LocatorUtils.property(thatLocator, "identifier", rhsIdentifier), lhsIdentifier, rhsIdentifier, (this.identifier!= null), (that.identifier!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsReference1;
+            lhsReference1 = this.getReference1();
+            String rhsReference1;
+            rhsReference1 = that.getReference1();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "reference1", lhsReference1), LocatorUtils.property(thatLocator, "reference1", rhsReference1), lhsReference1, rhsReference1, (this.reference1 != null), (that.reference1 != null))) {
+                return false;
+            }
+        }
+        {
+            String lhsReference2;
+            lhsReference2 = this.getReference2();
+            String rhsReference2;
+            rhsReference2 = that.getReference2();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "reference2", lhsReference2), LocatorUtils.property(thatLocator, "reference2", rhsReference2), lhsReference2, rhsReference2, (this.reference2 != null), (that.reference2 != null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = super.hashCode(locator, strategy);
+        {
+            String theDescription;
+            theDescription = this.getDescription();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "description", theDescription), currentHashCode, theDescription, (this.description!= null));
+        }
+        {
+            String theIdentifier;
+            theIdentifier = this.getIdentifier();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "identifier", theIdentifier), currentHashCode, theIdentifier, (this.identifier!= null));
+        }
+        {
+            String theReference1;
+            theReference1 = this.getReference1();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "reference1", theReference1), currentHashCode, theReference1, (this.reference1 != null));
+        }
+        {
+            String theReference2;
+            theReference2 = this.getReference2();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "reference2", theReference2), currentHashCode, theReference2, (this.reference2 != null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        super.appendFields(locator, buffer, strategy);
+        {
+            String theDescription;
+            theDescription = this.getDescription();
+            strategy.appendField(locator, this, "description", buffer, theDescription, (this.description!= null));
+        }
+        {
+            String theIdentifier;
+            theIdentifier = this.getIdentifier();
+            strategy.appendField(locator, this, "identifier", buffer, theIdentifier, (this.identifier!= null));
+        }
+        {
+            String theReference1;
+            theReference1 = this.getReference1();
+            strategy.appendField(locator, this, "reference1", buffer, theReference1, (this.reference1 != null));
+        }
+        {
+            String theReference2;
+            theReference2 = this.getReference2();
+            strategy.appendField(locator, this, "reference2", buffer, theReference2, (this.reference2 != null));
+        }
+        return buffer;
     }
 
 }

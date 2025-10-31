@@ -1,0 +1,7 @@
+.gradle
+.vscode
+build
+tools
+*.hprof
+gradlew
+gradlew.bat

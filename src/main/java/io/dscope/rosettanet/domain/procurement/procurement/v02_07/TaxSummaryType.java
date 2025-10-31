@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_07;
 
@@ -32,6 +13,17 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import io.dscope.rosettanet.domain.shared.shared.v01_05.MonetaryAmount;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -68,7 +60,8 @@ import io.dscope.rosettanet.domain.shared.shared.v01_05.MonetaryAmount;
     "regionalTax",
     "taxPhrase"
 })
-public class TaxSummaryType {
+public class TaxSummaryType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "CityTax")
     protected List<TaxInformationType> cityTax;
@@ -273,6 +266,183 @@ public class TaxSummaryType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final TaxSummaryType that = ((TaxSummaryType) object);
+        {
+            List<TaxInformationType> lhsCityTax;
+            lhsCityTax = (((this.cityTax!= null)&&(!this.cityTax.isEmpty()))?this.getCityTax():null);
+            List<TaxInformationType> rhsCityTax;
+            rhsCityTax = (((that.cityTax!= null)&&(!that.cityTax.isEmpty()))?that.getCityTax():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "cityTax", lhsCityTax), LocatorUtils.property(thatLocator, "cityTax", rhsCityTax), lhsCityTax, rhsCityTax, ((this.cityTax!= null)&&(!this.cityTax.isEmpty())), ((that.cityTax!= null)&&(!that.cityTax.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            CurrencyConversion lhsCurrencyConversion;
+            lhsCurrencyConversion = this.getCurrencyConversion();
+            CurrencyConversion rhsCurrencyConversion;
+            rhsCurrencyConversion = that.getCurrencyConversion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "currencyConversion", lhsCurrencyConversion), LocatorUtils.property(thatLocator, "currencyConversion", rhsCurrencyConversion), lhsCurrencyConversion, rhsCurrencyConversion, (this.currencyConversion!= null), (that.currencyConversion!= null))) {
+                return false;
+            }
+        }
+        {
+            MonetaryAmount lhsMonetaryAmount;
+            lhsMonetaryAmount = this.getMonetaryAmount();
+            MonetaryAmount rhsMonetaryAmount;
+            rhsMonetaryAmount = that.getMonetaryAmount();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "monetaryAmount", lhsMonetaryAmount), LocatorUtils.property(thatLocator, "monetaryAmount", rhsMonetaryAmount), lhsMonetaryAmount, rhsMonetaryAmount, (this.monetaryAmount!= null), (that.monetaryAmount!= null))) {
+                return false;
+            }
+        }
+        {
+            List<TaxInformationType> lhsNationalTax;
+            lhsNationalTax = (((this.nationalTax!= null)&&(!this.nationalTax.isEmpty()))?this.getNationalTax():null);
+            List<TaxInformationType> rhsNationalTax;
+            rhsNationalTax = (((that.nationalTax!= null)&&(!that.nationalTax.isEmpty()))?that.getNationalTax():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "nationalTax", lhsNationalTax), LocatorUtils.property(thatLocator, "nationalTax", rhsNationalTax), lhsNationalTax, rhsNationalTax, ((this.nationalTax!= null)&&(!this.nationalTax.isEmpty())), ((that.nationalTax!= null)&&(!that.nationalTax.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            List<TaxInformationType> lhsRegionalTax;
+            lhsRegionalTax = (((this.regionalTax!= null)&&(!this.regionalTax.isEmpty()))?this.getRegionalTax():null);
+            List<TaxInformationType> rhsRegionalTax;
+            rhsRegionalTax = (((that.regionalTax!= null)&&(!that.regionalTax.isEmpty()))?that.getRegionalTax():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "regionalTax", lhsRegionalTax), LocatorUtils.property(thatLocator, "regionalTax", rhsRegionalTax), lhsRegionalTax, rhsRegionalTax, ((this.regionalTax!= null)&&(!this.regionalTax.isEmpty())), ((that.regionalTax!= null)&&(!that.regionalTax.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            List<TaxPhrase> lhsTaxPhrase;
+            lhsTaxPhrase = (((this.taxPhrase!= null)&&(!this.taxPhrase.isEmpty()))?this.getTaxPhrase():null);
+            List<TaxPhrase> rhsTaxPhrase;
+            rhsTaxPhrase = (((that.taxPhrase!= null)&&(!that.taxPhrase.isEmpty()))?that.getTaxPhrase():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "taxPhrase", lhsTaxPhrase), LocatorUtils.property(thatLocator, "taxPhrase", rhsTaxPhrase), lhsTaxPhrase, rhsTaxPhrase, ((this.taxPhrase!= null)&&(!this.taxPhrase.isEmpty())), ((that.taxPhrase!= null)&&(!that.taxPhrase.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            List<TaxInformationType> theCityTax;
+            theCityTax = (((this.cityTax!= null)&&(!this.cityTax.isEmpty()))?this.getCityTax():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "cityTax", theCityTax), currentHashCode, theCityTax, ((this.cityTax!= null)&&(!this.cityTax.isEmpty())));
+        }
+        {
+            CurrencyConversion theCurrencyConversion;
+            theCurrencyConversion = this.getCurrencyConversion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "currencyConversion", theCurrencyConversion), currentHashCode, theCurrencyConversion, (this.currencyConversion!= null));
+        }
+        {
+            MonetaryAmount theMonetaryAmount;
+            theMonetaryAmount = this.getMonetaryAmount();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "monetaryAmount", theMonetaryAmount), currentHashCode, theMonetaryAmount, (this.monetaryAmount!= null));
+        }
+        {
+            List<TaxInformationType> theNationalTax;
+            theNationalTax = (((this.nationalTax!= null)&&(!this.nationalTax.isEmpty()))?this.getNationalTax():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "nationalTax", theNationalTax), currentHashCode, theNationalTax, ((this.nationalTax!= null)&&(!this.nationalTax.isEmpty())));
+        }
+        {
+            List<TaxInformationType> theRegionalTax;
+            theRegionalTax = (((this.regionalTax!= null)&&(!this.regionalTax.isEmpty()))?this.getRegionalTax():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "regionalTax", theRegionalTax), currentHashCode, theRegionalTax, ((this.regionalTax!= null)&&(!this.regionalTax.isEmpty())));
+        }
+        {
+            List<TaxPhrase> theTaxPhrase;
+            theTaxPhrase = (((this.taxPhrase!= null)&&(!this.taxPhrase.isEmpty()))?this.getTaxPhrase():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "taxPhrase", theTaxPhrase), currentHashCode, theTaxPhrase, ((this.taxPhrase!= null)&&(!this.taxPhrase.isEmpty())));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            List<TaxInformationType> theCityTax;
+            theCityTax = (((this.cityTax!= null)&&(!this.cityTax.isEmpty()))?this.getCityTax():null);
+            strategy.appendField(locator, this, "cityTax", buffer, theCityTax, ((this.cityTax!= null)&&(!this.cityTax.isEmpty())));
+        }
+        {
+            CurrencyConversion theCurrencyConversion;
+            theCurrencyConversion = this.getCurrencyConversion();
+            strategy.appendField(locator, this, "currencyConversion", buffer, theCurrencyConversion, (this.currencyConversion!= null));
+        }
+        {
+            MonetaryAmount theMonetaryAmount;
+            theMonetaryAmount = this.getMonetaryAmount();
+            strategy.appendField(locator, this, "monetaryAmount", buffer, theMonetaryAmount, (this.monetaryAmount!= null));
+        }
+        {
+            List<TaxInformationType> theNationalTax;
+            theNationalTax = (((this.nationalTax!= null)&&(!this.nationalTax.isEmpty()))?this.getNationalTax():null);
+            strategy.appendField(locator, this, "nationalTax", buffer, theNationalTax, ((this.nationalTax!= null)&&(!this.nationalTax.isEmpty())));
+        }
+        {
+            List<TaxInformationType> theRegionalTax;
+            theRegionalTax = (((this.regionalTax!= null)&&(!this.regionalTax.isEmpty()))?this.getRegionalTax():null);
+            strategy.appendField(locator, this, "regionalTax", buffer, theRegionalTax, ((this.regionalTax!= null)&&(!this.regionalTax.isEmpty())));
+        }
+        {
+            List<TaxPhrase> theTaxPhrase;
+            theTaxPhrase = (((this.taxPhrase!= null)&&(!this.taxPhrase.isEmpty()))?this.getTaxPhrase():null);
+            strategy.appendField(locator, this, "taxPhrase", buffer, theTaxPhrase, ((this.taxPhrase!= null)&&(!this.taxPhrase.isEmpty())));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

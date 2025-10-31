@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.interchange.purchaseorderstatusdistribution.v02_01;
 
@@ -48,6 +29,17 @@ import io.dscope.rosettanet.universal.codelist.country.v01_02.CountryType;
 import io.dscope.rosettanet.universal.codelist.unitofmeasure.v01_04.UnitOfMeasure;
 import io.dscope.rosettanet.universal.dates.v01_03.DateTimePeriodType;
 import io.dscope.rosettanet.universal.partneridentification.v01_16.PartnerDescription;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -136,7 +128,8 @@ import io.dscope.rosettanet.universal.partneridentification.v01_16.PartnerDescri
     "unitOfMeasure",
     "unitPrice"
 })
-public class ProductSubLineItemType {
+public class ProductSubLineItemType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "ActualDeliveryDate")
     protected DateTimePeriodType actualDeliveryDate;
@@ -1042,6 +1035,677 @@ public class ProductSubLineItemType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final ProductSubLineItemType that = ((ProductSubLineItemType) object);
+        {
+            DateTimePeriodType lhsActualDeliveryDate;
+            lhsActualDeliveryDate = this.getActualDeliveryDate();
+            DateTimePeriodType rhsActualDeliveryDate;
+            rhsActualDeliveryDate = that.getActualDeliveryDate();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "actualDeliveryDate", lhsActualDeliveryDate), LocatorUtils.property(thatLocator, "actualDeliveryDate", rhsActualDeliveryDate), lhsActualDeliveryDate, rhsActualDeliveryDate, (this.actualDeliveryDate!= null), (that.actualDeliveryDate!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsBuyerSubLineItem;
+            lhsBuyerSubLineItem = this.getBuyerSubLineItem();
+            String rhsBuyerSubLineItem;
+            rhsBuyerSubLineItem = that.getBuyerSubLineItem();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "buyerSubLineItem", lhsBuyerSubLineItem), LocatorUtils.property(thatLocator, "buyerSubLineItem", rhsBuyerSubLineItem), lhsBuyerSubLineItem, rhsBuyerSubLineItem, (this.buyerSubLineItem!= null), (that.buyerSubLineItem!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsComments;
+            lhsComments = this.getComments();
+            String rhsComments;
+            rhsComments = that.getComments();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "comments", lhsComments), LocatorUtils.property(thatLocator, "comments", rhsComments), lhsComments, rhsComments, (this.comments!= null), (that.comments!= null))) {
+                return false;
+            }
+        }
+        {
+            List<ContractInformation> lhsContractInformation;
+            lhsContractInformation = (((this.contractInformation!= null)&&(!this.contractInformation.isEmpty()))?this.getContractInformation():null);
+            List<ContractInformation> rhsContractInformation;
+            rhsContractInformation = (((that.contractInformation!= null)&&(!that.contractInformation.isEmpty()))?that.getContractInformation():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "contractInformation", lhsContractInformation), LocatorUtils.property(thatLocator, "contractInformation", rhsContractInformation), lhsContractInformation, rhsContractInformation, ((this.contractInformation!= null)&&(!this.contractInformation.isEmpty())), ((that.contractInformation!= null)&&(!that.contractInformation.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            CountryType lhsCountryOfOrigin;
+            lhsCountryOfOrigin = this.getCountryOfOrigin();
+            CountryType rhsCountryOfOrigin;
+            rhsCountryOfOrigin = that.getCountryOfOrigin();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "countryOfOrigin", lhsCountryOfOrigin), LocatorUtils.property(thatLocator, "countryOfOrigin", rhsCountryOfOrigin), lhsCountryOfOrigin, rhsCountryOfOrigin, (this.countryOfOrigin!= null), (that.countryOfOrigin!= null))) {
+                return false;
+            }
+        }
+        {
+            List<CustomerInformation> lhsCustomerInformation;
+            lhsCustomerInformation = (((this.customerInformation!= null)&&(!this.customerInformation.isEmpty()))?this.getCustomerInformation():null);
+            List<CustomerInformation> rhsCustomerInformation;
+            rhsCustomerInformation = (((that.customerInformation!= null)&&(!that.customerInformation.isEmpty()))?that.getCustomerInformation():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "customerInformation", lhsCustomerInformation), LocatorUtils.property(thatLocator, "customerInformation", rhsCustomerInformation), lhsCustomerInformation, rhsCustomerInformation, ((this.customerInformation!= null)&&(!this.customerInformation.isEmpty())), ((that.customerInformation!= null)&&(!that.customerInformation.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            String lhsExpediteReferenceIdentifier;
+            lhsExpediteReferenceIdentifier = this.getExpediteReferenceIdentifier();
+            String rhsExpediteReferenceIdentifier;
+            rhsExpediteReferenceIdentifier = that.getExpediteReferenceIdentifier();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "expediteReferenceIdentifier", lhsExpediteReferenceIdentifier), LocatorUtils.property(thatLocator, "expediteReferenceIdentifier", rhsExpediteReferenceIdentifier), lhsExpediteReferenceIdentifier, rhsExpediteReferenceIdentifier, (this.expediteReferenceIdentifier!= null), (that.expediteReferenceIdentifier!= null))) {
+                return false;
+            }
+        }
+        {
+            List<String> lhsIdentifier;
+            lhsIdentifier = (((this.identifier!= null)&&(!this.identifier.isEmpty()))?this.getIdentifier():null);
+            List<String> rhsIdentifier;
+            rhsIdentifier = (((that.identifier!= null)&&(!that.identifier.isEmpty()))?that.getIdentifier():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "identifier", lhsIdentifier), LocatorUtils.property(thatLocator, "identifier", rhsIdentifier), lhsIdentifier, rhsIdentifier, ((this.identifier!= null)&&(!this.identifier.isEmpty())), ((that.identifier!= null)&&(!that.identifier.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            LineItemStatus lhsLineItemStatus;
+            lhsLineItemStatus = this.getLineItemStatus();
+            LineItemStatus rhsLineItemStatus;
+            rhsLineItemStatus = that.getLineItemStatus();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "lineItemStatus", lhsLineItemStatus), LocatorUtils.property(thatLocator, "lineItemStatus", rhsLineItemStatus), lhsLineItemStatus, rhsLineItemStatus, (this.lineItemStatus!= null), (that.lineItemStatus!= null))) {
+                return false;
+            }
+        }
+        {
+            NotificationType lhsNotificationType;
+            lhsNotificationType = this.getNotificationType();
+            NotificationType rhsNotificationType;
+            rhsNotificationType = that.getNotificationType();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "notificationType", lhsNotificationType), LocatorUtils.property(thatLocator, "notificationType", rhsNotificationType), lhsNotificationType, rhsNotificationType, (this.notificationType!= null), (that.notificationType!= null))) {
+                return false;
+            }
+        }
+        {
+            OrderShippingInformation lhsOrderShippingInformation;
+            lhsOrderShippingInformation = this.getOrderShippingInformation();
+            OrderShippingInformation rhsOrderShippingInformation;
+            rhsOrderShippingInformation = that.getOrderShippingInformation();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "orderShippingInformation", lhsOrderShippingInformation), LocatorUtils.property(thatLocator, "orderShippingInformation", rhsOrderShippingInformation), lhsOrderShippingInformation, rhsOrderShippingInformation, (this.orderShippingInformation!= null), (that.orderShippingInformation!= null))) {
+                return false;
+            }
+        }
+        {
+            List<TransportationEventType> lhsOriginalScheduledEvent;
+            lhsOriginalScheduledEvent = (((this.originalScheduledEvent!= null)&&(!this.originalScheduledEvent.isEmpty()))?this.getOriginalScheduledEvent():null);
+            List<TransportationEventType> rhsOriginalScheduledEvent;
+            rhsOriginalScheduledEvent = (((that.originalScheduledEvent!= null)&&(!that.originalScheduledEvent.isEmpty()))?that.getOriginalScheduledEvent():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "originalScheduledEvent", lhsOriginalScheduledEvent), LocatorUtils.property(thatLocator, "originalScheduledEvent", rhsOriginalScheduledEvent), lhsOriginalScheduledEvent, rhsOriginalScheduledEvent, ((this.originalScheduledEvent!= null)&&(!this.originalScheduledEvent.isEmpty())), ((that.originalScheduledEvent!= null)&&(!that.originalScheduledEvent.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            List<PartnerDescription> lhsPartnerDescription;
+            lhsPartnerDescription = (((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty()))?this.getPartnerDescription():null);
+            List<PartnerDescription> rhsPartnerDescription;
+            rhsPartnerDescription = (((that.partnerDescription!= null)&&(!that.partnerDescription.isEmpty()))?that.getPartnerDescription():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "partnerDescription", lhsPartnerDescription), LocatorUtils.property(thatLocator, "partnerDescription", rhsPartnerDescription), lhsPartnerDescription, rhsPartnerDescription, ((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty())), ((that.partnerDescription!= null)&&(!that.partnerDescription.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            String lhsProductInformation;
+            lhsProductInformation = this.getProductInformation();
+            String rhsProductInformation;
+            rhsProductInformation = that.getProductInformation();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "productInformation", lhsProductInformation), LocatorUtils.property(thatLocator, "productInformation", rhsProductInformation), lhsProductInformation, rhsProductInformation, (this.productInformation!= null), (that.productInformation!= null))) {
+                return false;
+            }
+        }
+        {
+            List<PurchaseOrderAcknowledgmentReason> lhsPurchaseOrderAcknowledgmentReason;
+            lhsPurchaseOrderAcknowledgmentReason = (((this.purchaseOrderAcknowledgmentReason!= null)&&(!this.purchaseOrderAcknowledgmentReason.isEmpty()))?this.getPurchaseOrderAcknowledgmentReason():null);
+            List<PurchaseOrderAcknowledgmentReason> rhsPurchaseOrderAcknowledgmentReason;
+            rhsPurchaseOrderAcknowledgmentReason = (((that.purchaseOrderAcknowledgmentReason!= null)&&(!that.purchaseOrderAcknowledgmentReason.isEmpty()))?that.getPurchaseOrderAcknowledgmentReason():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "purchaseOrderAcknowledgmentReason", lhsPurchaseOrderAcknowledgmentReason), LocatorUtils.property(thatLocator, "purchaseOrderAcknowledgmentReason", rhsPurchaseOrderAcknowledgmentReason), lhsPurchaseOrderAcknowledgmentReason, rhsPurchaseOrderAcknowledgmentReason, ((this.purchaseOrderAcknowledgmentReason!= null)&&(!this.purchaseOrderAcknowledgmentReason.isEmpty())), ((that.purchaseOrderAcknowledgmentReason!= null)&&(!that.purchaseOrderAcknowledgmentReason.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            PurchaseOrderFillPriority lhsPurchaseOrderFillPriority;
+            lhsPurchaseOrderFillPriority = this.getPurchaseOrderFillPriority();
+            PurchaseOrderFillPriority rhsPurchaseOrderFillPriority;
+            rhsPurchaseOrderFillPriority = that.getPurchaseOrderFillPriority();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "purchaseOrderFillPriority", lhsPurchaseOrderFillPriority), LocatorUtils.property(thatLocator, "purchaseOrderFillPriority", rhsPurchaseOrderFillPriority), lhsPurchaseOrderFillPriority, rhsPurchaseOrderFillPriority, (this.purchaseOrderFillPriority!= null), (that.purchaseOrderFillPriority!= null))) {
+                return false;
+            }
+        }
+        {
+            PurchaseOrderStatus lhsPurchaseOrderStatus;
+            lhsPurchaseOrderStatus = this.getPurchaseOrderStatus();
+            PurchaseOrderStatus rhsPurchaseOrderStatus;
+            rhsPurchaseOrderStatus = that.getPurchaseOrderStatus();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "purchaseOrderStatus", lhsPurchaseOrderStatus), LocatorUtils.property(thatLocator, "purchaseOrderStatus", rhsPurchaseOrderStatus), lhsPurchaseOrderStatus, rhsPurchaseOrderStatus, (this.purchaseOrderStatus!= null), (that.purchaseOrderStatus!= null))) {
+                return false;
+            }
+        }
+        {
+            PurchaseOrderType lhsPurchaseOrderType;
+            lhsPurchaseOrderType = this.getPurchaseOrderType();
+            PurchaseOrderType rhsPurchaseOrderType;
+            rhsPurchaseOrderType = that.getPurchaseOrderType();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "purchaseOrderType", lhsPurchaseOrderType), LocatorUtils.property(thatLocator, "purchaseOrderType", rhsPurchaseOrderType), lhsPurchaseOrderType, rhsPurchaseOrderType, (this.purchaseOrderType!= null), (that.purchaseOrderType!= null))) {
+                return false;
+            }
+        }
+        {
+            QuantityType lhsQuantity;
+            lhsQuantity = this.getQuantity();
+            QuantityType rhsQuantity;
+            rhsQuantity = that.getQuantity();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "quantity", lhsQuantity), LocatorUtils.property(thatLocator, "quantity", rhsQuantity), lhsQuantity, rhsQuantity, (this.quantity!= null), (that.quantity!= null))) {
+                return false;
+            }
+        }
+        {
+            DateTimePeriodType lhsRequestedDeliveryDate;
+            lhsRequestedDeliveryDate = this.getRequestedDeliveryDate();
+            DateTimePeriodType rhsRequestedDeliveryDate;
+            rhsRequestedDeliveryDate = that.getRequestedDeliveryDate();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "requestedDeliveryDate", lhsRequestedDeliveryDate), LocatorUtils.property(thatLocator, "requestedDeliveryDate", rhsRequestedDeliveryDate), lhsRequestedDeliveryDate, rhsRequestedDeliveryDate, (this.requestedDeliveryDate!= null), (that.requestedDeliveryDate!= null))) {
+                return false;
+            }
+        }
+        {
+            TransportationEventType lhsRequestedEvent;
+            lhsRequestedEvent = this.getRequestedEvent();
+            TransportationEventType rhsRequestedEvent;
+            rhsRequestedEvent = that.getRequestedEvent();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "requestedEvent", lhsRequestedEvent), LocatorUtils.property(thatLocator, "requestedEvent", rhsRequestedEvent), lhsRequestedEvent, rhsRequestedEvent, (this.requestedEvent!= null), (that.requestedEvent!= null))) {
+                return false;
+            }
+        }
+        {
+            RequestedUnitPrice lhsRequestedUnitPrice;
+            lhsRequestedUnitPrice = this.getRequestedUnitPrice();
+            RequestedUnitPrice rhsRequestedUnitPrice;
+            rhsRequestedUnitPrice = that.getRequestedUnitPrice();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "requestedUnitPrice", lhsRequestedUnitPrice), LocatorUtils.property(thatLocator, "requestedUnitPrice", rhsRequestedUnitPrice), lhsRequestedUnitPrice, rhsRequestedUnitPrice, (this.requestedUnitPrice!= null), (that.requestedUnitPrice!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsResponseDescription;
+            lhsResponseDescription = this.getResponseDescription();
+            String rhsResponseDescription;
+            rhsResponseDescription = that.getResponseDescription();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "responseDescription", lhsResponseDescription), LocatorUtils.property(thatLocator, "responseDescription", rhsResponseDescription), lhsResponseDescription, rhsResponseDescription, (this.responseDescription!= null), (that.responseDescription!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsRevisionNumber;
+            lhsRevisionNumber = this.getRevisionNumber();
+            String rhsRevisionNumber;
+            rhsRevisionNumber = that.getRevisionNumber();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "revisionNumber", lhsRevisionNumber), LocatorUtils.property(thatLocator, "revisionNumber", rhsRevisionNumber), lhsRevisionNumber, rhsRevisionNumber, (this.revisionNumber!= null), (that.revisionNumber!= null))) {
+                return false;
+            }
+        }
+        {
+            DateTimePeriodType lhsScheduledDeliveryDate;
+            lhsScheduledDeliveryDate = this.getScheduledDeliveryDate();
+            DateTimePeriodType rhsScheduledDeliveryDate;
+            rhsScheduledDeliveryDate = that.getScheduledDeliveryDate();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "scheduledDeliveryDate", lhsScheduledDeliveryDate), LocatorUtils.property(thatLocator, "scheduledDeliveryDate", rhsScheduledDeliveryDate), lhsScheduledDeliveryDate, rhsScheduledDeliveryDate, (this.scheduledDeliveryDate!= null), (that.scheduledDeliveryDate!= null))) {
+                return false;
+            }
+        }
+        {
+            List<TransportationEventType> lhsScheduledEvent;
+            lhsScheduledEvent = (((this.scheduledEvent!= null)&&(!this.scheduledEvent.isEmpty()))?this.getScheduledEvent():null);
+            List<TransportationEventType> rhsScheduledEvent;
+            rhsScheduledEvent = (((that.scheduledEvent!= null)&&(!that.scheduledEvent.isEmpty()))?that.getScheduledEvent():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "scheduledEvent", lhsScheduledEvent), LocatorUtils.property(thatLocator, "scheduledEvent", rhsScheduledEvent), lhsScheduledEvent, rhsScheduledEvent, ((this.scheduledEvent!= null)&&(!this.scheduledEvent.isEmpty())), ((that.scheduledEvent!= null)&&(!that.scheduledEvent.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            List<ShipmentStatusInformationType> lhsShipmentStatusInformation;
+            lhsShipmentStatusInformation = (((this.shipmentStatusInformation!= null)&&(!this.shipmentStatusInformation.isEmpty()))?this.getShipmentStatusInformation():null);
+            List<ShipmentStatusInformationType> rhsShipmentStatusInformation;
+            rhsShipmentStatusInformation = (((that.shipmentStatusInformation!= null)&&(!that.shipmentStatusInformation.isEmpty()))?that.getShipmentStatusInformation():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "shipmentStatusInformation", lhsShipmentStatusInformation), LocatorUtils.property(thatLocator, "shipmentStatusInformation", rhsShipmentStatusInformation), lhsShipmentStatusInformation, rhsShipmentStatusInformation, ((this.shipmentStatusInformation!= null)&&(!this.shipmentStatusInformation.isEmpty())), ((that.shipmentStatusInformation!= null)&&(!that.shipmentStatusInformation.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            List<ShippedQuantityInformationType> lhsShippedQuantityInformation;
+            lhsShippedQuantityInformation = (((this.shippedQuantityInformation!= null)&&(!this.shippedQuantityInformation.isEmpty()))?this.getShippedQuantityInformation():null);
+            List<ShippedQuantityInformationType> rhsShippedQuantityInformation;
+            rhsShippedQuantityInformation = (((that.shippedQuantityInformation!= null)&&(!that.shippedQuantityInformation.isEmpty()))?that.getShippedQuantityInformation():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "shippedQuantityInformation", lhsShippedQuantityInformation), LocatorUtils.property(thatLocator, "shippedQuantityInformation", rhsShippedQuantityInformation), lhsShippedQuantityInformation, rhsShippedQuantityInformation, ((this.shippedQuantityInformation!= null)&&(!this.shippedQuantityInformation.isEmpty())), ((that.shippedQuantityInformation!= null)&&(!that.shippedQuantityInformation.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            String lhsSubLineItem;
+            lhsSubLineItem = this.getSubLineItem();
+            String rhsSubLineItem;
+            rhsSubLineItem = that.getSubLineItem();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "subLineItem", lhsSubLineItem), LocatorUtils.property(thatLocator, "subLineItem", rhsSubLineItem), lhsSubLineItem, rhsSubLineItem, (this.subLineItem!= null), (that.subLineItem!= null))) {
+                return false;
+            }
+        }
+        {
+            TransportationEvent lhsTransportationEvent;
+            lhsTransportationEvent = this.getTransportationEvent();
+            TransportationEvent rhsTransportationEvent;
+            rhsTransportationEvent = that.getTransportationEvent();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "transportationEvent", lhsTransportationEvent), LocatorUtils.property(thatLocator, "transportationEvent", rhsTransportationEvent), lhsTransportationEvent, rhsTransportationEvent, (this.transportationEvent!= null), (that.transportationEvent!= null))) {
+                return false;
+            }
+        }
+        {
+            UnitOfMeasure lhsUnitOfMeasure;
+            lhsUnitOfMeasure = this.getUnitOfMeasure();
+            UnitOfMeasure rhsUnitOfMeasure;
+            rhsUnitOfMeasure = that.getUnitOfMeasure();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "unitOfMeasure", lhsUnitOfMeasure), LocatorUtils.property(thatLocator, "unitOfMeasure", rhsUnitOfMeasure), lhsUnitOfMeasure, rhsUnitOfMeasure, (this.unitOfMeasure!= null), (that.unitOfMeasure!= null))) {
+                return false;
+            }
+        }
+        {
+            RequestedUnitPriceType lhsUnitPrice;
+            lhsUnitPrice = this.getUnitPrice();
+            RequestedUnitPriceType rhsUnitPrice;
+            rhsUnitPrice = that.getUnitPrice();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "unitPrice", lhsUnitPrice), LocatorUtils.property(thatLocator, "unitPrice", rhsUnitPrice), lhsUnitPrice, rhsUnitPrice, (this.unitPrice!= null), (that.unitPrice!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            DateTimePeriodType theActualDeliveryDate;
+            theActualDeliveryDate = this.getActualDeliveryDate();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "actualDeliveryDate", theActualDeliveryDate), currentHashCode, theActualDeliveryDate, (this.actualDeliveryDate!= null));
+        }
+        {
+            String theBuyerSubLineItem;
+            theBuyerSubLineItem = this.getBuyerSubLineItem();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "buyerSubLineItem", theBuyerSubLineItem), currentHashCode, theBuyerSubLineItem, (this.buyerSubLineItem!= null));
+        }
+        {
+            String theComments;
+            theComments = this.getComments();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "comments", theComments), currentHashCode, theComments, (this.comments!= null));
+        }
+        {
+            List<ContractInformation> theContractInformation;
+            theContractInformation = (((this.contractInformation!= null)&&(!this.contractInformation.isEmpty()))?this.getContractInformation():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contractInformation", theContractInformation), currentHashCode, theContractInformation, ((this.contractInformation!= null)&&(!this.contractInformation.isEmpty())));
+        }
+        {
+            CountryType theCountryOfOrigin;
+            theCountryOfOrigin = this.getCountryOfOrigin();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "countryOfOrigin", theCountryOfOrigin), currentHashCode, theCountryOfOrigin, (this.countryOfOrigin!= null));
+        }
+        {
+            List<CustomerInformation> theCustomerInformation;
+            theCustomerInformation = (((this.customerInformation!= null)&&(!this.customerInformation.isEmpty()))?this.getCustomerInformation():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "customerInformation", theCustomerInformation), currentHashCode, theCustomerInformation, ((this.customerInformation!= null)&&(!this.customerInformation.isEmpty())));
+        }
+        {
+            String theExpediteReferenceIdentifier;
+            theExpediteReferenceIdentifier = this.getExpediteReferenceIdentifier();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "expediteReferenceIdentifier", theExpediteReferenceIdentifier), currentHashCode, theExpediteReferenceIdentifier, (this.expediteReferenceIdentifier!= null));
+        }
+        {
+            List<String> theIdentifier;
+            theIdentifier = (((this.identifier!= null)&&(!this.identifier.isEmpty()))?this.getIdentifier():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "identifier", theIdentifier), currentHashCode, theIdentifier, ((this.identifier!= null)&&(!this.identifier.isEmpty())));
+        }
+        {
+            LineItemStatus theLineItemStatus;
+            theLineItemStatus = this.getLineItemStatus();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "lineItemStatus", theLineItemStatus), currentHashCode, theLineItemStatus, (this.lineItemStatus!= null));
+        }
+        {
+            NotificationType theNotificationType;
+            theNotificationType = this.getNotificationType();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "notificationType", theNotificationType), currentHashCode, theNotificationType, (this.notificationType!= null));
+        }
+        {
+            OrderShippingInformation theOrderShippingInformation;
+            theOrderShippingInformation = this.getOrderShippingInformation();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "orderShippingInformation", theOrderShippingInformation), currentHashCode, theOrderShippingInformation, (this.orderShippingInformation!= null));
+        }
+        {
+            List<TransportationEventType> theOriginalScheduledEvent;
+            theOriginalScheduledEvent = (((this.originalScheduledEvent!= null)&&(!this.originalScheduledEvent.isEmpty()))?this.getOriginalScheduledEvent():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "originalScheduledEvent", theOriginalScheduledEvent), currentHashCode, theOriginalScheduledEvent, ((this.originalScheduledEvent!= null)&&(!this.originalScheduledEvent.isEmpty())));
+        }
+        {
+            List<PartnerDescription> thePartnerDescription;
+            thePartnerDescription = (((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty()))?this.getPartnerDescription():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "partnerDescription", thePartnerDescription), currentHashCode, thePartnerDescription, ((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty())));
+        }
+        {
+            String theProductInformation;
+            theProductInformation = this.getProductInformation();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "productInformation", theProductInformation), currentHashCode, theProductInformation, (this.productInformation!= null));
+        }
+        {
+            List<PurchaseOrderAcknowledgmentReason> thePurchaseOrderAcknowledgmentReason;
+            thePurchaseOrderAcknowledgmentReason = (((this.purchaseOrderAcknowledgmentReason!= null)&&(!this.purchaseOrderAcknowledgmentReason.isEmpty()))?this.getPurchaseOrderAcknowledgmentReason():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "purchaseOrderAcknowledgmentReason", thePurchaseOrderAcknowledgmentReason), currentHashCode, thePurchaseOrderAcknowledgmentReason, ((this.purchaseOrderAcknowledgmentReason!= null)&&(!this.purchaseOrderAcknowledgmentReason.isEmpty())));
+        }
+        {
+            PurchaseOrderFillPriority thePurchaseOrderFillPriority;
+            thePurchaseOrderFillPriority = this.getPurchaseOrderFillPriority();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "purchaseOrderFillPriority", thePurchaseOrderFillPriority), currentHashCode, thePurchaseOrderFillPriority, (this.purchaseOrderFillPriority!= null));
+        }
+        {
+            PurchaseOrderStatus thePurchaseOrderStatus;
+            thePurchaseOrderStatus = this.getPurchaseOrderStatus();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "purchaseOrderStatus", thePurchaseOrderStatus), currentHashCode, thePurchaseOrderStatus, (this.purchaseOrderStatus!= null));
+        }
+        {
+            PurchaseOrderType thePurchaseOrderType;
+            thePurchaseOrderType = this.getPurchaseOrderType();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "purchaseOrderType", thePurchaseOrderType), currentHashCode, thePurchaseOrderType, (this.purchaseOrderType!= null));
+        }
+        {
+            QuantityType theQuantity;
+            theQuantity = this.getQuantity();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "quantity", theQuantity), currentHashCode, theQuantity, (this.quantity!= null));
+        }
+        {
+            DateTimePeriodType theRequestedDeliveryDate;
+            theRequestedDeliveryDate = this.getRequestedDeliveryDate();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "requestedDeliveryDate", theRequestedDeliveryDate), currentHashCode, theRequestedDeliveryDate, (this.requestedDeliveryDate!= null));
+        }
+        {
+            TransportationEventType theRequestedEvent;
+            theRequestedEvent = this.getRequestedEvent();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "requestedEvent", theRequestedEvent), currentHashCode, theRequestedEvent, (this.requestedEvent!= null));
+        }
+        {
+            RequestedUnitPrice theRequestedUnitPrice;
+            theRequestedUnitPrice = this.getRequestedUnitPrice();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "requestedUnitPrice", theRequestedUnitPrice), currentHashCode, theRequestedUnitPrice, (this.requestedUnitPrice!= null));
+        }
+        {
+            String theResponseDescription;
+            theResponseDescription = this.getResponseDescription();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "responseDescription", theResponseDescription), currentHashCode, theResponseDescription, (this.responseDescription!= null));
+        }
+        {
+            String theRevisionNumber;
+            theRevisionNumber = this.getRevisionNumber();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "revisionNumber", theRevisionNumber), currentHashCode, theRevisionNumber, (this.revisionNumber!= null));
+        }
+        {
+            DateTimePeriodType theScheduledDeliveryDate;
+            theScheduledDeliveryDate = this.getScheduledDeliveryDate();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "scheduledDeliveryDate", theScheduledDeliveryDate), currentHashCode, theScheduledDeliveryDate, (this.scheduledDeliveryDate!= null));
+        }
+        {
+            List<TransportationEventType> theScheduledEvent;
+            theScheduledEvent = (((this.scheduledEvent!= null)&&(!this.scheduledEvent.isEmpty()))?this.getScheduledEvent():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "scheduledEvent", theScheduledEvent), currentHashCode, theScheduledEvent, ((this.scheduledEvent!= null)&&(!this.scheduledEvent.isEmpty())));
+        }
+        {
+            List<ShipmentStatusInformationType> theShipmentStatusInformation;
+            theShipmentStatusInformation = (((this.shipmentStatusInformation!= null)&&(!this.shipmentStatusInformation.isEmpty()))?this.getShipmentStatusInformation():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "shipmentStatusInformation", theShipmentStatusInformation), currentHashCode, theShipmentStatusInformation, ((this.shipmentStatusInformation!= null)&&(!this.shipmentStatusInformation.isEmpty())));
+        }
+        {
+            List<ShippedQuantityInformationType> theShippedQuantityInformation;
+            theShippedQuantityInformation = (((this.shippedQuantityInformation!= null)&&(!this.shippedQuantityInformation.isEmpty()))?this.getShippedQuantityInformation():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "shippedQuantityInformation", theShippedQuantityInformation), currentHashCode, theShippedQuantityInformation, ((this.shippedQuantityInformation!= null)&&(!this.shippedQuantityInformation.isEmpty())));
+        }
+        {
+            String theSubLineItem;
+            theSubLineItem = this.getSubLineItem();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "subLineItem", theSubLineItem), currentHashCode, theSubLineItem, (this.subLineItem!= null));
+        }
+        {
+            TransportationEvent theTransportationEvent;
+            theTransportationEvent = this.getTransportationEvent();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "transportationEvent", theTransportationEvent), currentHashCode, theTransportationEvent, (this.transportationEvent!= null));
+        }
+        {
+            UnitOfMeasure theUnitOfMeasure;
+            theUnitOfMeasure = this.getUnitOfMeasure();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "unitOfMeasure", theUnitOfMeasure), currentHashCode, theUnitOfMeasure, (this.unitOfMeasure!= null));
+        }
+        {
+            RequestedUnitPriceType theUnitPrice;
+            theUnitPrice = this.getUnitPrice();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "unitPrice", theUnitPrice), currentHashCode, theUnitPrice, (this.unitPrice!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            DateTimePeriodType theActualDeliveryDate;
+            theActualDeliveryDate = this.getActualDeliveryDate();
+            strategy.appendField(locator, this, "actualDeliveryDate", buffer, theActualDeliveryDate, (this.actualDeliveryDate!= null));
+        }
+        {
+            String theBuyerSubLineItem;
+            theBuyerSubLineItem = this.getBuyerSubLineItem();
+            strategy.appendField(locator, this, "buyerSubLineItem", buffer, theBuyerSubLineItem, (this.buyerSubLineItem!= null));
+        }
+        {
+            String theComments;
+            theComments = this.getComments();
+            strategy.appendField(locator, this, "comments", buffer, theComments, (this.comments!= null));
+        }
+        {
+            List<ContractInformation> theContractInformation;
+            theContractInformation = (((this.contractInformation!= null)&&(!this.contractInformation.isEmpty()))?this.getContractInformation():null);
+            strategy.appendField(locator, this, "contractInformation", buffer, theContractInformation, ((this.contractInformation!= null)&&(!this.contractInformation.isEmpty())));
+        }
+        {
+            CountryType theCountryOfOrigin;
+            theCountryOfOrigin = this.getCountryOfOrigin();
+            strategy.appendField(locator, this, "countryOfOrigin", buffer, theCountryOfOrigin, (this.countryOfOrigin!= null));
+        }
+        {
+            List<CustomerInformation> theCustomerInformation;
+            theCustomerInformation = (((this.customerInformation!= null)&&(!this.customerInformation.isEmpty()))?this.getCustomerInformation():null);
+            strategy.appendField(locator, this, "customerInformation", buffer, theCustomerInformation, ((this.customerInformation!= null)&&(!this.customerInformation.isEmpty())));
+        }
+        {
+            String theExpediteReferenceIdentifier;
+            theExpediteReferenceIdentifier = this.getExpediteReferenceIdentifier();
+            strategy.appendField(locator, this, "expediteReferenceIdentifier", buffer, theExpediteReferenceIdentifier, (this.expediteReferenceIdentifier!= null));
+        }
+        {
+            List<String> theIdentifier;
+            theIdentifier = (((this.identifier!= null)&&(!this.identifier.isEmpty()))?this.getIdentifier():null);
+            strategy.appendField(locator, this, "identifier", buffer, theIdentifier, ((this.identifier!= null)&&(!this.identifier.isEmpty())));
+        }
+        {
+            LineItemStatus theLineItemStatus;
+            theLineItemStatus = this.getLineItemStatus();
+            strategy.appendField(locator, this, "lineItemStatus", buffer, theLineItemStatus, (this.lineItemStatus!= null));
+        }
+        {
+            NotificationType theNotificationType;
+            theNotificationType = this.getNotificationType();
+            strategy.appendField(locator, this, "notificationType", buffer, theNotificationType, (this.notificationType!= null));
+        }
+        {
+            OrderShippingInformation theOrderShippingInformation;
+            theOrderShippingInformation = this.getOrderShippingInformation();
+            strategy.appendField(locator, this, "orderShippingInformation", buffer, theOrderShippingInformation, (this.orderShippingInformation!= null));
+        }
+        {
+            List<TransportationEventType> theOriginalScheduledEvent;
+            theOriginalScheduledEvent = (((this.originalScheduledEvent!= null)&&(!this.originalScheduledEvent.isEmpty()))?this.getOriginalScheduledEvent():null);
+            strategy.appendField(locator, this, "originalScheduledEvent", buffer, theOriginalScheduledEvent, ((this.originalScheduledEvent!= null)&&(!this.originalScheduledEvent.isEmpty())));
+        }
+        {
+            List<PartnerDescription> thePartnerDescription;
+            thePartnerDescription = (((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty()))?this.getPartnerDescription():null);
+            strategy.appendField(locator, this, "partnerDescription", buffer, thePartnerDescription, ((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty())));
+        }
+        {
+            String theProductInformation;
+            theProductInformation = this.getProductInformation();
+            strategy.appendField(locator, this, "productInformation", buffer, theProductInformation, (this.productInformation!= null));
+        }
+        {
+            List<PurchaseOrderAcknowledgmentReason> thePurchaseOrderAcknowledgmentReason;
+            thePurchaseOrderAcknowledgmentReason = (((this.purchaseOrderAcknowledgmentReason!= null)&&(!this.purchaseOrderAcknowledgmentReason.isEmpty()))?this.getPurchaseOrderAcknowledgmentReason():null);
+            strategy.appendField(locator, this, "purchaseOrderAcknowledgmentReason", buffer, thePurchaseOrderAcknowledgmentReason, ((this.purchaseOrderAcknowledgmentReason!= null)&&(!this.purchaseOrderAcknowledgmentReason.isEmpty())));
+        }
+        {
+            PurchaseOrderFillPriority thePurchaseOrderFillPriority;
+            thePurchaseOrderFillPriority = this.getPurchaseOrderFillPriority();
+            strategy.appendField(locator, this, "purchaseOrderFillPriority", buffer, thePurchaseOrderFillPriority, (this.purchaseOrderFillPriority!= null));
+        }
+        {
+            PurchaseOrderStatus thePurchaseOrderStatus;
+            thePurchaseOrderStatus = this.getPurchaseOrderStatus();
+            strategy.appendField(locator, this, "purchaseOrderStatus", buffer, thePurchaseOrderStatus, (this.purchaseOrderStatus!= null));
+        }
+        {
+            PurchaseOrderType thePurchaseOrderType;
+            thePurchaseOrderType = this.getPurchaseOrderType();
+            strategy.appendField(locator, this, "purchaseOrderType", buffer, thePurchaseOrderType, (this.purchaseOrderType!= null));
+        }
+        {
+            QuantityType theQuantity;
+            theQuantity = this.getQuantity();
+            strategy.appendField(locator, this, "quantity", buffer, theQuantity, (this.quantity!= null));
+        }
+        {
+            DateTimePeriodType theRequestedDeliveryDate;
+            theRequestedDeliveryDate = this.getRequestedDeliveryDate();
+            strategy.appendField(locator, this, "requestedDeliveryDate", buffer, theRequestedDeliveryDate, (this.requestedDeliveryDate!= null));
+        }
+        {
+            TransportationEventType theRequestedEvent;
+            theRequestedEvent = this.getRequestedEvent();
+            strategy.appendField(locator, this, "requestedEvent", buffer, theRequestedEvent, (this.requestedEvent!= null));
+        }
+        {
+            RequestedUnitPrice theRequestedUnitPrice;
+            theRequestedUnitPrice = this.getRequestedUnitPrice();
+            strategy.appendField(locator, this, "requestedUnitPrice", buffer, theRequestedUnitPrice, (this.requestedUnitPrice!= null));
+        }
+        {
+            String theResponseDescription;
+            theResponseDescription = this.getResponseDescription();
+            strategy.appendField(locator, this, "responseDescription", buffer, theResponseDescription, (this.responseDescription!= null));
+        }
+        {
+            String theRevisionNumber;
+            theRevisionNumber = this.getRevisionNumber();
+            strategy.appendField(locator, this, "revisionNumber", buffer, theRevisionNumber, (this.revisionNumber!= null));
+        }
+        {
+            DateTimePeriodType theScheduledDeliveryDate;
+            theScheduledDeliveryDate = this.getScheduledDeliveryDate();
+            strategy.appendField(locator, this, "scheduledDeliveryDate", buffer, theScheduledDeliveryDate, (this.scheduledDeliveryDate!= null));
+        }
+        {
+            List<TransportationEventType> theScheduledEvent;
+            theScheduledEvent = (((this.scheduledEvent!= null)&&(!this.scheduledEvent.isEmpty()))?this.getScheduledEvent():null);
+            strategy.appendField(locator, this, "scheduledEvent", buffer, theScheduledEvent, ((this.scheduledEvent!= null)&&(!this.scheduledEvent.isEmpty())));
+        }
+        {
+            List<ShipmentStatusInformationType> theShipmentStatusInformation;
+            theShipmentStatusInformation = (((this.shipmentStatusInformation!= null)&&(!this.shipmentStatusInformation.isEmpty()))?this.getShipmentStatusInformation():null);
+            strategy.appendField(locator, this, "shipmentStatusInformation", buffer, theShipmentStatusInformation, ((this.shipmentStatusInformation!= null)&&(!this.shipmentStatusInformation.isEmpty())));
+        }
+        {
+            List<ShippedQuantityInformationType> theShippedQuantityInformation;
+            theShippedQuantityInformation = (((this.shippedQuantityInformation!= null)&&(!this.shippedQuantityInformation.isEmpty()))?this.getShippedQuantityInformation():null);
+            strategy.appendField(locator, this, "shippedQuantityInformation", buffer, theShippedQuantityInformation, ((this.shippedQuantityInformation!= null)&&(!this.shippedQuantityInformation.isEmpty())));
+        }
+        {
+            String theSubLineItem;
+            theSubLineItem = this.getSubLineItem();
+            strategy.appendField(locator, this, "subLineItem", buffer, theSubLineItem, (this.subLineItem!= null));
+        }
+        {
+            TransportationEvent theTransportationEvent;
+            theTransportationEvent = this.getTransportationEvent();
+            strategy.appendField(locator, this, "transportationEvent", buffer, theTransportationEvent, (this.transportationEvent!= null));
+        }
+        {
+            UnitOfMeasure theUnitOfMeasure;
+            theUnitOfMeasure = this.getUnitOfMeasure();
+            strategy.appendField(locator, this, "unitOfMeasure", buffer, theUnitOfMeasure, (this.unitOfMeasure!= null));
+        }
+        {
+            RequestedUnitPriceType theUnitPrice;
+            theUnitPrice = this.getUnitPrice();
+            strategy.appendField(locator, this, "unitPrice", buffer, theUnitPrice, (this.unitPrice!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

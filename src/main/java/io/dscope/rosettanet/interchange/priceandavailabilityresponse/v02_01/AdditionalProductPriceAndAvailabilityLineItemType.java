@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.interchange.priceandavailabilityresponse.v02_01;
 
@@ -35,6 +16,17 @@ import io.dscope.rosettanet.domain.procurement.codelist.customerauthorizationcod
 import io.dscope.rosettanet.domain.procurement.codelist.productavailabilitycode.v01_03.ProductAvailabilityCode;
 import io.dscope.rosettanet.domain.procurement.procurement.v02_27.StepPricing;
 import io.dscope.rosettanet.domain.procurement.procurement.v02_27.SubstituteProductReference;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -75,7 +67,8 @@ import io.dscope.rosettanet.domain.procurement.procurement.v02_27.SubstituteProd
     "stepPricing",
     "substituteProductReference"
 })
-public class AdditionalProductPriceAndAvailabilityLineItemType {
+public class AdditionalProductPriceAndAvailabilityLineItemType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElementRef(name = "CustomerAuthorizationCode", namespace = "urn:rosettanet:specification:domain:Procurement:CustomerAuthorizationCode:xsd:codelist:01.03", type = CustomerAuthorizationCode.class, required = false)
     protected CustomerAuthorizationCode customerAuthorizationCode;
@@ -322,6 +315,221 @@ public class AdditionalProductPriceAndAvailabilityLineItemType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final AdditionalProductPriceAndAvailabilityLineItemType that = ((AdditionalProductPriceAndAvailabilityLineItemType) object);
+        {
+            CustomerAuthorizationCode lhsCustomerAuthorizationCode;
+            lhsCustomerAuthorizationCode = this.getCustomerAuthorizationCode();
+            CustomerAuthorizationCode rhsCustomerAuthorizationCode;
+            rhsCustomerAuthorizationCode = that.getCustomerAuthorizationCode();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "customerAuthorizationCode", lhsCustomerAuthorizationCode), LocatorUtils.property(thatLocator, "customerAuthorizationCode", rhsCustomerAuthorizationCode), lhsCustomerAuthorizationCode, rhsCustomerAuthorizationCode, (this.customerAuthorizationCode!= null), (that.customerAuthorizationCode!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsDescription;
+            lhsDescription = this.getDescription();
+            String rhsDescription;
+            rhsDescription = that.getDescription();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "description", lhsDescription), LocatorUtils.property(thatLocator, "description", rhsDescription), lhsDescription, rhsDescription, (this.description!= null), (that.description!= null))) {
+                return false;
+            }
+        }
+        {
+            Float lhsManufacturerMinimumPackageQuantity;
+            lhsManufacturerMinimumPackageQuantity = this.getManufacturerMinimumPackageQuantity();
+            Float rhsManufacturerMinimumPackageQuantity;
+            rhsManufacturerMinimumPackageQuantity = that.getManufacturerMinimumPackageQuantity();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "manufacturerMinimumPackageQuantity", lhsManufacturerMinimumPackageQuantity), LocatorUtils.property(thatLocator, "manufacturerMinimumPackageQuantity", rhsManufacturerMinimumPackageQuantity), lhsManufacturerMinimumPackageQuantity, rhsManufacturerMinimumPackageQuantity, (this.manufacturerMinimumPackageQuantity!= null), (that.manufacturerMinimumPackageQuantity!= null))) {
+                return false;
+            }
+        }
+        {
+            Float lhsPackingQuantity;
+            lhsPackingQuantity = this.getPackingQuantity();
+            Float rhsPackingQuantity;
+            rhsPackingQuantity = that.getPackingQuantity();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "packingQuantity", lhsPackingQuantity), LocatorUtils.property(thatLocator, "packingQuantity", rhsPackingQuantity), lhsPackingQuantity, rhsPackingQuantity, (this.packingQuantity!= null), (that.packingQuantity!= null))) {
+                return false;
+            }
+        }
+        {
+            ProductAvailabilityCode lhsProductAvailabilityCode;
+            lhsProductAvailabilityCode = this.getProductAvailabilityCode();
+            ProductAvailabilityCode rhsProductAvailabilityCode;
+            rhsProductAvailabilityCode = that.getProductAvailabilityCode();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "productAvailabilityCode", lhsProductAvailabilityCode), LocatorUtils.property(thatLocator, "productAvailabilityCode", rhsProductAvailabilityCode), lhsProductAvailabilityCode, rhsProductAvailabilityCode, (this.productAvailabilityCode!= null), (that.productAvailabilityCode!= null))) {
+                return false;
+            }
+        }
+        {
+            Float lhsSmallestPackingQuantity;
+            lhsSmallestPackingQuantity = this.getSmallestPackingQuantity();
+            Float rhsSmallestPackingQuantity;
+            rhsSmallestPackingQuantity = that.getSmallestPackingQuantity();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "smallestPackingQuantity", lhsSmallestPackingQuantity), LocatorUtils.property(thatLocator, "smallestPackingQuantity", rhsSmallestPackingQuantity), lhsSmallestPackingQuantity, rhsSmallestPackingQuantity, (this.smallestPackingQuantity!= null), (that.smallestPackingQuantity!= null))) {
+                return false;
+            }
+        }
+        {
+            List<StepPricing> lhsStepPricing;
+            lhsStepPricing = (((this.stepPricing!= null)&&(!this.stepPricing.isEmpty()))?this.getStepPricing():null);
+            List<StepPricing> rhsStepPricing;
+            rhsStepPricing = (((that.stepPricing!= null)&&(!that.stepPricing.isEmpty()))?that.getStepPricing():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "stepPricing", lhsStepPricing), LocatorUtils.property(thatLocator, "stepPricing", rhsStepPricing), lhsStepPricing, rhsStepPricing, ((this.stepPricing!= null)&&(!this.stepPricing.isEmpty())), ((that.stepPricing!= null)&&(!that.stepPricing.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            List<SubstituteProductReference> lhsSubstituteProductReference;
+            lhsSubstituteProductReference = (((this.substituteProductReference!= null)&&(!this.substituteProductReference.isEmpty()))?this.getSubstituteProductReference():null);
+            List<SubstituteProductReference> rhsSubstituteProductReference;
+            rhsSubstituteProductReference = (((that.substituteProductReference!= null)&&(!that.substituteProductReference.isEmpty()))?that.getSubstituteProductReference():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "substituteProductReference", lhsSubstituteProductReference), LocatorUtils.property(thatLocator, "substituteProductReference", rhsSubstituteProductReference), lhsSubstituteProductReference, rhsSubstituteProductReference, ((this.substituteProductReference!= null)&&(!this.substituteProductReference.isEmpty())), ((that.substituteProductReference!= null)&&(!that.substituteProductReference.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            CustomerAuthorizationCode theCustomerAuthorizationCode;
+            theCustomerAuthorizationCode = this.getCustomerAuthorizationCode();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "customerAuthorizationCode", theCustomerAuthorizationCode), currentHashCode, theCustomerAuthorizationCode, (this.customerAuthorizationCode!= null));
+        }
+        {
+            String theDescription;
+            theDescription = this.getDescription();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "description", theDescription), currentHashCode, theDescription, (this.description!= null));
+        }
+        {
+            Float theManufacturerMinimumPackageQuantity;
+            theManufacturerMinimumPackageQuantity = this.getManufacturerMinimumPackageQuantity();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "manufacturerMinimumPackageQuantity", theManufacturerMinimumPackageQuantity), currentHashCode, theManufacturerMinimumPackageQuantity, (this.manufacturerMinimumPackageQuantity!= null));
+        }
+        {
+            Float thePackingQuantity;
+            thePackingQuantity = this.getPackingQuantity();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "packingQuantity", thePackingQuantity), currentHashCode, thePackingQuantity, (this.packingQuantity!= null));
+        }
+        {
+            ProductAvailabilityCode theProductAvailabilityCode;
+            theProductAvailabilityCode = this.getProductAvailabilityCode();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "productAvailabilityCode", theProductAvailabilityCode), currentHashCode, theProductAvailabilityCode, (this.productAvailabilityCode!= null));
+        }
+        {
+            Float theSmallestPackingQuantity;
+            theSmallestPackingQuantity = this.getSmallestPackingQuantity();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "smallestPackingQuantity", theSmallestPackingQuantity), currentHashCode, theSmallestPackingQuantity, (this.smallestPackingQuantity!= null));
+        }
+        {
+            List<StepPricing> theStepPricing;
+            theStepPricing = (((this.stepPricing!= null)&&(!this.stepPricing.isEmpty()))?this.getStepPricing():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "stepPricing", theStepPricing), currentHashCode, theStepPricing, ((this.stepPricing!= null)&&(!this.stepPricing.isEmpty())));
+        }
+        {
+            List<SubstituteProductReference> theSubstituteProductReference;
+            theSubstituteProductReference = (((this.substituteProductReference!= null)&&(!this.substituteProductReference.isEmpty()))?this.getSubstituteProductReference():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "substituteProductReference", theSubstituteProductReference), currentHashCode, theSubstituteProductReference, ((this.substituteProductReference!= null)&&(!this.substituteProductReference.isEmpty())));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            CustomerAuthorizationCode theCustomerAuthorizationCode;
+            theCustomerAuthorizationCode = this.getCustomerAuthorizationCode();
+            strategy.appendField(locator, this, "customerAuthorizationCode", buffer, theCustomerAuthorizationCode, (this.customerAuthorizationCode!= null));
+        }
+        {
+            String theDescription;
+            theDescription = this.getDescription();
+            strategy.appendField(locator, this, "description", buffer, theDescription, (this.description!= null));
+        }
+        {
+            Float theManufacturerMinimumPackageQuantity;
+            theManufacturerMinimumPackageQuantity = this.getManufacturerMinimumPackageQuantity();
+            strategy.appendField(locator, this, "manufacturerMinimumPackageQuantity", buffer, theManufacturerMinimumPackageQuantity, (this.manufacturerMinimumPackageQuantity!= null));
+        }
+        {
+            Float thePackingQuantity;
+            thePackingQuantity = this.getPackingQuantity();
+            strategy.appendField(locator, this, "packingQuantity", buffer, thePackingQuantity, (this.packingQuantity!= null));
+        }
+        {
+            ProductAvailabilityCode theProductAvailabilityCode;
+            theProductAvailabilityCode = this.getProductAvailabilityCode();
+            strategy.appendField(locator, this, "productAvailabilityCode", buffer, theProductAvailabilityCode, (this.productAvailabilityCode!= null));
+        }
+        {
+            Float theSmallestPackingQuantity;
+            theSmallestPackingQuantity = this.getSmallestPackingQuantity();
+            strategy.appendField(locator, this, "smallestPackingQuantity", buffer, theSmallestPackingQuantity, (this.smallestPackingQuantity!= null));
+        }
+        {
+            List<StepPricing> theStepPricing;
+            theStepPricing = (((this.stepPricing!= null)&&(!this.stepPricing.isEmpty()))?this.getStepPricing():null);
+            strategy.appendField(locator, this, "stepPricing", buffer, theStepPricing, ((this.stepPricing!= null)&&(!this.stepPricing.isEmpty())));
+        }
+        {
+            List<SubstituteProductReference> theSubstituteProductReference;
+            theSubstituteProductReference = (((this.substituteProductReference!= null)&&(!this.substituteProductReference.isEmpty()))?this.getSubstituteProductReference():null);
+            strategy.appendField(locator, this, "substituteProductReference", buffer, theSubstituteProductReference, ((this.substituteProductReference!= null)&&(!this.substituteProductReference.isEmpty())));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

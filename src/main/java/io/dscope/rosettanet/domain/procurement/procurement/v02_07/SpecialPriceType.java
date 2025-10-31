@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_07;
 
@@ -31,6 +12,17 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import io.dscope.rosettanet.domain.shared.shared.v01_05.DatePeriodAndDurationType;
 import io.dscope.rosettanet.universal.monetaryexpression.v01_03.ProductPricing;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -63,7 +55,8 @@ import io.dscope.rosettanet.universal.monetaryexpression.v01_03.ProductPricing;
     "eligibleUnits",
     "productPricing"
 })
-public class SpecialPriceType {
+public class SpecialPriceType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "AmountIdentifier")
     protected String amountIdentifier;
@@ -196,6 +189,145 @@ public class SpecialPriceType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final SpecialPriceType that = ((SpecialPriceType) object);
+        {
+            String lhsAmountIdentifier;
+            lhsAmountIdentifier = this.getAmountIdentifier();
+            String rhsAmountIdentifier;
+            rhsAmountIdentifier = that.getAmountIdentifier();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "amountIdentifier", lhsAmountIdentifier), LocatorUtils.property(thatLocator, "amountIdentifier", rhsAmountIdentifier), lhsAmountIdentifier, rhsAmountIdentifier, (this.amountIdentifier!= null), (that.amountIdentifier!= null))) {
+                return false;
+            }
+        }
+        {
+            DatePeriodAndDurationType lhsEligiblePeriod;
+            lhsEligiblePeriod = this.getEligiblePeriod();
+            DatePeriodAndDurationType rhsEligiblePeriod;
+            rhsEligiblePeriod = that.getEligiblePeriod();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "eligiblePeriod", lhsEligiblePeriod), LocatorUtils.property(thatLocator, "eligiblePeriod", rhsEligiblePeriod), lhsEligiblePeriod, rhsEligiblePeriod, (this.eligiblePeriod!= null), (that.eligiblePeriod!= null))) {
+                return false;
+            }
+        }
+        {
+            Float lhsEligibleUnits;
+            lhsEligibleUnits = this.getEligibleUnits();
+            Float rhsEligibleUnits;
+            rhsEligibleUnits = that.getEligibleUnits();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "eligibleUnits", lhsEligibleUnits), LocatorUtils.property(thatLocator, "eligibleUnits", rhsEligibleUnits), lhsEligibleUnits, rhsEligibleUnits, (this.eligibleUnits!= null), (that.eligibleUnits!= null))) {
+                return false;
+            }
+        }
+        {
+            ProductPricing lhsProductPricing;
+            lhsProductPricing = this.getProductPricing();
+            ProductPricing rhsProductPricing;
+            rhsProductPricing = that.getProductPricing();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "productPricing", lhsProductPricing), LocatorUtils.property(thatLocator, "productPricing", rhsProductPricing), lhsProductPricing, rhsProductPricing, (this.productPricing!= null), (that.productPricing!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            String theAmountIdentifier;
+            theAmountIdentifier = this.getAmountIdentifier();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "amountIdentifier", theAmountIdentifier), currentHashCode, theAmountIdentifier, (this.amountIdentifier!= null));
+        }
+        {
+            DatePeriodAndDurationType theEligiblePeriod;
+            theEligiblePeriod = this.getEligiblePeriod();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "eligiblePeriod", theEligiblePeriod), currentHashCode, theEligiblePeriod, (this.eligiblePeriod!= null));
+        }
+        {
+            Float theEligibleUnits;
+            theEligibleUnits = this.getEligibleUnits();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "eligibleUnits", theEligibleUnits), currentHashCode, theEligibleUnits, (this.eligibleUnits!= null));
+        }
+        {
+            ProductPricing theProductPricing;
+            theProductPricing = this.getProductPricing();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "productPricing", theProductPricing), currentHashCode, theProductPricing, (this.productPricing!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            String theAmountIdentifier;
+            theAmountIdentifier = this.getAmountIdentifier();
+            strategy.appendField(locator, this, "amountIdentifier", buffer, theAmountIdentifier, (this.amountIdentifier!= null));
+        }
+        {
+            DatePeriodAndDurationType theEligiblePeriod;
+            theEligiblePeriod = this.getEligiblePeriod();
+            strategy.appendField(locator, this, "eligiblePeriod", buffer, theEligiblePeriod, (this.eligiblePeriod!= null));
+        }
+        {
+            Float theEligibleUnits;
+            theEligibleUnits = this.getEligibleUnits();
+            strategy.appendField(locator, this, "eligibleUnits", buffer, theEligibleUnits, (this.eligibleUnits!= null));
+        }
+        {
+            ProductPricing theProductPricing;
+            theProductPricing = this.getProductPricing();
+            strategy.appendField(locator, this, "productPricing", buffer, theProductPricing, (this.productPricing!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

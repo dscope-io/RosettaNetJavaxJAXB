@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.universal.contactinformation.v01_04;
 
@@ -28,6 +9,17 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -64,7 +56,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "identifierCode",
     "phone"
 })
-public class ContactInformationType {
+public class ContactInformationType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "Contact", required = true)
     protected String contact;
@@ -249,6 +242,183 @@ public class ContactInformationType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final ContactInformationType that = ((ContactInformationType) object);
+        {
+            String lhsContact;
+            lhsContact = this.getContact();
+            String rhsContact;
+            rhsContact = that.getContact();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "contact", lhsContact), LocatorUtils.property(thatLocator, "contact", rhsContact), lhsContact, rhsContact, (this.contact!= null), (that.contact!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsEmail;
+            lhsEmail = this.getEmail();
+            String rhsEmail;
+            rhsEmail = that.getEmail();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "email", lhsEmail), LocatorUtils.property(thatLocator, "email", rhsEmail), lhsEmail, rhsEmail, (this.email!= null), (that.email!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsFax;
+            lhsFax = this.getFax();
+            String rhsFax;
+            rhsFax = that.getFax();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "fax", lhsFax), LocatorUtils.property(thatLocator, "fax", rhsFax), lhsFax, rhsFax, (this.fax!= null), (that.fax!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsIdentifier;
+            lhsIdentifier = this.getIdentifier();
+            String rhsIdentifier;
+            rhsIdentifier = that.getIdentifier();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "identifier", lhsIdentifier), LocatorUtils.property(thatLocator, "identifier", rhsIdentifier), lhsIdentifier, rhsIdentifier, (this.identifier!= null), (that.identifier!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsIdentifierCode;
+            lhsIdentifierCode = this.getIdentifierCode();
+            String rhsIdentifierCode;
+            rhsIdentifierCode = that.getIdentifierCode();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "identifierCode", lhsIdentifierCode), LocatorUtils.property(thatLocator, "identifierCode", rhsIdentifierCode), lhsIdentifierCode, rhsIdentifierCode, (this.identifierCode!= null), (that.identifierCode!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsPhone;
+            lhsPhone = this.getPhone();
+            String rhsPhone;
+            rhsPhone = that.getPhone();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "phone", lhsPhone), LocatorUtils.property(thatLocator, "phone", rhsPhone), lhsPhone, rhsPhone, (this.phone!= null), (that.phone!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            String theContact;
+            theContact = this.getContact();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contact", theContact), currentHashCode, theContact, (this.contact!= null));
+        }
+        {
+            String theEmail;
+            theEmail = this.getEmail();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "email", theEmail), currentHashCode, theEmail, (this.email!= null));
+        }
+        {
+            String theFax;
+            theFax = this.getFax();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "fax", theFax), currentHashCode, theFax, (this.fax!= null));
+        }
+        {
+            String theIdentifier;
+            theIdentifier = this.getIdentifier();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "identifier", theIdentifier), currentHashCode, theIdentifier, (this.identifier!= null));
+        }
+        {
+            String theIdentifierCode;
+            theIdentifierCode = this.getIdentifierCode();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "identifierCode", theIdentifierCode), currentHashCode, theIdentifierCode, (this.identifierCode!= null));
+        }
+        {
+            String thePhone;
+            thePhone = this.getPhone();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "phone", thePhone), currentHashCode, thePhone, (this.phone!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            String theContact;
+            theContact = this.getContact();
+            strategy.appendField(locator, this, "contact", buffer, theContact, (this.contact!= null));
+        }
+        {
+            String theEmail;
+            theEmail = this.getEmail();
+            strategy.appendField(locator, this, "email", buffer, theEmail, (this.email!= null));
+        }
+        {
+            String theFax;
+            theFax = this.getFax();
+            strategy.appendField(locator, this, "fax", buffer, theFax, (this.fax!= null));
+        }
+        {
+            String theIdentifier;
+            theIdentifier = this.getIdentifier();
+            strategy.appendField(locator, this, "identifier", buffer, theIdentifier, (this.identifier!= null));
+        }
+        {
+            String theIdentifierCode;
+            theIdentifierCode = this.getIdentifierCode();
+            strategy.appendField(locator, this, "identifierCode", buffer, theIdentifierCode, (this.identifierCode!= null));
+        }
+        {
+            String thePhone;
+            thePhone = this.getPhone();
+            strategy.appendField(locator, this, "phone", buffer, thePhone, (this.phone!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

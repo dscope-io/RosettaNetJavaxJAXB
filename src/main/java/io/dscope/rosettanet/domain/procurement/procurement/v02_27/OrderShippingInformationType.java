@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_27;
 
@@ -36,6 +17,17 @@ import io.dscope.rosettanet.domain.procurement.codelist.specialfulfillmentreques
 import io.dscope.rosettanet.domain.shared.codelist.freeonboard.v01_01.FreeOnBoard;
 import io.dscope.rosettanet.domain.shared.codelist.shippingservicelevel.v01_01.ShippingServiceLevel;
 import io.dscope.rosettanet.domain.shared.shared.v01_17.CarrierInformation;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -74,7 +66,8 @@ import io.dscope.rosettanet.domain.shared.shared.v01_17.CarrierInformation;
     "specialFulfillmentRequest",
     "specialHandlingInstruction"
 })
-public class OrderShippingInformationType {
+public class OrderShippingInformationType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElementRef(name = "CarrierInformation", namespace = "urn:rosettanet:specification:domain:Shared:xsd:schema:01.17", type = CarrierInformation.class, required = false)
     protected CarrierInformation carrierInformation;
@@ -290,6 +283,202 @@ public class OrderShippingInformationType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final OrderShippingInformationType that = ((OrderShippingInformationType) object);
+        {
+            CarrierInformation lhsCarrierInformation;
+            lhsCarrierInformation = this.getCarrierInformation();
+            CarrierInformation rhsCarrierInformation;
+            rhsCarrierInformation = that.getCarrierInformation();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "carrierInformation", lhsCarrierInformation), LocatorUtils.property(thatLocator, "carrierInformation", rhsCarrierInformation), lhsCarrierInformation, rhsCarrierInformation, (this.carrierInformation!= null), (that.carrierInformation!= null))) {
+                return false;
+            }
+        }
+        {
+            FreeOnBoard lhsFreeOnBoard;
+            lhsFreeOnBoard = this.getFreeOnBoard();
+            FreeOnBoard rhsFreeOnBoard;
+            rhsFreeOnBoard = that.getFreeOnBoard();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "freeOnBoard", lhsFreeOnBoard), LocatorUtils.property(thatLocator, "freeOnBoard", rhsFreeOnBoard), lhsFreeOnBoard, rhsFreeOnBoard, (this.freeOnBoard!= null), (that.freeOnBoard!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsPackList;
+            lhsPackList = this.getPackList();
+            String rhsPackList;
+            rhsPackList = that.getPackList();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "packList", lhsPackList), LocatorUtils.property(thatLocator, "packList", rhsPackList), lhsPackList, rhsPackList, (this.packList!= null), (that.packList!= null))) {
+                return false;
+            }
+        }
+        {
+            ShipmentTerms lhsShipmentTerms;
+            lhsShipmentTerms = this.getShipmentTerms();
+            ShipmentTerms rhsShipmentTerms;
+            rhsShipmentTerms = that.getShipmentTerms();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "shipmentTerms", lhsShipmentTerms), LocatorUtils.property(thatLocator, "shipmentTerms", rhsShipmentTerms), lhsShipmentTerms, rhsShipmentTerms, (this.shipmentTerms!= null), (that.shipmentTerms!= null))) {
+                return false;
+            }
+        }
+        {
+            ShippingServiceLevel lhsShippingServiceLevel;
+            lhsShippingServiceLevel = this.getShippingServiceLevel();
+            ShippingServiceLevel rhsShippingServiceLevel;
+            rhsShippingServiceLevel = that.getShippingServiceLevel();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "shippingServiceLevel", lhsShippingServiceLevel), LocatorUtils.property(thatLocator, "shippingServiceLevel", rhsShippingServiceLevel), lhsShippingServiceLevel, rhsShippingServiceLevel, (this.shippingServiceLevel!= null), (that.shippingServiceLevel!= null))) {
+                return false;
+            }
+        }
+        {
+            List<SpecialFulfillmentRequest> lhsSpecialFulfillmentRequest;
+            lhsSpecialFulfillmentRequest = (((this.specialFulfillmentRequest!= null)&&(!this.specialFulfillmentRequest.isEmpty()))?this.getSpecialFulfillmentRequest():null);
+            List<SpecialFulfillmentRequest> rhsSpecialFulfillmentRequest;
+            rhsSpecialFulfillmentRequest = (((that.specialFulfillmentRequest!= null)&&(!that.specialFulfillmentRequest.isEmpty()))?that.getSpecialFulfillmentRequest():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "specialFulfillmentRequest", lhsSpecialFulfillmentRequest), LocatorUtils.property(thatLocator, "specialFulfillmentRequest", rhsSpecialFulfillmentRequest), lhsSpecialFulfillmentRequest, rhsSpecialFulfillmentRequest, ((this.specialFulfillmentRequest!= null)&&(!this.specialFulfillmentRequest.isEmpty())), ((that.specialFulfillmentRequest!= null)&&(!that.specialFulfillmentRequest.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            SpecialHandlingInstruction lhsSpecialHandlingInstruction;
+            lhsSpecialHandlingInstruction = this.getSpecialHandlingInstruction();
+            SpecialHandlingInstruction rhsSpecialHandlingInstruction;
+            rhsSpecialHandlingInstruction = that.getSpecialHandlingInstruction();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "specialHandlingInstruction", lhsSpecialHandlingInstruction), LocatorUtils.property(thatLocator, "specialHandlingInstruction", rhsSpecialHandlingInstruction), lhsSpecialHandlingInstruction, rhsSpecialHandlingInstruction, (this.specialHandlingInstruction!= null), (that.specialHandlingInstruction!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            CarrierInformation theCarrierInformation;
+            theCarrierInformation = this.getCarrierInformation();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "carrierInformation", theCarrierInformation), currentHashCode, theCarrierInformation, (this.carrierInformation!= null));
+        }
+        {
+            FreeOnBoard theFreeOnBoard;
+            theFreeOnBoard = this.getFreeOnBoard();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "freeOnBoard", theFreeOnBoard), currentHashCode, theFreeOnBoard, (this.freeOnBoard!= null));
+        }
+        {
+            String thePackList;
+            thePackList = this.getPackList();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "packList", thePackList), currentHashCode, thePackList, (this.packList!= null));
+        }
+        {
+            ShipmentTerms theShipmentTerms;
+            theShipmentTerms = this.getShipmentTerms();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "shipmentTerms", theShipmentTerms), currentHashCode, theShipmentTerms, (this.shipmentTerms!= null));
+        }
+        {
+            ShippingServiceLevel theShippingServiceLevel;
+            theShippingServiceLevel = this.getShippingServiceLevel();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "shippingServiceLevel", theShippingServiceLevel), currentHashCode, theShippingServiceLevel, (this.shippingServiceLevel!= null));
+        }
+        {
+            List<SpecialFulfillmentRequest> theSpecialFulfillmentRequest;
+            theSpecialFulfillmentRequest = (((this.specialFulfillmentRequest!= null)&&(!this.specialFulfillmentRequest.isEmpty()))?this.getSpecialFulfillmentRequest():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "specialFulfillmentRequest", theSpecialFulfillmentRequest), currentHashCode, theSpecialFulfillmentRequest, ((this.specialFulfillmentRequest!= null)&&(!this.specialFulfillmentRequest.isEmpty())));
+        }
+        {
+            SpecialHandlingInstruction theSpecialHandlingInstruction;
+            theSpecialHandlingInstruction = this.getSpecialHandlingInstruction();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "specialHandlingInstruction", theSpecialHandlingInstruction), currentHashCode, theSpecialHandlingInstruction, (this.specialHandlingInstruction!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            CarrierInformation theCarrierInformation;
+            theCarrierInformation = this.getCarrierInformation();
+            strategy.appendField(locator, this, "carrierInformation", buffer, theCarrierInformation, (this.carrierInformation!= null));
+        }
+        {
+            FreeOnBoard theFreeOnBoard;
+            theFreeOnBoard = this.getFreeOnBoard();
+            strategy.appendField(locator, this, "freeOnBoard", buffer, theFreeOnBoard, (this.freeOnBoard!= null));
+        }
+        {
+            String thePackList;
+            thePackList = this.getPackList();
+            strategy.appendField(locator, this, "packList", buffer, thePackList, (this.packList!= null));
+        }
+        {
+            ShipmentTerms theShipmentTerms;
+            theShipmentTerms = this.getShipmentTerms();
+            strategy.appendField(locator, this, "shipmentTerms", buffer, theShipmentTerms, (this.shipmentTerms!= null));
+        }
+        {
+            ShippingServiceLevel theShippingServiceLevel;
+            theShippingServiceLevel = this.getShippingServiceLevel();
+            strategy.appendField(locator, this, "shippingServiceLevel", buffer, theShippingServiceLevel, (this.shippingServiceLevel!= null));
+        }
+        {
+            List<SpecialFulfillmentRequest> theSpecialFulfillmentRequest;
+            theSpecialFulfillmentRequest = (((this.specialFulfillmentRequest!= null)&&(!this.specialFulfillmentRequest.isEmpty()))?this.getSpecialFulfillmentRequest():null);
+            strategy.appendField(locator, this, "specialFulfillmentRequest", buffer, theSpecialFulfillmentRequest, ((this.specialFulfillmentRequest!= null)&&(!this.specialFulfillmentRequest.isEmpty())));
+        }
+        {
+            SpecialHandlingInstruction theSpecialHandlingInstruction;
+            theSpecialHandlingInstruction = this.getSpecialHandlingInstruction();
+            strategy.appendField(locator, this, "specialHandlingInstruction", buffer, theSpecialHandlingInstruction, (this.specialHandlingInstruction!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

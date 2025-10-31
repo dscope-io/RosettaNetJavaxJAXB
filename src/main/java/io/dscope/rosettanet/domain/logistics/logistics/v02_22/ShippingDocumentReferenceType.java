@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.logistics.logistics.v02_22;
 
@@ -31,6 +12,17 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.XMLGregorianCalendar;
 import io.dscope.rosettanet.domain.logistics.codelist.shippingdocument.v01_02.ShippingDocument;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -67,7 +59,8 @@ import io.dscope.rosettanet.domain.logistics.codelist.shippingdocument.v01_02.Sh
     "shippingDocument",
     "subLine"
 })
-public class ShippingDocumentReferenceType {
+public class ShippingDocumentReferenceType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "DateTime")
     @XmlSchemaType(name = "dateTime")
@@ -253,6 +246,183 @@ public class ShippingDocumentReferenceType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final ShippingDocumentReferenceType that = ((ShippingDocumentReferenceType) object);
+        {
+            XMLGregorianCalendar lhsDateTime;
+            lhsDateTime = this.getDateTime();
+            XMLGregorianCalendar rhsDateTime;
+            rhsDateTime = that.getDateTime();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "dateTime", lhsDateTime), LocatorUtils.property(thatLocator, "dateTime", rhsDateTime), lhsDateTime, rhsDateTime, (this.dateTime!= null), (that.dateTime!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsIdentifier;
+            lhsIdentifier = this.getIdentifier();
+            String rhsIdentifier;
+            rhsIdentifier = that.getIdentifier();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "identifier", lhsIdentifier), LocatorUtils.property(thatLocator, "identifier", rhsIdentifier), lhsIdentifier, rhsIdentifier, (this.identifier!= null), (that.identifier!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsLine;
+            lhsLine = this.getLine();
+            String rhsLine;
+            rhsLine = that.getLine();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "line", lhsLine), LocatorUtils.property(thatLocator, "line", rhsLine), lhsLine, rhsLine, (this.line!= null), (that.line!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsRevision;
+            lhsRevision = this.getRevision();
+            String rhsRevision;
+            rhsRevision = that.getRevision();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "revision", lhsRevision), LocatorUtils.property(thatLocator, "revision", rhsRevision), lhsRevision, rhsRevision, (this.revision!= null), (that.revision!= null))) {
+                return false;
+            }
+        }
+        {
+            ShippingDocument lhsShippingDocument;
+            lhsShippingDocument = this.getShippingDocument();
+            ShippingDocument rhsShippingDocument;
+            rhsShippingDocument = that.getShippingDocument();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "shippingDocument", lhsShippingDocument), LocatorUtils.property(thatLocator, "shippingDocument", rhsShippingDocument), lhsShippingDocument, rhsShippingDocument, (this.shippingDocument!= null), (that.shippingDocument!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSubLine;
+            lhsSubLine = this.getSubLine();
+            String rhsSubLine;
+            rhsSubLine = that.getSubLine();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "subLine", lhsSubLine), LocatorUtils.property(thatLocator, "subLine", rhsSubLine), lhsSubLine, rhsSubLine, (this.subLine!= null), (that.subLine!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            XMLGregorianCalendar theDateTime;
+            theDateTime = this.getDateTime();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dateTime", theDateTime), currentHashCode, theDateTime, (this.dateTime!= null));
+        }
+        {
+            String theIdentifier;
+            theIdentifier = this.getIdentifier();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "identifier", theIdentifier), currentHashCode, theIdentifier, (this.identifier!= null));
+        }
+        {
+            String theLine;
+            theLine = this.getLine();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "line", theLine), currentHashCode, theLine, (this.line!= null));
+        }
+        {
+            String theRevision;
+            theRevision = this.getRevision();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "revision", theRevision), currentHashCode, theRevision, (this.revision!= null));
+        }
+        {
+            ShippingDocument theShippingDocument;
+            theShippingDocument = this.getShippingDocument();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "shippingDocument", theShippingDocument), currentHashCode, theShippingDocument, (this.shippingDocument!= null));
+        }
+        {
+            String theSubLine;
+            theSubLine = this.getSubLine();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "subLine", theSubLine), currentHashCode, theSubLine, (this.subLine!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            XMLGregorianCalendar theDateTime;
+            theDateTime = this.getDateTime();
+            strategy.appendField(locator, this, "dateTime", buffer, theDateTime, (this.dateTime!= null));
+        }
+        {
+            String theIdentifier;
+            theIdentifier = this.getIdentifier();
+            strategy.appendField(locator, this, "identifier", buffer, theIdentifier, (this.identifier!= null));
+        }
+        {
+            String theLine;
+            theLine = this.getLine();
+            strategy.appendField(locator, this, "line", buffer, theLine, (this.line!= null));
+        }
+        {
+            String theRevision;
+            theRevision = this.getRevision();
+            strategy.appendField(locator, this, "revision", buffer, theRevision, (this.revision!= null));
+        }
+        {
+            ShippingDocument theShippingDocument;
+            theShippingDocument = this.getShippingDocument();
+            strategy.appendField(locator, this, "shippingDocument", buffer, theShippingDocument, (this.shippingDocument!= null));
+        }
+        {
+            String theSubLine;
+            theSubLine = this.getSubLine();
+            strategy.appendField(locator, this, "subLine", buffer, theSubLine, (this.subLine!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.logistics.logistics.v02_22;
 
@@ -31,6 +12,17 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.XMLGregorianCalendar;
 import io.dscope.rosettanet.domain.logistics.codelist.nationalexportcontrolclassification.v01_03.NationalExportControlClassification;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -63,7 +55,8 @@ import io.dscope.rosettanet.domain.logistics.codelist.nationalexportcontrolclass
     "licenseIdentifier",
     "nationalExportControlClassification"
 })
-public class ExportLicenseType {
+public class ExportLicenseType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "Description")
     protected String description;
@@ -197,6 +190,145 @@ public class ExportLicenseType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final ExportLicenseType that = ((ExportLicenseType) object);
+        {
+            String lhsDescription;
+            lhsDescription = this.getDescription();
+            String rhsDescription;
+            rhsDescription = that.getDescription();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "description", lhsDescription), LocatorUtils.property(thatLocator, "description", rhsDescription), lhsDescription, rhsDescription, (this.description!= null), (that.description!= null))) {
+                return false;
+            }
+        }
+        {
+            XMLGregorianCalendar lhsExpiryDate;
+            lhsExpiryDate = this.getExpiryDate();
+            XMLGregorianCalendar rhsExpiryDate;
+            rhsExpiryDate = that.getExpiryDate();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "expiryDate", lhsExpiryDate), LocatorUtils.property(thatLocator, "expiryDate", rhsExpiryDate), lhsExpiryDate, rhsExpiryDate, (this.expiryDate!= null), (that.expiryDate!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsLicenseIdentifier;
+            lhsLicenseIdentifier = this.getLicenseIdentifier();
+            String rhsLicenseIdentifier;
+            rhsLicenseIdentifier = that.getLicenseIdentifier();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "licenseIdentifier", lhsLicenseIdentifier), LocatorUtils.property(thatLocator, "licenseIdentifier", rhsLicenseIdentifier), lhsLicenseIdentifier, rhsLicenseIdentifier, (this.licenseIdentifier!= null), (that.licenseIdentifier!= null))) {
+                return false;
+            }
+        }
+        {
+            NationalExportControlClassification lhsNationalExportControlClassification;
+            lhsNationalExportControlClassification = this.getNationalExportControlClassification();
+            NationalExportControlClassification rhsNationalExportControlClassification;
+            rhsNationalExportControlClassification = that.getNationalExportControlClassification();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "nationalExportControlClassification", lhsNationalExportControlClassification), LocatorUtils.property(thatLocator, "nationalExportControlClassification", rhsNationalExportControlClassification), lhsNationalExportControlClassification, rhsNationalExportControlClassification, (this.nationalExportControlClassification!= null), (that.nationalExportControlClassification!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            String theDescription;
+            theDescription = this.getDescription();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "description", theDescription), currentHashCode, theDescription, (this.description!= null));
+        }
+        {
+            XMLGregorianCalendar theExpiryDate;
+            theExpiryDate = this.getExpiryDate();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "expiryDate", theExpiryDate), currentHashCode, theExpiryDate, (this.expiryDate!= null));
+        }
+        {
+            String theLicenseIdentifier;
+            theLicenseIdentifier = this.getLicenseIdentifier();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "licenseIdentifier", theLicenseIdentifier), currentHashCode, theLicenseIdentifier, (this.licenseIdentifier!= null));
+        }
+        {
+            NationalExportControlClassification theNationalExportControlClassification;
+            theNationalExportControlClassification = this.getNationalExportControlClassification();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "nationalExportControlClassification", theNationalExportControlClassification), currentHashCode, theNationalExportControlClassification, (this.nationalExportControlClassification!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            String theDescription;
+            theDescription = this.getDescription();
+            strategy.appendField(locator, this, "description", buffer, theDescription, (this.description!= null));
+        }
+        {
+            XMLGregorianCalendar theExpiryDate;
+            theExpiryDate = this.getExpiryDate();
+            strategy.appendField(locator, this, "expiryDate", buffer, theExpiryDate, (this.expiryDate!= null));
+        }
+        {
+            String theLicenseIdentifier;
+            theLicenseIdentifier = this.getLicenseIdentifier();
+            strategy.appendField(locator, this, "licenseIdentifier", buffer, theLicenseIdentifier, (this.licenseIdentifier!= null));
+        }
+        {
+            NationalExportControlClassification theNationalExportControlClassification;
+            theNationalExportControlClassification = this.getNationalExportControlClassification();
+            strategy.appendField(locator, this, "nationalExportControlClassification", buffer, theNationalExportControlClassification, (this.nationalExportControlClassification!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

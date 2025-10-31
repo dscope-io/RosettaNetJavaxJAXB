@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_05;
 
@@ -29,6 +10,17 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import io.dscope.rosettanet.universal.dates.v01_03.DatePeriodType;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -61,7 +53,8 @@ import io.dscope.rosettanet.universal.dates.v01_03.DatePeriodType;
     "safetyStockQuantity",
     "shippingAvailability"
 })
-public class ProductDistributionType {
+public class ProductDistributionType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "IsAvailableToShip")
     protected boolean isAvailableToShip;
@@ -178,6 +171,145 @@ public class ProductDistributionType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final ProductDistributionType that = ((ProductDistributionType) object);
+        {
+            boolean lhsIsAvailableToShip;
+            lhsIsAvailableToShip = this.isIsAvailableToShip();
+            boolean rhsIsAvailableToShip;
+            rhsIsAvailableToShip = that.isIsAvailableToShip();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "isAvailableToShip", lhsIsAvailableToShip), LocatorUtils.property(thatLocator, "isAvailableToShip", rhsIsAvailableToShip), lhsIsAvailableToShip, rhsIsAvailableToShip, true, true)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsIsWaiverRequiredToShip;
+            lhsIsWaiverRequiredToShip = this.isIsWaiverRequiredToShip();
+            boolean rhsIsWaiverRequiredToShip;
+            rhsIsWaiverRequiredToShip = that.isIsWaiverRequiredToShip();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "isWaiverRequiredToShip", lhsIsWaiverRequiredToShip), LocatorUtils.property(thatLocator, "isWaiverRequiredToShip", rhsIsWaiverRequiredToShip), lhsIsWaiverRequiredToShip, rhsIsWaiverRequiredToShip, true, true)) {
+                return false;
+            }
+        }
+        {
+            ProductQuantityRangeType lhsSafetyStockQuantity;
+            lhsSafetyStockQuantity = this.getSafetyStockQuantity();
+            ProductQuantityRangeType rhsSafetyStockQuantity;
+            rhsSafetyStockQuantity = that.getSafetyStockQuantity();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "safetyStockQuantity", lhsSafetyStockQuantity), LocatorUtils.property(thatLocator, "safetyStockQuantity", rhsSafetyStockQuantity), lhsSafetyStockQuantity, rhsSafetyStockQuantity, (this.safetyStockQuantity!= null), (that.safetyStockQuantity!= null))) {
+                return false;
+            }
+        }
+        {
+            DatePeriodType lhsShippingAvailability;
+            lhsShippingAvailability = this.getShippingAvailability();
+            DatePeriodType rhsShippingAvailability;
+            rhsShippingAvailability = that.getShippingAvailability();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "shippingAvailability", lhsShippingAvailability), LocatorUtils.property(thatLocator, "shippingAvailability", rhsShippingAvailability), lhsShippingAvailability, rhsShippingAvailability, (this.shippingAvailability!= null), (that.shippingAvailability!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            boolean theIsAvailableToShip;
+            theIsAvailableToShip = this.isIsAvailableToShip();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "isAvailableToShip", theIsAvailableToShip), currentHashCode, theIsAvailableToShip, true);
+        }
+        {
+            boolean theIsWaiverRequiredToShip;
+            theIsWaiverRequiredToShip = this.isIsWaiverRequiredToShip();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "isWaiverRequiredToShip", theIsWaiverRequiredToShip), currentHashCode, theIsWaiverRequiredToShip, true);
+        }
+        {
+            ProductQuantityRangeType theSafetyStockQuantity;
+            theSafetyStockQuantity = this.getSafetyStockQuantity();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "safetyStockQuantity", theSafetyStockQuantity), currentHashCode, theSafetyStockQuantity, (this.safetyStockQuantity!= null));
+        }
+        {
+            DatePeriodType theShippingAvailability;
+            theShippingAvailability = this.getShippingAvailability();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "shippingAvailability", theShippingAvailability), currentHashCode, theShippingAvailability, (this.shippingAvailability!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            boolean theIsAvailableToShip;
+            theIsAvailableToShip = this.isIsAvailableToShip();
+            strategy.appendField(locator, this, "isAvailableToShip", buffer, theIsAvailableToShip, true);
+        }
+        {
+            boolean theIsWaiverRequiredToShip;
+            theIsWaiverRequiredToShip = this.isIsWaiverRequiredToShip();
+            strategy.appendField(locator, this, "isWaiverRequiredToShip", buffer, theIsWaiverRequiredToShip, true);
+        }
+        {
+            ProductQuantityRangeType theSafetyStockQuantity;
+            theSafetyStockQuantity = this.getSafetyStockQuantity();
+            strategy.appendField(locator, this, "safetyStockQuantity", buffer, theSafetyStockQuantity, (this.safetyStockQuantity!= null));
+        }
+        {
+            DatePeriodType theShippingAvailability;
+            theShippingAvailability = this.getShippingAvailability();
+            strategy.appendField(locator, this, "shippingAvailability", buffer, theShippingAvailability, (this.shippingAvailability!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

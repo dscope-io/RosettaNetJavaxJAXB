@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.system.standarddocumentheader.v01_11;
 
@@ -29,6 +10,17 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.XMLGregorianCalendar;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -61,7 +53,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "requestingDocumentInstanceIdentifier",
     "responseDateTime"
 })
-public class RequestingDocumentInformationType {
+public class RequestingDocumentInformationType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElement(name = "BusinessProcessInstanceIdentifier")
     protected String businessProcessInstanceIdentifier;
@@ -196,6 +189,145 @@ public class RequestingDocumentInformationType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final RequestingDocumentInformationType that = ((RequestingDocumentInformationType) object);
+        {
+            String lhsBusinessProcessInstanceIdentifier;
+            lhsBusinessProcessInstanceIdentifier = this.getBusinessProcessInstanceIdentifier();
+            String rhsBusinessProcessInstanceIdentifier;
+            rhsBusinessProcessInstanceIdentifier = that.getBusinessProcessInstanceIdentifier();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "businessProcessInstanceIdentifier", lhsBusinessProcessInstanceIdentifier), LocatorUtils.property(thatLocator, "businessProcessInstanceIdentifier", rhsBusinessProcessInstanceIdentifier), lhsBusinessProcessInstanceIdentifier, rhsBusinessProcessInstanceIdentifier, (this.businessProcessInstanceIdentifier!= null), (that.businessProcessInstanceIdentifier!= null))) {
+                return false;
+            }
+        }
+        {
+            XMLGregorianCalendar lhsRequestingDocumentCreationDateTime;
+            lhsRequestingDocumentCreationDateTime = this.getRequestingDocumentCreationDateTime();
+            XMLGregorianCalendar rhsRequestingDocumentCreationDateTime;
+            rhsRequestingDocumentCreationDateTime = that.getRequestingDocumentCreationDateTime();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "requestingDocumentCreationDateTime", lhsRequestingDocumentCreationDateTime), LocatorUtils.property(thatLocator, "requestingDocumentCreationDateTime", rhsRequestingDocumentCreationDateTime), lhsRequestingDocumentCreationDateTime, rhsRequestingDocumentCreationDateTime, (this.requestingDocumentCreationDateTime!= null), (that.requestingDocumentCreationDateTime!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsRequestingDocumentInstanceIdentifier;
+            lhsRequestingDocumentInstanceIdentifier = this.getRequestingDocumentInstanceIdentifier();
+            String rhsRequestingDocumentInstanceIdentifier;
+            rhsRequestingDocumentInstanceIdentifier = that.getRequestingDocumentInstanceIdentifier();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "requestingDocumentInstanceIdentifier", lhsRequestingDocumentInstanceIdentifier), LocatorUtils.property(thatLocator, "requestingDocumentInstanceIdentifier", rhsRequestingDocumentInstanceIdentifier), lhsRequestingDocumentInstanceIdentifier, rhsRequestingDocumentInstanceIdentifier, (this.requestingDocumentInstanceIdentifier!= null), (that.requestingDocumentInstanceIdentifier!= null))) {
+                return false;
+            }
+        }
+        {
+            XMLGregorianCalendar lhsResponseDateTime;
+            lhsResponseDateTime = this.getResponseDateTime();
+            XMLGregorianCalendar rhsResponseDateTime;
+            rhsResponseDateTime = that.getResponseDateTime();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "responseDateTime", lhsResponseDateTime), LocatorUtils.property(thatLocator, "responseDateTime", rhsResponseDateTime), lhsResponseDateTime, rhsResponseDateTime, (this.responseDateTime!= null), (that.responseDateTime!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            String theBusinessProcessInstanceIdentifier;
+            theBusinessProcessInstanceIdentifier = this.getBusinessProcessInstanceIdentifier();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "businessProcessInstanceIdentifier", theBusinessProcessInstanceIdentifier), currentHashCode, theBusinessProcessInstanceIdentifier, (this.businessProcessInstanceIdentifier!= null));
+        }
+        {
+            XMLGregorianCalendar theRequestingDocumentCreationDateTime;
+            theRequestingDocumentCreationDateTime = this.getRequestingDocumentCreationDateTime();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "requestingDocumentCreationDateTime", theRequestingDocumentCreationDateTime), currentHashCode, theRequestingDocumentCreationDateTime, (this.requestingDocumentCreationDateTime!= null));
+        }
+        {
+            String theRequestingDocumentInstanceIdentifier;
+            theRequestingDocumentInstanceIdentifier = this.getRequestingDocumentInstanceIdentifier();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "requestingDocumentInstanceIdentifier", theRequestingDocumentInstanceIdentifier), currentHashCode, theRequestingDocumentInstanceIdentifier, (this.requestingDocumentInstanceIdentifier!= null));
+        }
+        {
+            XMLGregorianCalendar theResponseDateTime;
+            theResponseDateTime = this.getResponseDateTime();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "responseDateTime", theResponseDateTime), currentHashCode, theResponseDateTime, (this.responseDateTime!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            String theBusinessProcessInstanceIdentifier;
+            theBusinessProcessInstanceIdentifier = this.getBusinessProcessInstanceIdentifier();
+            strategy.appendField(locator, this, "businessProcessInstanceIdentifier", buffer, theBusinessProcessInstanceIdentifier, (this.businessProcessInstanceIdentifier!= null));
+        }
+        {
+            XMLGregorianCalendar theRequestingDocumentCreationDateTime;
+            theRequestingDocumentCreationDateTime = this.getRequestingDocumentCreationDateTime();
+            strategy.appendField(locator, this, "requestingDocumentCreationDateTime", buffer, theRequestingDocumentCreationDateTime, (this.requestingDocumentCreationDateTime!= null));
+        }
+        {
+            String theRequestingDocumentInstanceIdentifier;
+            theRequestingDocumentInstanceIdentifier = this.getRequestingDocumentInstanceIdentifier();
+            strategy.appendField(locator, this, "requestingDocumentInstanceIdentifier", buffer, theRequestingDocumentInstanceIdentifier, (this.requestingDocumentInstanceIdentifier!= null));
+        }
+        {
+            XMLGregorianCalendar theResponseDateTime;
+            theResponseDateTime = this.getResponseDateTime();
+            strategy.appendField(locator, this, "responseDateTime", buffer, theResponseDateTime, (this.responseDateTime!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }

@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.universal.partneridentification.v01_16;
 
@@ -32,6 +13,17 @@ import io.dscope.rosettanet.universal.datatype.v01_04.DUNS;
 import io.dscope.rosettanet.universal.datatype.v01_04.DUNSPlus4;
 import io.dscope.rosettanet.universal.datatype.v01_04.GLN;
 import io.dscope.rosettanet.universal.locations.v01_04.AlternativeIdentifier;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -69,6 +61,7 @@ import io.dscope.rosettanet.universal.locations.v01_04.AlternativeIdentifier;
 })
 public class PartnerIdentificationType
     extends IdentifierType
+    implements Equals2, HashCode2, ToString2
 {
 
     @XmlElement(name = "PartnerName")
@@ -205,6 +198,149 @@ public class PartnerIdentificationType
      */
     public void setGLN(GLN value) {
         this.gln = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        if (!super.equals(thisLocator, thatLocator, object, strategy)) {
+            return false;
+        }
+        final PartnerIdentificationType that = ((PartnerIdentificationType) object);
+        {
+            String lhsPartnerName;
+            lhsPartnerName = this.getPartnerName();
+            String rhsPartnerName;
+            rhsPartnerName = that.getPartnerName();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "partnerName", lhsPartnerName), LocatorUtils.property(thatLocator, "partnerName", rhsPartnerName), lhsPartnerName, rhsPartnerName, (this.partnerName!= null), (that.partnerName!= null))) {
+                return false;
+            }
+        }
+        {
+            List<AlternativeIdentifier> lhsAlternativeIdentifier;
+            lhsAlternativeIdentifier = (((this.alternativeIdentifier!= null)&&(!this.alternativeIdentifier.isEmpty()))?this.getAlternativeIdentifier():null);
+            List<AlternativeIdentifier> rhsAlternativeIdentifier;
+            rhsAlternativeIdentifier = (((that.alternativeIdentifier!= null)&&(!that.alternativeIdentifier.isEmpty()))?that.getAlternativeIdentifier():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "alternativeIdentifier", lhsAlternativeIdentifier), LocatorUtils.property(thatLocator, "alternativeIdentifier", rhsAlternativeIdentifier), lhsAlternativeIdentifier, rhsAlternativeIdentifier, ((this.alternativeIdentifier!= null)&&(!this.alternativeIdentifier.isEmpty())), ((that.alternativeIdentifier!= null)&&(!that.alternativeIdentifier.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            DUNS lhsDUNS;
+            lhsDUNS = this.getDUNS();
+            DUNS rhsDUNS;
+            rhsDUNS = that.getDUNS();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "duns", lhsDUNS), LocatorUtils.property(thatLocator, "duns", rhsDUNS), lhsDUNS, rhsDUNS, (this.duns!= null), (that.duns!= null))) {
+                return false;
+            }
+        }
+        {
+            DUNSPlus4 lhsDUNSPlus4;
+            lhsDUNSPlus4 = this.getDUNSPlus4();
+            DUNSPlus4 rhsDUNSPlus4;
+            rhsDUNSPlus4 = that.getDUNSPlus4();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "dunsPlus4", lhsDUNSPlus4), LocatorUtils.property(thatLocator, "dunsPlus4", rhsDUNSPlus4), lhsDUNSPlus4, rhsDUNSPlus4, (this.dunsPlus4 != null), (that.dunsPlus4 != null))) {
+                return false;
+            }
+        }
+        {
+            GLN lhsGLN;
+            lhsGLN = this.getGLN();
+            GLN rhsGLN;
+            rhsGLN = that.getGLN();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "gln", lhsGLN), LocatorUtils.property(thatLocator, "gln", rhsGLN), lhsGLN, rhsGLN, (this.gln!= null), (that.gln!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = super.hashCode(locator, strategy);
+        {
+            String thePartnerName;
+            thePartnerName = this.getPartnerName();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "partnerName", thePartnerName), currentHashCode, thePartnerName, (this.partnerName!= null));
+        }
+        {
+            List<AlternativeIdentifier> theAlternativeIdentifier;
+            theAlternativeIdentifier = (((this.alternativeIdentifier!= null)&&(!this.alternativeIdentifier.isEmpty()))?this.getAlternativeIdentifier():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "alternativeIdentifier", theAlternativeIdentifier), currentHashCode, theAlternativeIdentifier, ((this.alternativeIdentifier!= null)&&(!this.alternativeIdentifier.isEmpty())));
+        }
+        {
+            DUNS theDUNS;
+            theDUNS = this.getDUNS();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "duns", theDUNS), currentHashCode, theDUNS, (this.duns!= null));
+        }
+        {
+            DUNSPlus4 theDUNSPlus4;
+            theDUNSPlus4 = this.getDUNSPlus4();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dunsPlus4", theDUNSPlus4), currentHashCode, theDUNSPlus4, (this.dunsPlus4 != null));
+        }
+        {
+            GLN theGLN;
+            theGLN = this.getGLN();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "gln", theGLN), currentHashCode, theGLN, (this.gln!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        super.appendFields(locator, buffer, strategy);
+        {
+            String thePartnerName;
+            thePartnerName = this.getPartnerName();
+            strategy.appendField(locator, this, "partnerName", buffer, thePartnerName, (this.partnerName!= null));
+        }
+        {
+            List<AlternativeIdentifier> theAlternativeIdentifier;
+            theAlternativeIdentifier = (((this.alternativeIdentifier!= null)&&(!this.alternativeIdentifier.isEmpty()))?this.getAlternativeIdentifier():null);
+            strategy.appendField(locator, this, "alternativeIdentifier", buffer, theAlternativeIdentifier, ((this.alternativeIdentifier!= null)&&(!this.alternativeIdentifier.isEmpty())));
+        }
+        {
+            DUNS theDUNS;
+            theDUNS = this.getDUNS();
+            strategy.appendField(locator, this, "duns", buffer, theDUNS, (this.duns!= null));
+        }
+        {
+            DUNSPlus4 theDUNSPlus4;
+            theDUNSPlus4 = this.getDUNSPlus4();
+            strategy.appendField(locator, this, "dunsPlus4", buffer, theDUNSPlus4, (this.dunsPlus4 != null));
+        }
+        {
+            GLN theGLN;
+            theGLN = this.getGLN();
+            strategy.appendField(locator, this, "gln", buffer, theGLN, (this.gln!= null));
+        }
+        return buffer;
     }
 
 }

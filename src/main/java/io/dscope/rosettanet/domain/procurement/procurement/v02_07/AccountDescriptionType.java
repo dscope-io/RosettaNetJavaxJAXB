@@ -1,22 +1,3 @@
-/*-
- * ===LICENSE_START===
- * RosettaNet JAXB
- * ===
- * Copyright (C) 2023 Exilor Inc.
- * ===
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ===LICENSE_END===
- */
 
 package io.dscope.rosettanet.domain.procurement.procurement.v02_07;
 
@@ -34,6 +15,17 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import io.dscope.rosettanet.domain.procurement.codelist.accountclassification.v01_03.AccountClassification;
 import io.dscope.rosettanet.domain.shared.codelist.paymentmethod.v01_02.PaymentMethod;
 import io.dscope.rosettanet.universal.partneridentification.v01_08.PartnerDescription;
+import org.jvnet.jaxb2_commons.lang.Equals2;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy2;
+import org.jvnet.jaxb2_commons.lang.HashCode2;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy2;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
+import org.jvnet.jaxb2_commons.lang.ToString2;
+import org.jvnet.jaxb2_commons.lang.ToStringStrategy2;
+import org.jvnet.jaxb2_commons.locator.ObjectLocator;
+import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -74,7 +66,8 @@ import io.dscope.rosettanet.universal.partneridentification.v01_08.PartnerDescri
     "prePaymentCheckNumber",
     "wireTransferIdentifier"
 })
-public class AccountDescriptionType {
+public class AccountDescriptionType implements Equals2, HashCode2, ToString2
+{
 
     @XmlElementRef(name = "AccountClassification", namespace = "urn:rosettanet:specification:domain:Procurement:AccountClassification:xsd:codelist:01.03", type = AccountClassification.class, required = false)
     protected AccountClassification accountClassification;
@@ -316,6 +309,221 @@ public class AccountDescriptionType {
      */
     public void setSchemaVersion(String value) {
         this.schemaVersion = value;
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy2 strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final AccountDescriptionType that = ((AccountDescriptionType) object);
+        {
+            AccountClassification lhsAccountClassification;
+            lhsAccountClassification = this.getAccountClassification();
+            AccountClassification rhsAccountClassification;
+            rhsAccountClassification = that.getAccountClassification();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "accountClassification", lhsAccountClassification), LocatorUtils.property(thatLocator, "accountClassification", rhsAccountClassification), lhsAccountClassification, rhsAccountClassification, (this.accountClassification!= null), (that.accountClassification!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsAccountName;
+            lhsAccountName = this.getAccountName();
+            String rhsAccountName;
+            rhsAccountName = that.getAccountName();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "accountName", lhsAccountName), LocatorUtils.property(thatLocator, "accountName", rhsAccountName), lhsAccountName, rhsAccountName, (this.accountName!= null), (that.accountName!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsAccountNumber;
+            lhsAccountNumber = this.getAccountNumber();
+            String rhsAccountNumber;
+            rhsAccountNumber = that.getAccountNumber();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "accountNumber", lhsAccountNumber), LocatorUtils.property(thatLocator, "accountNumber", rhsAccountNumber), lhsAccountNumber, rhsAccountNumber, (this.accountNumber!= null), (that.accountNumber!= null))) {
+                return false;
+            }
+        }
+        {
+            CreditCard lhsCreditCard;
+            lhsCreditCard = this.getCreditCard();
+            CreditCard rhsCreditCard;
+            rhsCreditCard = that.getCreditCard();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "creditCard", lhsCreditCard), LocatorUtils.property(thatLocator, "creditCard", rhsCreditCard), lhsCreditCard, rhsCreditCard, (this.creditCard!= null), (that.creditCard!= null))) {
+                return false;
+            }
+        }
+        {
+            List<PartnerDescription> lhsPartnerDescription;
+            lhsPartnerDescription = (((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty()))?this.getPartnerDescription():null);
+            List<PartnerDescription> rhsPartnerDescription;
+            rhsPartnerDescription = (((that.partnerDescription!= null)&&(!that.partnerDescription.isEmpty()))?that.getPartnerDescription():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "partnerDescription", lhsPartnerDescription), LocatorUtils.property(thatLocator, "partnerDescription", rhsPartnerDescription), lhsPartnerDescription, rhsPartnerDescription, ((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty())), ((that.partnerDescription!= null)&&(!that.partnerDescription.isEmpty())))) {
+                return false;
+            }
+        }
+        {
+            PaymentMethod lhsPaymentMethod;
+            lhsPaymentMethod = this.getPaymentMethod();
+            PaymentMethod rhsPaymentMethod;
+            rhsPaymentMethod = that.getPaymentMethod();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "paymentMethod", lhsPaymentMethod), LocatorUtils.property(thatLocator, "paymentMethod", rhsPaymentMethod), lhsPaymentMethod, rhsPaymentMethod, (this.paymentMethod!= null), (that.paymentMethod!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsPrePaymentCheckNumber;
+            lhsPrePaymentCheckNumber = this.getPrePaymentCheckNumber();
+            String rhsPrePaymentCheckNumber;
+            rhsPrePaymentCheckNumber = that.getPrePaymentCheckNumber();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "prePaymentCheckNumber", lhsPrePaymentCheckNumber), LocatorUtils.property(thatLocator, "prePaymentCheckNumber", rhsPrePaymentCheckNumber), lhsPrePaymentCheckNumber, rhsPrePaymentCheckNumber, (this.prePaymentCheckNumber!= null), (that.prePaymentCheckNumber!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsWireTransferIdentifier;
+            lhsWireTransferIdentifier = this.getWireTransferIdentifier();
+            String rhsWireTransferIdentifier;
+            rhsWireTransferIdentifier = that.getWireTransferIdentifier();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "wireTransferIdentifier", lhsWireTransferIdentifier), LocatorUtils.property(thatLocator, "wireTransferIdentifier", rhsWireTransferIdentifier), lhsWireTransferIdentifier, rhsWireTransferIdentifier, (this.wireTransferIdentifier!= null), (that.wireTransferIdentifier!= null))) {
+                return false;
+            }
+        }
+        {
+            String lhsSchemaVersion;
+            lhsSchemaVersion = this.getSchemaVersion();
+            String rhsSchemaVersion;
+            rhsSchemaVersion = that.getSchemaVersion();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "schemaVersion", lhsSchemaVersion), LocatorUtils.property(thatLocator, "schemaVersion", rhsSchemaVersion), lhsSchemaVersion, rhsSchemaVersion, (this.schemaVersion!= null), (that.schemaVersion!= null))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(Object object) {
+        final EqualsStrategy2 strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy2 strategy) {
+        int currentHashCode = 1;
+        {
+            AccountClassification theAccountClassification;
+            theAccountClassification = this.getAccountClassification();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "accountClassification", theAccountClassification), currentHashCode, theAccountClassification, (this.accountClassification!= null));
+        }
+        {
+            String theAccountName;
+            theAccountName = this.getAccountName();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "accountName", theAccountName), currentHashCode, theAccountName, (this.accountName!= null));
+        }
+        {
+            String theAccountNumber;
+            theAccountNumber = this.getAccountNumber();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "accountNumber", theAccountNumber), currentHashCode, theAccountNumber, (this.accountNumber!= null));
+        }
+        {
+            CreditCard theCreditCard;
+            theCreditCard = this.getCreditCard();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "creditCard", theCreditCard), currentHashCode, theCreditCard, (this.creditCard!= null));
+        }
+        {
+            List<PartnerDescription> thePartnerDescription;
+            thePartnerDescription = (((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty()))?this.getPartnerDescription():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "partnerDescription", thePartnerDescription), currentHashCode, thePartnerDescription, ((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty())));
+        }
+        {
+            PaymentMethod thePaymentMethod;
+            thePaymentMethod = this.getPaymentMethod();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "paymentMethod", thePaymentMethod), currentHashCode, thePaymentMethod, (this.paymentMethod!= null));
+        }
+        {
+            String thePrePaymentCheckNumber;
+            thePrePaymentCheckNumber = this.getPrePaymentCheckNumber();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "prePaymentCheckNumber", thePrePaymentCheckNumber), currentHashCode, thePrePaymentCheckNumber, (this.prePaymentCheckNumber!= null));
+        }
+        {
+            String theWireTransferIdentifier;
+            theWireTransferIdentifier = this.getWireTransferIdentifier();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "wireTransferIdentifier", theWireTransferIdentifier), currentHashCode, theWireTransferIdentifier, (this.wireTransferIdentifier!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "schemaVersion", theSchemaVersion), currentHashCode, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy2 strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
+    }
+
+    public String toString() {
+        final ToStringStrategy2 strategy = JAXBToStringStrategy.INSTANCE;
+        final StringBuilder buffer = new StringBuilder();
+        append(null, buffer, strategy);
+        return buffer.toString();
+    }
+
+    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        strategy.appendStart(locator, this, buffer);
+        appendFields(locator, buffer, strategy);
+        strategy.appendEnd(locator, this, buffer);
+        return buffer;
+    }
+
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy2 strategy) {
+        {
+            AccountClassification theAccountClassification;
+            theAccountClassification = this.getAccountClassification();
+            strategy.appendField(locator, this, "accountClassification", buffer, theAccountClassification, (this.accountClassification!= null));
+        }
+        {
+            String theAccountName;
+            theAccountName = this.getAccountName();
+            strategy.appendField(locator, this, "accountName", buffer, theAccountName, (this.accountName!= null));
+        }
+        {
+            String theAccountNumber;
+            theAccountNumber = this.getAccountNumber();
+            strategy.appendField(locator, this, "accountNumber", buffer, theAccountNumber, (this.accountNumber!= null));
+        }
+        {
+            CreditCard theCreditCard;
+            theCreditCard = this.getCreditCard();
+            strategy.appendField(locator, this, "creditCard", buffer, theCreditCard, (this.creditCard!= null));
+        }
+        {
+            List<PartnerDescription> thePartnerDescription;
+            thePartnerDescription = (((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty()))?this.getPartnerDescription():null);
+            strategy.appendField(locator, this, "partnerDescription", buffer, thePartnerDescription, ((this.partnerDescription!= null)&&(!this.partnerDescription.isEmpty())));
+        }
+        {
+            PaymentMethod thePaymentMethod;
+            thePaymentMethod = this.getPaymentMethod();
+            strategy.appendField(locator, this, "paymentMethod", buffer, thePaymentMethod, (this.paymentMethod!= null));
+        }
+        {
+            String thePrePaymentCheckNumber;
+            thePrePaymentCheckNumber = this.getPrePaymentCheckNumber();
+            strategy.appendField(locator, this, "prePaymentCheckNumber", buffer, thePrePaymentCheckNumber, (this.prePaymentCheckNumber!= null));
+        }
+        {
+            String theWireTransferIdentifier;
+            theWireTransferIdentifier = this.getWireTransferIdentifier();
+            strategy.appendField(locator, this, "wireTransferIdentifier", buffer, theWireTransferIdentifier, (this.wireTransferIdentifier!= null));
+        }
+        {
+            String theSchemaVersion;
+            theSchemaVersion = this.getSchemaVersion();
+            strategy.appendField(locator, this, "schemaVersion", buffer, theSchemaVersion, (this.schemaVersion!= null));
+        }
+        return buffer;
     }
 
 }
